@@ -27,7 +27,6 @@ header h1 {
 
 nav {
     background-color: #444;
-    padding: 10px;
     text-align: right;
     border-radius: 10%;
     padding-right: 30px;
@@ -36,7 +35,7 @@ nav {
 nav a {
     color: #fff;
     text-decoration: none;
-    padding: px;
+    padding: 10px;
     margin: 0 10px;
     transition: color 0.3s ease-in-out;
 }
@@ -72,7 +71,6 @@ nav a:hover {
 .section {
     margin-bottom: 40px;
     padding: 15px;
-    margin: 15px 0;
     border-radius: 8px;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 }
