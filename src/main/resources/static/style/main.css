@@ -202,7 +202,7 @@ footer {
     padding: 15px;
     border-radius: 8px;
     margin-top: 15px;
-    margin-right: 19px; /* Dodane odstępy między kafelkami */
+    margin-right: 19px;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 }
 
