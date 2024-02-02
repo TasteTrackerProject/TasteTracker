@@ -19,7 +19,7 @@ public class Restaurant {
     private Long id;
     private String name;
     private boolean promoted;
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "address_id", referencedColumnName = "id")
     private Address address;
     @OneToMany(mappedBy = "restaurant")
