@@ -4,8 +4,8 @@
                    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
                    https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
 
-    <include file="0003_create_table_address.xml" relativeToChangelogFile="true" />
-    <include file="0001_create_table_restaurant.xml" relativeToChangelogFile="true" />
-    <include file="0002_create_table_restaurant_category.xml" relativeToChangelogFile="true" />
+    <include file="0001_create_table_address.xml" relativeToChangelogFile="true" />
+    <include file="0002_create_table_restaurant.xml" relativeToChangelogFile="true" />
+    <include file="0003_create_table_restaurant_category.xml" relativeToChangelogFile="true" />
     <include file="0004_add_column_restaurant.xml" relativeToChangelogFile="true" />
 </databaseChangeLog>
