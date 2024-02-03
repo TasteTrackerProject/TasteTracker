@@ -1,0 +1,10 @@
+insert into address (street, city, postal_code, country) values ('Kropf', 'Vällingby', '53-100', 'Sweden');
+insert into address (street, city, postal_code, country) values ('Heath', 'Tlogowungu', '13-234', 'Indonesia');
+insert into address (street, city, postal_code, country) values ('Golf View', 'Stari Grad', '27-432', 'Croatia');
+insert into address (street, city, postal_code, country) values ('Reinke', 'Marovoay', '62-700', 'Madagascar');
+insert into address (street, city, postal_code, country) values ('Oriole', 'Marseille', '73-231', 'France');
+insert into address (street, city, postal_code, country) values ('Briar Crest', 'Novozybkov', '84-532', 'Russia');
+insert into address (street, city, postal_code, country) values ('Reindahl', 'Huaihua', '87-423', 'China');
+insert into address (street, city, postal_code, country) values ('Morning', 'Nūbā', '91-232', 'Palestinian Territory');
+insert into address (street, city, postal_code, country) values ('Marcy', 'Cabuyao', '64-232', 'Philippines');
+insert into address (street, city, postal_code, country) values ('Tennessee', 'Narva', '23-234', 'Estonia');
