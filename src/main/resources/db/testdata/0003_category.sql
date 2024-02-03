@@ -1,0 +1,10 @@
+insert into category (name) values ('Kebab');
+insert into category (name) values ('Pizza');
+insert into category (name) values ('Makarony');
+insert into category (name) values ('Polska');
+insert into category (name) values ('Przekąski');
+insert into category (name) values ('Sałatki');
+insert into category (name) values ('Sushi');
+insert into category (name) values ('Tajska');
+insert into category (name) values ('Śniadania');
+insert into category (name) values ('Wegetariańska');
