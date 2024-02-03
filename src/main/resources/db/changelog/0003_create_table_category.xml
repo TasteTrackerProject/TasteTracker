@@ -6,12 +6,18 @@
 
     <changeSet id="0003-1" author="kamil">
         <createTable tableName="category">
+
             <column name="id" type="BIGINT" autoIncrement="true">
-                <constraints nullable="false" primaryKey="true"/>
+                <constraints nullable="false"
+                             primaryKey="true"
+                             primaryKeyName="pk_category"
+                />
             </column>
+
             <column name="name" type="VARCHAR(150)">
                 <constraints nullable="false"/>
             </column>
+
         </createTable>
     </changeSet>
 </databaseChangeLog>

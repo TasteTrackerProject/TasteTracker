@@ -15,15 +15,21 @@ import java.util.Set;
 @Getter
 @Setter
 @NoArgsConstructor
-public class Restaurant {
+public class Restaurant
+{
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue( strategy = GenerationType.IDENTITY )
     private Long id;
     private String name;
     private boolean promoted;
     @ManyToOne
-    @JoinColumn(name = "address_id", referencedColumnName = "id")
+    @JoinColumn( name = "address_id", referencedColumnName = "id" )
     private Address address;
     @ManyToMany
+    @JoinTable(
+        name = "restaurant_category",
+        joinColumns = @JoinColumn( name = "restaurant_id", referencedColumnName = "id" ),
+        inverseJoinColumns = @JoinColumn( name = "category_id", referencedColumnName = "id" )
+    )
     private Set<Category> category = new HashSet<>();
 }

@@ -12,6 +12,8 @@
                              foreignKeyName="fk_category_restaurant_restaurant_id"
                              referencedTableName="restaurant"
                              referencedColumnNames="id"
+                             primaryKey="true"
+                             primaryKeyName="pk_restaurant_category_restaurant_id"
                 />
             </column>
 
@@ -20,6 +22,8 @@
                              foreignKeyName="fk_category_restaurant_category_id"
                              referencedTableName="category"
                              referencedColumnNames="id"
+                             primaryKey="true"
+                             primaryKeyName="pk_restaurant_category_category_id"
                 />
             </column>
 
