@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <changeSet id="0004-1" author="kamil">
+        <createTable tableName="restaurant_category">
+
+            <column name="restaurant_id" type="BIGINT">
+                <constraints nullable="false"
+                             foreignKeyName="fk_category_restaurant_restaurant_id"
+                             referencedTableName="restaurant"
+                             referencedColumnNames="id"
+                />
+            </column>
+
+            <column name="category_id" type="BIGINT">
+                <constraints nullable="false"
+                             foreignKeyName="fk_category_restaurant_category_id"
+                             referencedTableName="category"
+                             referencedColumnNames="id"
+                />
+            </column>
+
+        </createTable>
+
+    </changeSet>
+</databaseChangeLog>

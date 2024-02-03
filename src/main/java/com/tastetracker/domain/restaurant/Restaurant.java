@@ -1,12 +1,14 @@
 package com.tastetracker.domain.restaurant;
 
 import com.tastetracker.domain.address.Address;
-import com.tastetracker.domain.category.RestaurantCategory;
+import com.tastetracker.domain.category.Category;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -22,6 +24,6 @@ public class Restaurant {
     @ManyToOne
     @JoinColumn(name = "address_id", referencedColumnName = "id")
     private Address address;
-    @OneToMany(mappedBy = "restaurant")
-    private Set<RestaurantCategory> restaurantCategory;
+    @ManyToMany
+    private Set<Category> category = new HashSet<>();
 }

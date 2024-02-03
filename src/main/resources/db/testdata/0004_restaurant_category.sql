@@ -1,0 +1,16 @@
+insert into restaurant_category (restaurant_id, category_id) values (1, 2);
+insert into restaurant_category (restaurant_id, category_id) values (2, 5);
+insert into restaurant_category (restaurant_id, category_id) values (3, 8);
+insert into restaurant_category (restaurant_id, category_id) values (4, 9);
+insert into restaurant_category (restaurant_id, category_id) values (5, 7);
+insert into restaurant_category (restaurant_id, category_id) values (6, 7);
+insert into restaurant_category (restaurant_id, category_id) values (7, 4);
+insert into restaurant_category (restaurant_id, category_id) values (8, 9);
+insert into restaurant_category (restaurant_id, category_id) values (9, 9);
+insert into restaurant_category (restaurant_id, category_id) values (10, 3);
+insert into restaurant_category (restaurant_id, category_id) values (11, 3);
+insert into restaurant_category (restaurant_id, category_id) values (12, 3);
+insert into restaurant_category (restaurant_id, category_id) values (13, 3);
+insert into restaurant_category (restaurant_id, category_id) values (14, 3);
+insert into restaurant_category (restaurant_id, category_id) values (15, 3);
+insert into restaurant_category (restaurant_id, category_id) values (15, 2);
