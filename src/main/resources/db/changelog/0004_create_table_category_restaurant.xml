@@ -4,21 +4,30 @@
                    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
                    https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
 
-    <changeSet id="0003-1" author="norbert">
+    <changeSet id="0004-1" author="kamil">
         <createTable tableName="restaurant_category">
-            <column name="id" type="BIGINT" autoIncrement="true">
-                <constraints nullable="false" primaryKey="true"/>
-            </column>
-            <column name="name" type="VARCHAR(150)">
-                <constraints unique="true"/>
-            </column>
+
             <column name="restaurant_id" type="BIGINT">
                 <constraints nullable="false"
-                             foreignKeyName="fk_category_restaurant_id"
+                             foreignKeyName="fk_category_restaurant_restaurant_id"
                              referencedTableName="restaurant"
                              referencedColumnNames="id"
+                             primaryKey="true"
+                             primaryKeyName="pk_restaurant_category_restaurant_id"
                 />
             </column>
+
+            <column name="category_id" type="BIGINT">
+                <constraints nullable="false"
+                             foreignKeyName="fk_category_restaurant_category_id"
+                             referencedTableName="category"
+                             referencedColumnNames="id"
+                             primaryKey="true"
+                             primaryKeyName="pk_restaurant_category_category_id"
+                />
+            </column>
+
         </createTable>
+
     </changeSet>
 </databaseChangeLog>
