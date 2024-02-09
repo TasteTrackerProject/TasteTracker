@@ -1,70 +1,122 @@
 <!DOCTYPE html>
-<html lang="en"
-      xmlns:th="https://www.thymeleaf.org"
->
-
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Restauracja - TasteTracker.pl</title>
-    <<link rel="stylesheet" href="/styles/main.css" th:href="@{/styles/main.css}">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Taste Tracker</title>
+  <link href="../static/styles/index.css" rel="stylesheet" />
 </head>
-
 <body>
-<header>
-    <h1>TasteTracker.pl</h1>
+  <header class="home-header">
     <nav>
-        <a href="#">Start</a>
-        <a href="#">O nas</a>
-        <a href="#">Kontakt</a>
-        <a href="#" id="loginButton">Zaloguj się</a>
+      <div class="home-logo">
+        <img
+                alt="LogoImage1504"
+                src="./public/external/logoimage1504-bofih-200w.png"
+                class="home-logo-image"
+        />
+        <span class="home-text">
+              <span>Taste</span>
+              <br />
+              <span>Tracker</span>
+            </span>
+      </div>
+      <div class="home-container1">
+        <div class="home-container5">
+          <div class="home-menu">
+            <a class="home-text06" href="#">Start</a>
+            <a class="home-text06" href="#">O projekcie</a>
+            <a class="home-text06" href="#">Kontakt</a>
+          </div>
+        </div>
+        <a class="home-button-log-in"  href="#">
+          <span class="home-text10">ZALOGUJ SIĘ</span>
+        </a>
+        <a class="home-button-sign-up button" href="#">
+          <span class="home-text12">DOŁĄCZ</span>
+        </a>
+      </div>
     </nav>
-</header>
-<div class="container">
-    <h2>Nazwa Restauracji</h2>
-    <img src="https://t3.ftcdn.net/jpg/03/24/73/92/360_F_324739203_keeq8udvv0P2h1MLYJ0GLSlTBagoXS48.jpg" alt="Logo Restauracji">
-    <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vehicula massa eu augue fermentum, vel iaculis odio
-        laoreet.
-    </p>
+  </header>
 
-    <!-- Przykładowe oceny -->
-    <div class="ratings">
-        <div class="rating-tile">
-            <h3>Ocena Kulinarna</h3>
-            <p>4.5/5</p>
+  <div class="home-container">
+    <div class="restaurants-container">
+      <div class="restaurant-item">
+        <img class="restaurant-image" src="https://cdn.pixabay.com/photo/2014/09/17/20/26/restaurant-449952_640.jpg" alt="Restauracja 1">
+        <div class="restaurant-details">
+          <h2 class="restaurant-name">Nazwa Restauracji 1</h2>
+          <p class="restaurant-description">Opis restauracji Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <p class="restaurant-location">Lokalizacja: Miasto 1, Kraj 1</p>
         </div>
+      </div>
 
-        <div class="rating-tile">
-            <h3>Ocena Obsługi</h3>
-            <p>4.2/5</p>
+      <div class="restaurant-item">
+        <img class="restaurant-image" src="https://cdn.pixabay.com/photo/2014/09/17/20/26/restaurant-449952_640.jpg" alt="Restauracja 2">
+        <div class="restaurant-details">
+          <h2 class="restaurant-name">Nazwa Restauracji 2</h2>
+          <p class="restaurant-description">Opis restauracji Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <p class="restaurant-location">Lokalizacja: Miasto 2, Kraj 2</p>
         </div>
+      </div>
+      <div class="restaurant-item">
+        <img class="restaurant-image" src="https://cdn.pixabay.com/photo/2014/09/17/20/26/restaurant-449952_640.jpg" alt="Restauracja 2">
+        <div class="restaurant-details">
+          <h2 class="restaurant-name">Nazwa Restauracji 2</h2>
+          <p class="restaurant-description">Opis restauracji Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <p class="restaurant-location">Lokalizacja: Miasto 2, Kraj 2</p>
+        </div>
+      </div>
 
-        <div class="rating-tile">
-            <h3>Atmosfera</h3>
-            <p>4.0/5</p>
-        </div>
+      <!-- Dodaj więcej restauracji tutaj -->
+
     </div>
+  </div>
 
-    <!-- Komentarze -->
-    <div class="comments">
-        <h3>Komentarze:</h3>
-        <div class="comment">
-            <p><strong>Użytkownik1:</strong> Super jedzenie! Polecam.</p>
+  <footer>
+    <div class="home-footer">
+      <div class="home-s-mframe">
+        <div class="home-instagram">
+          <div class="home-group">
+            <img
+                    alt="VectorI828"
+                    src="./public/external/vectori828-gy3d.svg"
+                    class="home-vector3"
+            />
+            <img
+                    alt="VectorI828"
+                    src="./public/external/vectori828-3jl2.svg"
+                    class="home-vector4"
+            />
+            <img
+                    alt="VectorI828"
+                    src="./public/external/vectori828-20d5.svg"
+                    class="home-vector5"
+            />
+          </div>
         </div>
-        <div class="comment">
-            <p><strong>Użytkownik2:</strong> Świetna obsługa, ale ceny trochę wysokie.</p>
+        <img
+                alt="facebook8283"
+                src="./public/external/facebook8283-8zgf.svg"
+                class="home-facebook"
+        />
+        <img
+                alt="linkedin8283"
+                src="./public/external/linkedin8283-xa2n.svg"
+                class="home-linkedin"
+        />
+      </div>
+      <div class="home-copy-menu-social-button">
+        <div class="home-copyrightframe">
+          <span class="home-text35">©</span>
+          <span class="home-text36"><span>2024 Taste Tracker</span></span>
         </div>
-        <!-- Dodaj więcej komentarzy w razie potrzeby -->
+        <div class="home-menu1">
+          <span class="home-text40"><span>Start</span></span>
+          <span class="home-text40"><span>O projekcie</span></span>
+          <span class="home-text40"><span>Kontakt</span></span>
+        </div>
+      </div>
     </div>
-
-    <!-- Przycisk do dodawania nowego komentarza -->
-    <a href="#" class="button">Dodaj komentarz</a>
-</div>
-
-<footer>
-    &copy; 2024 TasteTracker.pl. Wszelkie prawa zastrzeżone.
-</footer>
+  </footer>
 </body>
-
 </html>
