@@ -27,7 +27,13 @@
                 />
             </column>
 
+
         </createTable>
+
+        <addUniqueConstraint constraintName="unique_category_restaurant"
+                             tableName="restaurant_category"
+                             columnNames="restaurant_id, category_id"
+        />
 
     </changeSet>
 </databaseChangeLog>
