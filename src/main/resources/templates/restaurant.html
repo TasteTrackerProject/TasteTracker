@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pl"
+      xmlns:th="https://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<head>
+  <title>Taste Tracker - Restauracja</title>
+  <link href="/styles/style.css" rel="stylesheet" />
+</head>
+<body>
+<main class="main-content" layout:fragment="content">
+    <div class="restaurant-container">
+      <img class="restaurant-single-image" src="https://cdn.pixabay.com/photo/2014/09/17/20/26/restaurant-449952_640.jpg" alt="Logo Restauracji 1">
+      <div class="restaurant-details">
+        <h2 class="restaurant-name">Nazwa Restauracji</h2>
+        <p class="restaurant-description">Opis restauracji Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        <p class="restaurant-location">Lokalizacja: Miasto, Kraj</p>
+
+        <div class="location-tiles">
+          <div class="location-tile">
+            <h4>Ocena Smaku</h4>
+            <p>4/5</p>
+          </div>
+          <div class="location-tile">
+            <h4>Ocena Atmosfery</h4>
+            <p>4/5</p>
+          </div>
+          <div class="location-tile">
+            <h4>Ocena Obsługi</h4>
+            <p>4/5</p>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="restaurant-reviews">
+        <h3>Recenzje</h3>
+        <div class="review">
+          <p class="review-author">Autor recenzji</p>
+          <p class="review-rating">Ocena: 4/5</p>
+          <p class="review-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vel leo vitae ligula consectetur fringilla.</p>
+        </div>
+
+        <!-- Dodaj więcej recenzji tutaj -->
+
+        <div class="add-review-form">
+          <h3>Dodaj recenzję</h3>
+          <form>
+            <label for="author">Autor:</label>
+            <input class="restaurant-input-author" type="text" id="author" name="author" required>
+
+            <label for="rating">Ocena:</label>
+            <input class="restaurant-input-rating" type="number" id="rating" name="rating" min="1" max="5" required>
+
+            <label for="review">Recenzja:</label>
+            <textarea class="restaurant-input-review" id="review" name="review" required></textarea>
+
+            <button type="submit"><span class="home-text12">Dodaj recenzję</span></button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+</body>
+</html>

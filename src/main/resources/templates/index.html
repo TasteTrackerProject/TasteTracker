@@ -1,48 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl"
+      xmlns:th="https://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
   <head>
     <title>Taste Tracker</title>
-    <meta property="og:title" content="Taste Tracker" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta charset="utf-8" />
     <meta property="twitter:card" content="summary_large_image" />
-    <link href="../static/styles/index.css" rel="stylesheet" />
   </head>
   <body>
+  <main class="main-content" layout:fragment="content">
       <div class="home-container">
-        <header class="home-header">
-          <nav>
-          <div class="home-logo">
-            <img
-              alt="LogoImage1504"
-              src="./public/external/logoimage1504-bofih-200w.png"
-              class="home-logo-image"
-            />
-            <span class="home-text">
-              <span>Taste</span>
-              <br />
-              <span>Tracker</span>
-            </span>
-          </div>
-          <div class="home-container1">
-                  <div class="home-container5">
-                    <div class="home-menu">
-                      <a class="home-text06" href="#">Start</a>
-                      <a class="home-text06" href="#">O projekcie</a>
-                      <a class="home-text06" href="#">Kontakt</a>
-                    </div>
-                  </div>
-              <a class="home-button-log-in"  href="#">
-                <span class="home-text10">ZALOGUJ SIĘ</span>
-              </a>
-              <a class="home-button-sign-up button" href="#">
-              <span class="home-text12">DOŁĄCZ</span>
-              </a>
-          </div>
-        </nav>
-        </header>
         <form class="custom-form">
-          <input class="home-input-search" type="text" id="search" name="search" required placeholder="Nazwa restauracji">
+          <input class="home-input-search"
+                 type="text"
+                 id="search"
+                 name="search" required
+                 placeholder="Nazwa restauracji">
           <button class="custom-button">Wyszukaj</button>
       </form>  
         <div class="home-hero">
@@ -59,18 +33,21 @@
           </span>
           <img
             alt="Doodle31530"
-            src="./public/external/doodle31530-yb1q.svg"
+            src="../static/img/doodle31530-yb1q.svg"
             class="home-doodle3"
+            th:src="@{img/doodle31530-yb1q.svg}"
           />
           <img
             alt="Vector1532"
-            src="./public/external/vector1532-46wc.svg"
+            src="../static/img/vector1532-46wc.svg"
             class="home-vector"
+            th:src="@{img/vector1532-46wc.svg}"
           />
           <img
             alt="Vector1532"
-            src="./public/external/vector1532-a9jr.svg"
+            src="../static/img/vector1532-a9jr.svg"
             class="home-vector1"
+            th:src="@{img/vector1532-a9jr.svg}"
           />
         </div>
         <div class="home-content">
@@ -87,52 +64,7 @@
           <div class="home-recenzja3">
           </div>
         </div>
-        <footer>
-        <div class="home-footer">
-          <div class="home-s-mframe">
-            <div class="home-instagram">
-              <div class="home-group">
-                <img
-                  alt="VectorI828"
-                  src="./public/external/vectori828-gy3d.svg"
-                  class="home-vector3"
-                />
-                <img
-                  alt="VectorI828"
-                  src="./public/external/vectori828-3jl2.svg"
-                  class="home-vector4"
-                />
-                <img
-                  alt="VectorI828"
-                  src="./public/external/vectori828-20d5.svg"
-                  class="home-vector5"
-                />
-              </div>
-            </div>
-            <img
-              alt="facebook8283"
-              src="./public/external/facebook8283-8zgf.svg"
-              class="home-facebook"
-            />
-            <img
-              alt="linkedin8283"
-              src="./public/external/linkedin8283-xa2n.svg"
-              class="home-linkedin"
-            />
-          </div>
-          <div class="home-copy-menu-social-button">
-            <div class="home-copyrightframe">
-              <span class="home-text35">©</span>
-              <span class="home-text36"><span>2024 Taste Tracker</span></span>
-            </div>
-            <div class="home-menu1">
-              <a class="home-text40" href="#">Start</a>
-              <a class="home-text40" href="#">O projekcie</a>
-              <a class="home-text40" href="#">Kontakt</a>
-            </div>
-          </div>
-        </div>
-        </footer>
       </div>
+  </main>
   </body>
 </html>

@@ -1,51 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl"
+      xmlns:th="https://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Taste Tracker</title>
-  <link href="../static/styles/index.css" rel="stylesheet" />
+  <link href="/styles/style.css" rel="stylesheet" />
 </head>
 <body>
+<main class="main-content" layout:fragment="content">
 <div class="home-container">
-  <header class="home-header">
-    <nav>
-      <div class="home-logo">
-        <img
-                alt="LogoImage1504"
-                src="./public/external/logoimage1504-bofih-200w.png"
-                class="home-logo-image"
-        />
-        <span class="home-text">
-              <span>Taste</span>
-              <br />
-              <span>Tracker</span>
-            </span>
-      </div>
-      <div class="home-container1">
-        <div class="home-container5">
-          <div class="home-menu">
-            <a class="home-text06" href="#">Start</a>
-            <a class="home-text06" href="#">O projekcie</a>
-            <a class="home-text06" href="#">Kontakt</a>
-          </div>
-        </div>
-        <a class="home-button-log-in"  href="#">
-          <span class="home-text10">ZALOGUJ SIĘ</span>
-        </a>
-        <a class="home-button-sign-up button" href="#">
-          <span class="home-text12">DOŁĄCZ</span>
-        </a>
-      </div>
-    </nav>
-  </header>
     <div class="category-container">
       <div class="category-item">
-        <img class="category-image" src="./public/external/1000_F_255573369_NrbcMNYC1hz1xJigxCOCN8OXsxmtx0TB.jpg" alt="Restauracja 1" width="500px" height="200px">
+        <img class="category-image" src="../static/img/1000_F_255573369_NrbcMNYC1hz1xJigxCOCN8OXsxmtx0TB.jpg" alt="Restauracja 1" width="500px" height="200px">
       </div>
 
       <div class="category-item">
-        <img class="category-image" src="./public/external/1000_F_561921320_LKxezH11k6QcfojX6tYatdQXAMJsV68H.jpg" alt="Restauracja 2">
+        <img class="category-image" src="../static/img/1000_F_561921320_LKxezH11k6QcfojX6tYatdQXAMJsV68H.jpg" alt="Restauracja 2">
       </div>
 
       <div class="category-item">
@@ -61,52 +32,6 @@
       </div>
     </div>
   </div>
-
-<footer>
-  <div class="home-footer">
-    <div class="home-s-mframe">
-      <div class="home-instagram">
-        <div class="home-group">
-          <img
-                  alt="VectorI828"
-                  src="./public/external/vectori828-gy3d.svg"
-                  class="home-vector3"
-          />
-          <img
-                  alt="VectorI828"
-                  src="./public/external/vectori828-3jl2.svg"
-                  class="home-vector4"
-          />
-          <img
-                  alt="VectorI828"
-                  src="./public/external/vectori828-20d5.svg"
-                  class="home-vector5"
-          />
-        </div>
-      </div>
-      <img
-              alt="facebook8283"
-              src="./public/external/facebook8283-8zgf.svg"
-              class="home-facebook"
-      />
-      <img
-              alt="linkedin8283"
-              src="./public/external/linkedin8283-xa2n.svg"
-              class="home-linkedin"
-      />
-    </div>
-    <div class="home-copy-menu-social-button">
-      <div class="home-copyrightframe">
-        <span class="home-text35">©</span>
-        <span class="home-text36"><span>2024 Taste Tracker</span></span>
-      </div>
-      <div class="home-menu1">
-        <span class="home-text40"><span>Start</span></span>
-        <span class="home-text40"><span>O projekcie</span></span>
-        <span class="home-text40"><span>Kontakt</span></span>
-      </div>
-    </div>
-  </div>
-</footer>
+</main>
 </body>
 </html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="https://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}" xmlns="http://www.w3.org/1999/html">>
+  <head>
+    <title>Rejestracja - Taste Tracker</title>
+    <meta property="og:title" content="Rejestracja - Taste Tracker" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <meta property="twitter:card" content="summary_large_image" />
+    <link href="../styles/style.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div>
+      <div class="home-container">
+        <main class="main-content" layout:fragment="content">
+
+        <div class="signupmodal-signupmodal">
+          <div class="signupmodal-header">
+            <span class="signupmodal-title">
+              <span>Zarejestruj się do serwisu</span>
+            </span>
+          </div>
+          <div class="signupmodal-form">
+            <div class="signupmodal-haslo2input">
+              <img
+                alt="Haslo2shape1542"
+                src="../static/img/haslo2shape1542-8wyn-200h.png"
+                class="signupmodal-haslo2shape"
+                th:src="@{/img/haslo2shape1542-8wyn-200h.png}"
+              />
+              <span class="signupmodal-text02"><span>powtórz hasło</span></span>
+            </div>
+            <div class="signupmodal-imieinput">
+              <img
+                alt="Imieshape1564"
+                src="../static/img/imieshape1564-30qb-200h.png"
+                class="signupmodal-imieshape"
+                th:src="@{/img/imieshape1564-30qb-200h.png}"
+              />
+              <span class="signupmodal-text04">
+                <input type="text" placeholder="Imię">
+              </span>
+            </div>
+            <div class="signupmodal-adresinput">
+              <img
+                alt="Adresshape1532"
+                src="../static/img/adresshape1532-njrb-200h.png"
+                class="signupmodal-adresshape"
+                th:src="@{/img/adresshape1532-njrb-200h.png}"
+              />
+              <span class="signupmodal-text06"><span>adres e-mail</span></span>
+            </div>
+            <div class="signupmodal-hasloinput">
+              <img
+                alt="Hasloshape1542"
+                src="../static/img/hasloshape1542-c9f-200h.png"
+                class="signupmodal-hasloshape"
+                th:src="@{/img/hasloshape1542-c9f-200h.png}"
+              />
+              <span class="signupmodal-text08"><span>hasło</span></span>
+            </div>
+          </div>
+          <button class="signupmodal-zarejestrujbutton">
+            <img
+              alt="ZarejestrujshapeI1564"
+              src="../static/img/zarejestrujshapei1564-364n-200h.png"
+              class="signupmodal-zarejestrujshape"
+              th:src="@{/img/zarejestrujshapei1564-364n-200h.png}"
+            />
+            <span class="signupmodal-zarejestrujtext">
+              <span>Zarejestruj się</span>
+            </span>
+          </button>
+          <span class="signupmodal-logowanielink">
+            Masz już konto? Kliknij tutaj, aby się zalogować
+          </span>
+        </div>
+        </main>
+      </div>
+    </div>
+  </body>
+</html>
