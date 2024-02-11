@@ -1,10 +1,12 @@
 <!DOCTYPE html>
-<html lang="pl" xmlns:th="https://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<html lang="pl"
+      xmlns:th="https://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Taste Tracker</title>
-    <link href="/styles/style.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../styles/style.css"  th:href="@{/styles/style.css}">
 </head>
 <body>
 <header class="home-header">
@@ -12,8 +14,9 @@
         <div class="home-logo">
             <img
                     alt="LogoImage1504"
-                    src="./public/external/logoimage1504-bofih-200w.png"
+                    src="../static/img/logo.png"
                     class="home-logo-image"
+                    th:src="@{/img/logo.png}"
             />
             <span class="home-text">
               <span>Taste</span>
@@ -49,30 +52,35 @@
                 <div class="home-group">
                     <img
                             alt="VectorI828"
-                            src="./public/external/vectori828-gy3d.svg"
+                            src="../static/img/vectori828-gy3d.svg"
                             class="home-vector3"
+                            th:src="@{/img/vectori828-gy3d.svg}"
                     />
                     <img
                             alt="VectorI828"
-                            src="./public/external/vectori828-3jl2.svg"
+                            src="../static/img/vectori828-3jl2.svg"
                             class="home-vector4"
+                            th:src="@{/img/vectori828-3jl2.svg}"
                     />
                     <img
                             alt="VectorI828"
-                            src="./public/external/vectori828-20d5.svg"
+                            src="../static/img/vectori828-20d5.svg"
                             class="home-vector5"
+                            th:src="@{/img/vectori828-20d5.svg}"
                     />
                 </div>
             </div>
             <img
                     alt="facebook8283"
-                    src="./public/external/facebook8283-8zgf.svg"
+                    src="../static/img/facebook8283-8zgf.svg"
                     class="home-facebook"
+                    th:src="@{/img/facebook8283-8zgf.svg}"
             />
             <img
                     alt="linkedin8283"
-                    src="./public/external/linkedin8283-xa2n.svg"
+                    src="../static/img/linkedin8283-xa2n.svg"
                     class="home-linkedin"
+                    th:src="@{/img/linkedin8283-xa2n.svg}"
             />
         </div>
         <div class="home-copy-menu-social-button">
