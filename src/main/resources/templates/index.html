@@ -1,105 +1,70 @@
 <!DOCTYPE html>
-<html lang="en"
-      xmlns:th="https://www.thymeleaf.org">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TasteTracker.pl</title>
-  <link rel="stylesheet" href="/styles/main.css" th:href="@{/styles/main.css}">
-</head>
-
-<body>
-<header>
-  <h2>Taste Tracker.pl</h2>
-  <nav>
-    <a href="#">Start</a>
-    <a href="#">O nas</a>
-    <a href="#">Kontakt</a>
-    <a href="#" id="loginButton">Zaloguj się</a>
-  </nav>
-</header>
-
-<div class="container">
-  <!-- Sekcja powitalna / opis serwisu -->
-  <div class="section">
-    <h2>Witaj na TasteTracker.pl</h2>
-    <p>
-      TasteTracker.pl to serwis, który umożliwia użytkownikom ocenianie różnych restauracji.
-      Dziel się swoimi doświadczeniami kulinarnymi i pomóż innym znaleźć najlepsze miejsca do jedzenia!
-    </p>
-  </div>
-
-  <!-- Polecane restauracje -->
-  <div class="section">
-    <h2>Polecane restauracje</h2>
-    <div class="restaurants">
-      <div class="restaurant">
-        <h3>Nazwa Restauracji 1</h3>
-        <img src="https://cdn.pixabay.com/photo/2014/09/17/20/26/restaurant-449952_640.jpg" alt="Logo Restauracji 1">
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vehicula massa eu augue fermentum,
-          vel iaculis odio
-          laoreet.
-        </p>
+<html lang="pl"
+      xmlns:th="https://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+  <head>
+    <title>Taste Tracker</title>
+    <meta charset="utf-8" />
+    <meta property="twitter:card" content="summary_large_image" />
+  </head>
+  <body>
+  <main class="main-content" layout:fragment="content">
+      <div class="home-container">
+        <form class="custom-form">
+          <input class="home-input-search"
+                 type="text"
+                 id="search"
+                 name="search" required
+                 placeholder="Nazwa restauracji">
+          <button class="custom-button">Wyszukaj</button>
+      </form>  
+        <div class="home-hero">
+          <span class="home-text14">
+            <span>Śledź smaki, odkrywaj przyjemności </span>
+          </span>
+          <span class="home-text16">
+            <span>
+              Podróżuj przez świat smaków, śledź najnowsze kulinarne trendy i
+              odkrywaj unikalne doznania. Znajdź inspirację w setkach przepisów,
+              dziel się swoimi ulubionymi smakami z innymi pasjonatami, a
+              wszystko to w jednym miejscu, gdzie każdy kęs to nowa przygoda.
+            </span>
+          </span>
+          <img
+            alt="Doodle31530"
+            src="../static/img/doodle31530-yb1q.svg"
+            class="home-doodle3"
+            th:src="@{img/doodle31530-yb1q.svg}"
+          />
+          <img
+            alt="Vector1532"
+            src="../static/img/vector1532-46wc.svg"
+            class="home-vector"
+            th:src="@{img/vector1532-46wc.svg}"
+          />
+          <img
+            alt="Vector1532"
+            src="../static/img/vector1532-a9jr.svg"
+            class="home-vector1"
+            th:src="@{img/vector1532-a9jr.svg}"
+          />
+        </div>
+        <div class="home-content">
+          <span class="home-recenzja-tytul">Polecane restauracje</span>
+          <div class="home-recenzja3">
+          </div>
+          <div class="home-recenzja3">
+            <div class="home-frame562">
+              <div class="home-frame50">
+                <img class="restaurant-main" src="https://cdn.pixabay.com/photo/2014/09/17/20/26/restaurant-449952_640.jpg" alt="Logo Restauracji 1">
+              </div>
+            </div>
+          </div>
+          <div class="home-recenzja3">
+          </div>
+        </div>
       </div>
-
-      <div class="restaurant">
-        <h3>Nazwa Restauracji 2</h3>
-        <img src="https://cdn.pixabay.com/photo/2014/09/17/20/26/restaurant-449952_640.jpg" alt="Logo Restauracji 2">
-        <p>
-          Vestibulum efficitur facilisis libero vel dignissim. Ut sed justo vitae elit congue fermentum.
-        </p>
-      </div>
-
-      <div class="restaurant">
-        <h3>Nazwa Restauracji 3</h3>
-        <img src="https://cdn.pixabay.com/photo/2014/09/17/20/26/restaurant-449952_640.jpg" alt="Logo Restauracji 3">
-        <p>
-          Aliquam erat volutpat. Quisque ullamcorper, justo eget accumsan rhoncus, erat leo fermentum
-          massa.
-        </p>
-      </div>
-    </div>
-  </div>
-
-  <!-- Nowe restauracje -->
-  <div class="section">
-    <h2>Nowe restauracje</h2>
-    <div class="restaurants">
-      <div class="restaurant">
-        <h3>Nazwa Restauracji 4</h3>
-        <img src="https://cdn.pixabay.com/photo/2014/09/17/20/26/restaurant-449952_640.jpg" alt="Logo Restauracji 4">
-        <p>
-          Duis convallis mauris in diam malesuada, ac lobortis sapien efficitur.
-        </p>
-      </div>
-
-      <div class="restaurant">
-        <h3>Nazwa Restauracji 5</h3>
-        <img src="https://cdn.pixabay.com/photo/2014/09/17/20/26/restaurant-449952_640.jpg" alt="Logo Restauracji 5">
-        <p>
-          Phasellus nec purus eu mauris fermentum accumsan a eu ex.
-        </p>
-      </div>
-
-      <div class="restaurant">
-        <h3>Nazwa Restauracji 6</h3>
-        <img src="https://cdn.pixabay.com/photo/2014/09/17/20/26/restaurant-449952_640.jpg" alt="Logo Restauracji 6">
-        <p>
-          Proin dignissim nulla eu quam semper, vitae placerat mi varius.
-        </p>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-
-<footer>
-  &copy; 2024 TasteTracker.pl Wszelkie prawa zastrzeżone.
-</footer>
-
-</body>
-
+  </main>
+  </body>
 </html>

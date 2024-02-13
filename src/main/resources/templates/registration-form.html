@@ -1,42 +1,84 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rejestracja - TasteTracker.pl</title>
-    <link rel="stylesheet" href="/styles/main.css" th:href="@{/styles/main.css}">
-</head>
-<body>
-<header>
-    <h2>Taste Tracker.pl</h2>
-    <nav>
-        <a href="#">Start</a>
-        <a href="#">O nas</a>
-        <a href="#">Kontakt</a>
-    </nav>
-</header>
-<!-- Login Modal -->
-<div class="login-modal">
-    <form accept="" class="login-modal">
-        <div class="modal-content">
-            <h2>Zarejestruj się</h2>
-            <div class="form-group">
-                <label for="username">Nazwa użytkownika:</label>
-                <input type="text" id="username" name="username" placeholder="email" required>
+<html lang="en"
+      xmlns:th="https://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}" xmlns="http://www.w3.org/1999/html">>
+  <head>
+    <title>Rejestracja - Taste Tracker</title>
+    <meta property="og:title" content="Rejestracja - Taste Tracker" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <meta property="twitter:card" content="summary_large_image" />
+    <link href="../styles/style.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div>
+      <div class="home-container">
+        <main class="main-content" layout:fragment="content">
 
-                <label for="password">Hasło:</label>
-                <input type="password" id="password" name="password" placeholder="********" required>
-
-                <label for="password">Powtórz Hasło:</label>
-                <input type="password" id="password" name="password" placeholder="********" required>
-
-                <button type="button">Zarejestruj się</button>
+        <div class="signupmodal-signupmodal">
+          <div class="signupmodal-header">
+            <span class="signupmodal-title">
+              <span>Zarejestruj się do serwisu</span>
+            </span>
+          </div>
+          <div class="signupmodal-form">
+            <div class="signupmodal-haslo2input">
+              <img
+                alt="Haslo2shape1542"
+                src="../static/img/haslo2shape1542-8wyn-200h.png"
+                class="signupmodal-haslo2shape"
+                th:src="@{/img/haslo2shape1542-8wyn-200h.png}"
+              />
+              <span class="signupmodal-text02"><span>powtórz hasło</span></span>
             </div>
-
-    </form>
-</div>
-<footer>
-    &copy; 2024 TasteTracker.pl. Wszelkie prawa zastrzeżone.
-</footer>
-</body>
+            <div class="signupmodal-imieinput">
+              <img
+                alt="Imieshape1564"
+                src="../static/img/imieshape1564-30qb-200h.png"
+                class="signupmodal-imieshape"
+                th:src="@{/img/imieshape1564-30qb-200h.png}"
+              />
+              <span class="signupmodal-text04">
+                <input type="text" placeholder="Imię">
+              </span>
+            </div>
+            <div class="signupmodal-adresinput">
+              <img
+                alt="Adresshape1532"
+                src="../static/img/adresshape1532-njrb-200h.png"
+                class="signupmodal-adresshape"
+                th:src="@{/img/adresshape1532-njrb-200h.png}"
+              />
+              <span class="signupmodal-text06"><span>adres e-mail</span></span>
+            </div>
+            <div class="signupmodal-hasloinput">
+              <img
+                alt="Hasloshape1542"
+                src="../static/img/hasloshape1542-c9f-200h.png"
+                class="signupmodal-hasloshape"
+                th:src="@{/img/hasloshape1542-c9f-200h.png}"
+              />
+              <span class="signupmodal-text08"><span>hasło</span></span>
+            </div>
+          </div>
+          <button class="signupmodal-zarejestrujbutton">
+            <img
+              alt="ZarejestrujshapeI1564"
+              src="../static/img/zarejestrujshapei1564-364n-200h.png"
+              class="signupmodal-zarejestrujshape"
+              th:src="@{/img/zarejestrujshapei1564-364n-200h.png}"
+            />
+            <span class="signupmodal-zarejestrujtext">
+              <span>Zarejestruj się</span>
+            </span>
+          </button>
+          <span class="signupmodal-logowanielink">
+            Masz już konto? Kliknij tutaj, aby się zalogować
+          </span>
+        </div>
+        </main>
+      </div>
+    </div>
+  </body>
 </html>
