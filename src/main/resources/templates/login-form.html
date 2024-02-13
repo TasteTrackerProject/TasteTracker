@@ -1,42 +1,66 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Logowanie - TasteTracker.pl</title>
-  <link rel="stylesheet" href="/styles/main.css" th:href="@{/styles/main.css}">
-</head>
-<body>
-<header>
-  <h2>Taste Tracker.pl</h2>
-  <nav>
-    <a href="#">Start</a>
-    <a href="#">O nas</a>
-    <a href="#">Kontakt</a>
-    <a href="#" id="loginButton">Zaloguj się</a>
-  </nav>
-</header>
-<!-- Login Modal -->
-<form accept="" class="login-modal">
-  <div class="modal-content">
-    <h2>Zaloguj się</h2>
-    <div class="form-group">
-      <label for="username">Nazwa użytkownika:</label>
-      <input type="text" id="username" name="username" placeholder="email" required>
-
-
-      <label for="password">Hasło:</label>
-      <input type="password" id="password" name="password" placeholder="********" required>
-
-
-      <button type="button">Zaloguj</button>
-      <p > Nie masz jeszcze konta?</p>
-      <p><a href="registration-form.html">Zarejestruj się!</a></p>
-    </div>
-  </div>
-</form>
-<footer>
-  &copy; 2024 TasteTracker.pl. Wszelkie prawa zastrzeżone.
-</footer>
-</body>
+<html lang="pl"
+      xmlns:th="https://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+  <head>
+    <title>Logowanie - Taste Tracker</title>
+    <meta property="og:title" content="Logowanie - Taste Tracker" />
+    <meta charset="utf-8" />
+    <meta property="twitter:card" content="summary_large_image" />
+    <style>
+      body {
+        overflow: hidden;
+      }
+    </style>
+  </head>
+  <body>
+      <div class="home-container">
+          <main class="main-content" layout:fragment="content">
+        <div class="logowanie-loginmodal">
+<!--          <span class="home-text14">-->
+<!--            <span>Miło Cię znów widzieć!</span>-->
+<!--          </span>-->
+          <div class="logowanie-container1">
+          <div class="logowanie-email">
+            <img
+              alt="Rectangle21532"
+              src="../static/img/rectangle21532-samg-200h.png"
+              class="logowanie-rectangle2"
+              th:src="@{/img/rectangle21532-samg-200h.png}"
+            />
+            <span class="logowanie-text16"><span>user@domain.com</span></span>
+          </div>
+          <div class="logowanie-haso">
+            <img
+              alt="Rectangle31532"
+              src="../static/img/rectangle31532-e9tm-200h.png"
+              class="logowanie-rectangle3"
+              th:src="@{/img/rectangle31532-e9tm-200h.png}"
+            />
+            <span class="logowanie-text18"><span>Hasło</span></span>
+          </div>
+          <div class="logowanie-reset">
+            <img
+              alt="Rectangle71532"
+              src="../static/img/rectangle71532-1798-200h.png"
+              class="logowanie-rectangle7"
+              th:src="@{/img/rectangle71532-1798-200h.png}"
+            />
+            <span class="logowanie-text20"><span>Zapomniałem hasła</span></span>
+          </div>
+          <div class="logowanie-zalogujsi">
+            <img
+              alt="Rectangle71532"
+              src="../static/img/rectangle71532-myrm-200h.png"
+              class="logowanie-rectangle71"
+              th:src="@{/img/rectangle71532-myrm-200h.png}"
+            />
+            <span class="logowanie-text22"><span>Zaloguj się</span></span>
+          </div>
+        </div>
+        </div>
+          </main>
+      </div>
+  </body>
 </html>
