@@ -4,7 +4,7 @@
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorate="~{layout}">
 <head>
-  <title>Taste Tracker - Restauracja</title>
+  <title th:text="|${restaurant.name} - Taste Tracker|">Taste Tracker - Restauracja</title>
   <link href="/styles/style.css" rel="stylesheet" />
 </head>
 <body>
@@ -12,9 +12,8 @@
     <div class="restaurant-container">
       <img class="restaurant-single-image" src="https://cdn.pixabay.com/photo/2014/09/17/20/26/restaurant-449952_640.jpg" alt="Logo Restauracji 1">
       <div class="restaurant-details">
-        <h2 class="restaurant-name">Nazwa Restauracji</h2>
-        <p class="restaurant-description">Opis restauracji Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        <p class="restaurant-location">Lokalizacja: Miasto, Kraj</p>
+        <h2 class="restaurant-name" th:text="${restaurant.name}">Nazwa Restauracji</h2>
+        <p class="restaurant-location" th:text="|Lokalizacja: ${restaurant.street}, ${restaurant.city}, ${restaurant.postalCode}, ${restaurant.country}|">Lokalizacja:</p>
 
         <div class="location-tiles">
           <div class="location-tile">
