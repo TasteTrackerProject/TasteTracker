@@ -7,8 +7,9 @@ import lombok.Setter;
 
 @Getter
 @Setter
-@AllArgsConstructor(access= AccessLevel.PUBLIC)
-public class RestaurantDto {
+@AllArgsConstructor( access= AccessLevel.PUBLIC )
+public class RestaurantDto
+{
     private Long id;
     private String name;
     private boolean promoted;
