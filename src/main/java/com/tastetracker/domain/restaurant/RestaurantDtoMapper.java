@@ -2,8 +2,10 @@ package com.tastetracker.domain.restaurant;
 
 import com.tastetracker.domain.restaurant.dto.RestaurantDto;
 
-public class RestaurantDtoMapper {
-    static RestaurantDto map(Restaurant restaurant){
+public class RestaurantDtoMapper
+{
+    static RestaurantDto map( Restaurant restaurant )
+    {
         return new RestaurantDto(
                 restaurant.getId(),
                 restaurant.getName(),
