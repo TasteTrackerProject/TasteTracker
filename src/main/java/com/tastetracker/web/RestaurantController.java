@@ -12,14 +12,17 @@ import org.springframework.web.bind.annotation.PathVariable;
 import java.util.Optional;
 
 @Controller
-@AllArgsConstructor(access = AccessLevel.PUBLIC)
-public class RestaurantController {
+@AllArgsConstructor( access = AccessLevel.PUBLIC )
+public class RestaurantController
+{
+
     private final RestaurantService restaurantService;
-    @GetMapping("/restaurant/{id}")
-    public String getRestaurant( @PathVariable long id, Model model)
+
+    @GetMapping( "/restaurant/{id}" )
+    public String getRestaurant( @PathVariable long id, Model model )
     {
-        Optional<RestaurantDto> optionalRestaurant = restaurantService.findByRestaurantId( id);
-        optionalRestaurant.ifPresent(restaurant -> model.addAttribute("restaurant",restaurant));
+        Optional<RestaurantDto> optionalRestaurant = restaurantService.findByRestaurantId( id );
+        optionalRestaurant.ifPresent( restaurant -> model.addAttribute("restaurant", restaurant ) );
         return "restaurant";
     }
 }
