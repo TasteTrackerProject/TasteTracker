@@ -23,8 +23,6 @@ public class HomeController
     public String getHome( Model model )
     {
         List<RestaurantDto> allPromotedRestaurants = restaurantService.findAllPromotedRestaurants();
-        model.addAttribute( "heading", "Promowane restauracje" );
-        model.addAttribute( "description", "Restauracje promowane przez nasz serwis" );
         model.addAttribute( "restaurants", allPromotedRestaurants );
         return "index";
     }
