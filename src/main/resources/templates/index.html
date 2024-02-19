@@ -50,21 +50,43 @@
             th:src="@{img/vector1532-a9jr.svg}"
           />
         </div>
-        <div class="home-content">
-          <span class="home-recenzja-tytul">Polecane restauracje</span>
-          <div class="home-recenzja3">
-          </div>
-          <div class="home-recenzja3">
+        <div class="home-content-div">
+          <span class="home-recenzja-tytul">Promowane restauracje</span>
+        </div>
+        <div class="home-content" th:remove="all-but-first">
+          <div class="home-recenzja3" th:each="restaurant: ${restaurants}">
             <div class="home-frame562">
               <div class="home-frame50">
-                <img class="restaurant-main" src="https://cdn.pixabay.com/photo/2014/09/17/20/26/restaurant-449952_640.jpg" alt="Logo Restauracji 1">
+                <a href="#" th:href="@{|/restaurant/${restaurant.id}|}">
+                  <img class="restaurant-main"
+                       src="https://cdn.pixabay.com/photo/2014/09/17/20/26/restaurant-449952_640.jpg"
+                       th:alt="|Restauracja: ${restaurant.name}|">
+                </a>
+                <div class="text-container">
+                  <a href="#" th:href="@{|/restaurant/${restaurant.id}|}">
+                    <h2 class="restaurant-name" th:text="${restaurant.name}"></h2>
+                  </a>
+                </div>
+                <div class="text-container-city">
+                  <h2 class="restaurant-city" th:text="|(${restaurant.city})|"></h2>
+                </div>
               </div>
             </div>
           </div>
+
+          <div class="home-recenzja3">
+             <div class="home-frame562">
+                <div class="home-frame50">
+                  <img class="restaurant-main" src="https://cdn.pixabay.com/photo/2014/09/17/20/26/restaurant-449952_640.jpg" alt="Logo Restauracji 1">
+                </div>
+              </div>
+          </div>
+
           <div class="home-recenzja3">
           </div>
-        </div>
+          </div>
       </div>
-  </main>
+    <script defer src="../static/scripts/restaurant-scroll.js" th:src="@{/scripts/restaurant-scroll.js}"></script>
+    </main>
   </body>
 </html>

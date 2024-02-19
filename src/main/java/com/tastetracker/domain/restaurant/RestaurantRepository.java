@@ -3,6 +3,9 @@ package com.tastetracker.domain.restaurant;
 
 import org.springframework.data.repository.CrudRepository;
 
-public interface RestaurantRepository extends CrudRepository<Restaurant,Long> {
+import java.util.List;
 
+public interface RestaurantRepository extends CrudRepository<Restaurant, Long>
+{
+    List<Restaurant> findAllByPromotedIsTrue();
 }
