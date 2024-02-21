@@ -6,31 +6,24 @@
 <body>
   <main class="main-content" layout:fragment="content">
   <div class="home-container">
+    <span class="signupmodal-title">
+          <span th:text="${heading}">Nazwa kategorii</span>
+            </span>
     <div class="restaurants-container">
+      <ul class="list-border">
+        <li th:each="restaurant: ${restaurants}">
       <div class="restaurant-item">
+        <a href="#" th:href="@{|/restaurant/${restaurant.id}|}">
         <img class="restaurant-image" src="https://cdn.pixabay.com/photo/2014/09/17/20/26/restaurant-449952_640.jpg" alt="Restauracja 1">
+        </a>
         <div class="restaurant-details">
-          <h2 class="restaurant-name">Nazwa Restauracji 1</h2>
+          <a class="restaurant-name" th:href="@{|/restaurant/${restaurant.id}|}" th:text="${restaurant.name}">Nazwa Restauracji 1</a>
           <p class="restaurant-description">Opis restauracji Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-          <p class="restaurant-location">Lokalizacja: Miasto 1, Kraj 1</p>
+          <p class="restaurant-location" th:text="|Lokalizacja: ${restaurant.street}, ${restaurant.city}, ${restaurant.postalCode}, ${restaurant.country}|">Lokalizacja:</p>
         </div>
       </div>
-      <div class="restaurant-item">
-        <img class="restaurant-image" src="https://cdn.pixabay.com/photo/2014/09/17/20/26/restaurant-449952_640.jpg" alt="Restauracja 2">
-        <div class="restaurant-details">
-          <h2 class="restaurant-name">Nazwa Restauracji 2</h2>
-          <p class="restaurant-description">Opis restauracji Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-          <p class="restaurant-location">Lokalizacja: Miasto 2, Kraj 2</p>
-        </div>
-      </div>
-      <div class="restaurant-item">
-        <img class="restaurant-image" src="https://cdn.pixabay.com/photo/2014/09/17/20/26/restaurant-449952_640.jpg" alt="Restauracja 2">
-        <div class="restaurant-details">
-          <h2 class="restaurant-name">Nazwa Restauracji 2</h2>
-          <p class="restaurant-description">Opis restauracji Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-          <p class="restaurant-location">Lokalizacja: Miasto 2, Kraj 2</p>
-        </div>
-      </div>
+        </li>
+      </ul>
     </div>
   </div>
   </main>

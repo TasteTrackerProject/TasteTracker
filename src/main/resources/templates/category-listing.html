@@ -11,25 +11,21 @@
 <main class="main-content" layout:fragment="content">
 <div class="home-container">
     <div class="category-container">
-      <div class="category-item">
-        <img class="category-image" src="../static/img/1000_F_255573369_NrbcMNYC1hz1xJigxCOCN8OXsxmtx0TB.jpg" alt="Restauracja 1" width="500px" height="200px">
-      </div>
-
-      <div class="category-item">
-        <img class="category-image" src="../static/img/1000_F_561921320_LKxezH11k6QcfojX6tYatdQXAMJsV68H.jpg" alt="Restauracja 2">
-      </div>
-
-      <div class="category-item">
-        <img class="category-image" src="link-do-zdjecia-restauracji2.jpg" alt="Restauracja 2">
-      </div>
-
-      <div class="category-item">
-        <img class="category-image" src="link-do-zdjecia-restauracji2.jpg" alt="Restauracja 2">
-      </div>
-
-      <div class="category-item">
-        <img class="category-image" src="link-do-zdjecia-restauracji2.jpg" alt="Restauracja 2">
-      </div>
+      <ul class="list-border">
+        <li th:each="category: ${categories}">
+          <div class="category-item">
+            <a href="#" th:href="@{|/category/${category.name}|}">
+              <img class="category-image"
+               src="../static/img/1000_F_255573369_NrbcMNYC1hz1xJigxCOCN8OXsxmtx0TB.jpg"
+                   alt="nazwa-kategorii"
+                   th:alt="${category.name}"
+               width="1087px"
+               height="256px"
+              >
+            </a>
+          </div>
+        </li>
+      </ul>
     </div>
   </div>
 </main>
