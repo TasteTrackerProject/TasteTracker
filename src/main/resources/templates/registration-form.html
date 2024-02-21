@@ -17,21 +17,11 @@
         <main class="main-content" layout:fragment="content">
 
         <div class="signupmodal-signupmodal">
-          <div class="signupmodal-header">
-            <span class="signupmodal-title">
-              <span>Zarejestruj się do serwisu</span>
+          <span class="signupmodal-title">
+          <span>Zarejestruj się do serwisu</span>
             </span>
-          </div>
-          <div class="signupmodal-form">
-            <div class="signupmodal-haslo2input">
-              <img
-                alt="Haslo2shape1542"
-                src="../static/img/haslo2shape1542-8wyn-200h.png"
-                class="signupmodal-haslo2shape"
-                th:src="@{/img/haslo2shape1542-8wyn-200h.png}"
-              />
-              <span class="signupmodal-text02"><span>powtórz hasło</span></span>
-            </div>
+          <form>
+            <div class="signupmodal-form">
             <div class="signupmodal-imieinput">
               <img
                 alt="Imieshape1564"
@@ -39,9 +29,7 @@
                 class="signupmodal-imieshape"
                 th:src="@{/img/imieshape1564-30qb-200h.png}"
               />
-              <span class="signupmodal-text04">
-                <input type="text" placeholder="Imię">
-              </span>
+                <input type="text" class="signupmodal-text08" placeholder="Imię"/>
             </div>
             <div class="signupmodal-adresinput">
               <img
@@ -50,7 +38,7 @@
                 class="signupmodal-adresshape"
                 th:src="@{/img/adresshape1532-njrb-200h.png}"
               />
-              <span class="signupmodal-text06"><span>adres e-mail</span></span>
+              <input type="text" class="signupmodal-text08" placeholder="adres e-mail"/>
             </div>
             <div class="signupmodal-hasloinput">
               <img
@@ -59,10 +47,19 @@
                 class="signupmodal-hasloshape"
                 th:src="@{/img/hasloshape1542-c9f-200h.png}"
               />
-              <span class="signupmodal-text08"><span>hasło</span></span>
+              <input type="password" class="signupmodal-text08" placeholder="Hasło"/>
             </div>
-          </div>
-          <button class="signupmodal-zarejestrujbutton">
+            <div class="signupmodal-haslo2input">
+              <img
+                      alt="Haslo2shape1542"
+                      src="../static/img/haslo2shape1542-8wyn-200h.png"
+                      class="signupmodal-haslo2shape"
+                      th:src="@{/img/haslo2shape1542-8wyn-200h.png}"
+              />
+              <input type="password" class="signupmodal-text08" placeholder="Powtórz hasło"/>
+                </div>
+              </div>
+            <button type="submit" class="signupmodal-zarejestrujbutton">
             <img
               alt="ZarejestrujshapeI1564"
               src="../static/img/zarejestrujshapei1564-364n-200h.png"
@@ -72,10 +69,14 @@
             <span class="signupmodal-zarejestrujtext">
               <span>Zarejestruj się</span>
             </span>
-          </button>
-          <span class="signupmodal-logowanielink">
+            </button>
+          </form>
+          <a class="signupmodal-logowanielink"
+          href="#"
+          th:href="@{/login}"
+          >
             Masz już konto? Kliknij tutaj, aby się zalogować
-          </span>
+          </a>
         </div>
         </main>
       </div>

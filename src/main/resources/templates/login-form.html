@@ -15,52 +15,51 @@
     </style>
   </head>
   <body>
-      <div class="home-container">
-          <main class="main-content" layout:fragment="content">
+  <div class="home-container">
+      <main class="main-content" layout:fragment="content">
         <div class="logowanie-loginmodal">
-<!--          <span class="home-text14">-->
-<!--            <span>Miło Cię znów widzieć!</span>-->
-<!--          </span>-->
-          <div class="logowanie-container1">
-          <div class="logowanie-email">
-            <img
-              alt="Rectangle21532"
-              src="../static/img/rectangle21532-samg-200h.png"
-              class="logowanie-rectangle2"
-              th:src="@{/img/rectangle21532-samg-200h.png}"
-            />
-            <span class="logowanie-text16"><span>user@domain.com</span></span>
-          </div>
-          <div class="logowanie-haso">
-            <img
-              alt="Rectangle31532"
-              src="../static/img/rectangle31532-e9tm-200h.png"
-              class="logowanie-rectangle3"
-              th:src="@{/img/rectangle31532-e9tm-200h.png}"
-            />
-            <span class="logowanie-text18"><span>Hasło</span></span>
-          </div>
-          <div class="logowanie-reset">
-            <img
-              alt="Rectangle71532"
-              src="../static/img/rectangle71532-1798-200h.png"
-              class="logowanie-rectangle7"
-              th:src="@{/img/rectangle71532-1798-200h.png}"
-            />
-            <span class="logowanie-text20"><span>Zapomniałem hasła</span></span>
-          </div>
-          <div class="logowanie-zalogujsi">
-            <img
-              alt="Rectangle71532"
-              src="../static/img/rectangle71532-myrm-200h.png"
-              class="logowanie-rectangle71"
-              th:src="@{/img/rectangle71532-myrm-200h.png}"
-            />
-            <span class="logowanie-text22"><span>Zaloguj się</span></span>
-          </div>
+            <div class="logowanie-container1">
+              <form>
+                  <div class="logowanie-email">
+                      <img
+                              alt="Rectangle21532"
+                              src="../static/img/rectangle21532-samg-200h.png"
+                              class="logowanie-rectangle2"
+                              th:src="@{/img/rectangle21532-samg-200h.png}"
+                      />
+                      <input type="text" class="logowanie-text18" placeholder="user@domain.com"/>
+                  </div>
+                  <div class="logowanie-haso">
+                      <img
+                              alt="Rectangle31532"
+                              src="../static/img/rectangle31532-e9tm-200h.png"
+                              class="logowanie-rectangle3"
+                              th:src="@{/img/rectangle31532-e9tm-200h.png}"
+                      />
+                      <input type="password" class="logowanie-text18" placeholder="Hasło"/>
+                  </div>
+                  <div class="logowanie-reset">
+                      <img
+                              alt="Rectangle71532"
+                              src="../static/img/rectangle71532-1798-200h.png"
+                              class="logowanie-rectangle7"
+                              th:src="@{/img/rectangle71532-1798-200h.png}"
+                      />
+                      <a class="logowanie-text20" href="#"><span>Zapomniałem hasła</span></a>
+                  </div>
+                  <div class="logowanie-zalogujsi">
+                      <img
+                              alt="Rectangle71532"
+                              src="../static/img/rectangle71532-myrm-200h.png"
+                              class="logowanie-rectangle71"
+                              th:src="@{/img/rectangle71532-myrm-200h.png}"
+                      />
+                      <button type="submit" class="logowanie-text22"><span>Zaloguj się</span></button>
+                  </div>
+              </form>
+            </div>
         </div>
-        </div>
-          </main>
-      </div>
+      </main>
+  </div>
   </body>
 </html>

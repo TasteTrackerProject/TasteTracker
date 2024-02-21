@@ -12,27 +12,30 @@
 <header class="home-header">
     <nav>
         <div class="home-logo">
+            <a th:href="@{/}">
             <img
                     alt="LogoImage1504"
                     src="../static/img/logo.png"
                     class="home-logo-image"
                     th:src="@{/img/logo.png}"
+
             />
             <span class="home-text">
               <span>Taste</span>
               <br />
               <span>Tracker</span>
             </span>
+            </a>
         </div>
         <div class="home-container1">
             <div class="home-container5">
                 <div class="home-menu">
-                    <a class="home-text06" href="#">Start</a>
+                    <a class="home-text06" href="#" th:href="@{/}">Start</a>
                     <a class="home-text06" href="#">O projekcie</a>
                     <a class="home-text06" href="#">Kontakt</a>
                 </div>
             </div>
-            <a class="home-button-log-in"  href="#">
+            <a class="home-button-log-in"  href="#" th:href="@{/login}">
                 <span class="home-text10">ZALOGUJ SIĘ</span>
             </a>
             <a class="home-button-sign-up button" href="#">
@@ -89,9 +92,9 @@
                 <span class="home-text36"><span>2024 Taste Tracker</span></span>
             </div>
             <div class="home-menu1">
-                <span class="home-text40"><span>Start</span></span>
-                <span class="home-text40"><span>O projekcie</span></span>
-                <span class="home-text40"><span>Kontakt</span></span>
+                <a class="home-text40" th:href="@{/}"><span>Start</span></a>
+                <a class="home-text40"><span>O projekcie</span></a>
+                <a class="home-text40"><span>Kontakt</span></a>
             </div>
         </div>
     </div>
