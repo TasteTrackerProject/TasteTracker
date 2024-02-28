@@ -22,7 +22,8 @@ public class CategoryService
             .toList();
     }
 
-    public Optional<CategoryDto> findCategoryByName(String name){
+    public Optional<CategoryDto> findCategoryByName( String name )
+    {
         return categoryRepository.findByNameIgnoreCase( name )
             .map( CategoryDtoMapper::map );
     }
