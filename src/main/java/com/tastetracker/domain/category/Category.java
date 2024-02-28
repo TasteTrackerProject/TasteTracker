@@ -2,17 +2,13 @@ package com.tastetracker.domain.category;
 
 import com.tastetracker.domain.restaurant.Restaurant;
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.Data;
 
 import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@Getter
-@Setter
-@NoArgsConstructor
+@Data
 public class Category
 {
     @Id

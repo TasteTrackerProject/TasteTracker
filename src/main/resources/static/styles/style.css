@@ -97,7 +97,7 @@ body {
 }
 .home-menu {
   gap: 32px;
-  right: -50%;
+  right: -90%;
   width: 544px;
   bottom: -86px;
   height: 45px;
@@ -107,7 +107,7 @@ body {
   justify-content: center;
   background-color: rgba(255, 255, 255, 1);
 }
-.home-text06 {
+.home-text06{
   color: rgba(0, 0, 0, 1);
   height: auto;
   font-size: 25px;
@@ -118,6 +118,9 @@ body {
   line-height: 24px;
   font-stretch: normal;
   text-decoration: none;
+}
+.home-text06:hover {
+  color: #8c8383;
 }
 
 .home-button-log-in {
@@ -150,6 +153,9 @@ body {
   font-stretch: normal;
   text-decoration: none;
 }
+.home-button-log-in:hover {
+  color: white;
+}
 .home-button-sign-up {
   gap: 10px;
   top: 9px;
@@ -168,6 +174,9 @@ body {
   text-decoration: none;
   color: white;
 }
+.home-button-sign-up :hover {
+  color: #8c8383;
+}
 
 .home-text12 {
   color: var(--dl-color-default-0);
@@ -180,6 +189,9 @@ body {
   line-height: normal;
   font-stretch: normal;
   text-decoration: none;
+}
+.home-text12 :hover {
+  color: #8c8383;
 }
 .home-hero {
   gap: 10px;
@@ -305,7 +317,7 @@ body {
   display: flex;
   position: relative;
   align-self: flex-start;
-  margin-top: 0px;
+  margin-top: 0;
   align-items: center;
   flex-shrink: 0;
   margin-left: 0;
@@ -485,7 +497,7 @@ body {
   align-items: flex-start;
   justify-content: flex-end;
 }
-.home-text40 {
+.home-text40{
   color: rgba(0, 0, 0, 1);
   height: auto;
   font-size: 20px;
@@ -496,6 +508,9 @@ body {
   line-height: 24px;
   font-stretch: normal;
   text-decoration: none;
+}
+.home-text40 :hover {
+  color: #8c8383;
 }
 .home-input-search {
   gap: 4px;
@@ -684,7 +699,7 @@ body {
 }
 .signupmodal-title {
   color: rgba(41, 41, 41, 1);
-  font-size: 30px;
+  font-size: 40px;
   font-style: Bold;
   text-align: left;
   font-family: Inter;
@@ -851,7 +866,6 @@ body {
   width: auto;
   height: 20px;
   display: flex;
-  position: relative;
   align-items: flex-start;
 }
 @media(max-width: 767px) {
@@ -1023,8 +1037,8 @@ body {
 }
 /* Styl dla pojedynczej restauracji */
 .category-item {
-  display: flex;
-  border: 1px solid #ddd;
+  /*display: flex;*/
+  border: 0px solid #ddd;
   margin-bottom: 20px;
   background-color: #fff;
 }
@@ -1033,9 +1047,9 @@ body {
   height: 250px;
   object-fit: cover;
   width: 100%;
+  /*object-fit: contain;*/
 }
 /*restaurant*/
-
 .location-tile {
   flex: 1;
   padding: 10px;
@@ -1043,6 +1057,7 @@ body {
   background-color: #eee;
   margin-right: 10px;
   border-radius: 5px;
+  font-size: 20px;
 }
 .location-tile h4 {
   margin-bottom: 5px;
@@ -1108,16 +1123,11 @@ body {
   flex-grow: 1;
 }
 .restaurant-name {
-  font-size: 20px;
+  color: var(--dl-color-default-700);
   font-weight: bold;
   margin-bottom: 10px;
-}
-.restaurant-description {
-  margin-bottom: 10px;
-}
-.restaurant-location {
-  font-style: italic;
-  color: #666;
+  text-decoration: none;
+  font-size: 30px;
 }
 .location-tiles {
   display: flex;
@@ -1138,19 +1148,13 @@ body {
   object-fit: cover;
   margin-bottom: 20px;
 }
-.restaurant-details {
-  margin-bottom: 20px;
-}
-.restaurant-name {
-  font-size: 24px;
-  font-weight: bold;
-  margin-bottom: 10px;
-}
+
 .restaurant-description {
   margin-bottom: 20px;
 }
 .restaurant-location {
   font-style: italic;
+  font-size: 15px;
   color: #666;
   margin-bottom: 20px;
 }
@@ -1182,6 +1186,11 @@ body {
 .not-found-text2 {
   text-align: center;
   font-weight: 400;
+}
+.list-border {
+  padding-left: 0;
+  margin: 0;
+  list-style: none;
 }
 @media(max-width: 1200px) {
   .logowanie-loginmodal {
