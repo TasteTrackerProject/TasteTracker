@@ -10,20 +10,24 @@
 <body>
 <main class="main-content" layout:fragment="content">
 <div class="home-container">
+     <span class="signupmodal-title">
+          <span >Kategorie</span>
+            </span>
     <div class="category-container">
       <ul class="list-border">
         <li th:each="category: ${categories}">
+          <a href="#" th:href="@{|/category/${category.name}|}">
           <div class="category-item">
-            <a href="#" th:href="@{|/category/${category.name}|}">
+
               <img class="category-image"
                src="../static/img/1000_F_255573369_NrbcMNYC1hz1xJigxCOCN8OXsxmtx0TB.jpg"
+                   th:src="@{/img/1000_F_255573369_NrbcMNYC1hz1xJigxCOCN8OXsxmtx0TB.jpg}"
                    alt="nazwa-kategorii"
                    th:alt="${category.name}"
-               width="1087px"
-               height="256px"
               >
-            </a>
+
           </div>
+          </a>
         </li>
       </ul>
     </div>
