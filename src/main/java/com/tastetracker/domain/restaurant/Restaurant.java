@@ -3,18 +3,13 @@ package com.tastetracker.domain.restaurant;
 import com.tastetracker.domain.address.Address;
 import com.tastetracker.domain.category.Category;
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-
+import lombok.Data;
 
 import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@Getter
-@Setter
-@NoArgsConstructor
+@Data
 public class Restaurant
 {
     @Id
