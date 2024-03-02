@@ -2,6 +2,7 @@
 <html lang="pl"
       xmlns:th="https://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
       layout:decorate="~{layout}">
 <head>
   <title th:text="|${restaurant.name} - Taste Tracker|">Taste Tracker - Restauracja</title>
@@ -38,17 +39,19 @@
       </div>
       <div class="restaurant-reviews">
         <h2>Recenzje</h2>
-        <div class="add-review-form">
+        <p class="review" sec:authorize="!isAuthenticated()">
+          <a href="#" th:href="@{/login}">Zaloguj się</a>, aby dodać komentarz
+        </p>
+        <div class="add-review-form" sec:authorize="isAuthenticated()">
           <h3>Dodaj recenzję</h3>
-          <form>
-            <label for="author">Autor:</label>
-            <input class="restaurant-input-author" type="text" id="author" name="author" required>
+          <form th:action="|/restaurant/${restaurant.id}|" method="post" th:object="${addReview}">
+            <p class="review-author" th:text="|Autor: ${addReview.login}|" ></p>
 
             <label for="rating">Ocena:</label>
             <input class="restaurant-input-rating" type="number" id="rating" name="rating" min="1" max="5" required>
 
             <label for="review">Recenzja:</label>
-            <textarea class="restaurant-input-review" id="review" name="review" required></textarea>
+            <textarea class="restaurant-input-review" rows="5" id="review" name="review" th:field="*{reviewContent}" ></textarea>
 
             <button type="submit"><span class="home-text12">Dodaj recenzję</span></button>
           </form>
@@ -56,6 +59,9 @@
         <ul class="review-list">
           <li th:each="review : ${reviews}">
             <div class="review">
+              <div class="review-date">
+              <h4 th:text="${review.date}"></h4>
+              </div>
               <h3 class="review-author" th:text="${review.login}">Autor recenzji</h3>
               <h3 class="review-rating">Średnia z ocen: 4/5</h3>
               <p class="review-text" th:text="${review.reviewContent}">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vel leo vitae ligula consectetur fringilla.</p>
