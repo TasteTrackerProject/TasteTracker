@@ -2,6 +2,7 @@ package com.tastetracker.domain.user;
 
 import com.tastetracker.config.security.SystemRoles;
 import com.tastetracker.domain.user.dto.UserCredentialsDto;
+import com.tastetracker.domain.user.dto.UserDto;
 import com.tastetracker.domain.user.dto.UserRegistrationDto;
 import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
@@ -38,5 +39,13 @@ public class UserService
         user.setPassword( passwordEncoder.encode( userRegistration.getPassword() ) );
         user.getRoles().add( userRole );
         userRepository.save( user );
+
     }
+
+    public Optional<UserDto> findUserByLogin( String login )
+    {
+        return userRepository.findByLogin( login )
+            .map( UserDtoMapper::map );
+    }
+
 }
