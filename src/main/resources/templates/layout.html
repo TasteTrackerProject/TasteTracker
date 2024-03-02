@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="pl"
       xmlns:th="https://www.thymeleaf.org"
-      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -32,13 +33,22 @@
                 <div class="home-menu">
                     <a class="home-text06" href="#" th:href="@{/}">Start</a>
                     <a class="home-text06" href="#" th:href="@{/category}">Kategorie</a>
-                    <a class="home-text06" href="#">O projekcie</a>
                     <a class="home-text06" href="#">Kontakt</a>
+                    <a class="home-text06" href="#" sec:authorize="hasAnyRole('ADMIN', 'EDITOR')">Administracja</a>
                 </div>
             </div>
-            <a class="home-button-log-in"  href="#" th:href="@{/login}">
-                <span class="home-text10">ZALOGUJ SIĘ</span>
+            <a class="home-button-log-in"  href="#"
+               th:href="@{/login}"
+                sec:authorize="!isAuthenticated()">
+                <span class="home-text10">ZALOGUJ</span>
             </a>
+
+            <a class="home-button-log-in"  href="#"
+               th:href="@{/logout}"
+               sec:authorize="isAuthenticated()">
+                <span class="home-text10">WYLOGUJ</span>
+            </a>
+
             <a class="home-button-sign-up" href="#" th:href="@{/registration}">
                 <span class="home-text12">DOŁĄCZ</span>
             </a>
