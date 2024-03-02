@@ -1,6 +1,7 @@
 package com.tastetracker.domain.user;
 
 import com.tastetracker.domain.user.dto.UserCredentialsDto;
+import com.tastetracker.domain.user.dto.UserDto;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -16,5 +17,11 @@ public class UserService
     {
         return userRepository.findByLogin( login )
             .map( UserCredentialsDtoMapper::map );
+    }
+
+    public Optional<UserDto> findUserByLogin( String login)
+    {
+        return userRepository.findByLogin( login )
+            .map( UserDtoMapper::map );
     }
 }
