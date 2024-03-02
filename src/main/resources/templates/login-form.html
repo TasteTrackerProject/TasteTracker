@@ -18,25 +18,34 @@
   <div class="home-container">
       <main class="main-content" layout:fragment="content">
         <div class="logowanie-loginmodal">
+            <p th:if="${param.error}"
+               th:text="${session['SPRING_SECURITY_LAST_EXCEPTION'].message}"
+               class="logowanie-error"
+            >
+                Błąd logowania
+            </p>
+
+            <p th:if="${param.logout}" class="logout-message"> Zostałeś pomyślnie wylogowany</p>
+
             <div class="logowanie-container1">
-              <form>
-                  <div class="logowanie-email">
+              <form action="" th:action="@{/login}" method="post">
+                  <div class="logowanie-login">
                       <img
                               alt="Rectangle21532"
                               src="../static/img/rectangle21532-samg-200h.png"
                               class="logowanie-rectangle2"
                               th:src="@{/img/rectangle21532-samg-200h.png}"
                       />
-                      <input type="text" class="logowanie-text18" placeholder="user@domain.com"/>
+                      <input type="text" class="logowanie-text18" placeholder="Nazwa użytkownika" id="username" name="username"/>
                   </div>
-                  <div class="logowanie-haso">
+                  <div class="logowanie-haslo">
                       <img
                               alt="Rectangle31532"
                               src="../static/img/rectangle31532-e9tm-200h.png"
                               class="logowanie-rectangle3"
                               th:src="@{/img/rectangle31532-e9tm-200h.png}"
                       />
-                      <input type="password" class="logowanie-text18" placeholder="Hasło"/>
+                      <input type="password" class="logowanie-text18" placeholder="Hasło" name="password" id="password"/>
                   </div>
                   <div class="logowanie-reset">
                       <img
@@ -47,7 +56,7 @@
                       />
                       <a class="logowanie-text20" href="#"><span>Zapomniałem hasła</span></a>
                   </div>
-                  <div class="logowanie-zalogujsi">
+                  <div class="logowanie-zalogujsie">
                       <img
                               alt="Rectangle71532"
                               src="../static/img/rectangle71532-myrm-200h.png"
