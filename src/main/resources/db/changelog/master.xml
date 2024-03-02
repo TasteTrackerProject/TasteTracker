@@ -11,6 +11,7 @@
     <include file="0005_create_table_users.xml" relativeToChangelogFile="true" />
     <include file="0006_create_table_user_role.xml" relativeToChangelogFile="true" />
     <include file="0007_create_table_user_roles.xml" relativeToChangelogFile="true" />
+    <include file="0008_create_table_reviews.xml" relativeToChangelogFile="true" />
 
     <!-- TEST DATA -->
     <include file="../testdata/0001_address.sql" relativeToChangelogFile="true" context="dev"/>
@@ -18,4 +19,5 @@
     <include file="../testdata/0003_category.sql" relativeToChangelogFile="true" context="dev"/>
     <include file="../testdata/0004_restaurant_category.sql" relativeToChangelogFile="true" context="dev"/>
     <include file="../testdata/0005_users_and_roles.sql" relativeToChangelogFile="true" context="dev"/>
+    <include file="../testdata/0006_reviews.sql" relativeToChangelogFile="true" context="dev"/>
 </databaseChangeLog>
