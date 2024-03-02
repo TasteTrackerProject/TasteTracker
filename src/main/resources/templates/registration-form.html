@@ -20,7 +20,7 @@
           <span class="signupmodal-title">
           <span>Zarejestruj się do serwisu</span>
             </span>
-          <form>
+          <form action="#" th:action="@{/registration}" method="post" th:object="${user}">
             <div class="signupmodal-form">
             <div class="signupmodal-imieinput">
               <img
@@ -29,7 +29,7 @@
                 class="signupmodal-imieshape"
                 th:src="@{/img/imieshape1564-30qb-200h.png}"
               />
-                <input type="text" class="signupmodal-text08" placeholder="Imię"/>
+                <input type="text" class="signupmodal-text08" placeholder="Login" id="login" th:field="*{login}"/>
             </div>
             <div class="signupmodal-adresinput">
               <img
@@ -38,7 +38,11 @@
                 class="signupmodal-adresshape"
                 th:src="@{/img/adresshape1532-njrb-200h.png}"
               />
-              <input type="text" class="signupmodal-text08" placeholder="adres e-mail"/>
+              <input type="email"
+                     class="signupmodal-text08"
+                     placeholder="Adres e-mail"
+                     id="user_email"
+                     th:field="*{email}"/>
             </div>
             <div class="signupmodal-hasloinput">
               <img
@@ -47,17 +51,20 @@
                 class="signupmodal-hasloshape"
                 th:src="@{/img/hasloshape1542-c9f-200h.png}"
               />
-              <input type="password" class="signupmodal-text08" placeholder="Hasło"/>
+              <input type="password"
+                     class="signupmodal-text08"
+                     placeholder="Hasło"
+              th:field="*{password}"/>
             </div>
-            <div class="signupmodal-haslo2input">
-              <img
-                      alt="Haslo2shape1542"
-                      src="../static/img/haslo2shape1542-8wyn-200h.png"
-                      class="signupmodal-haslo2shape"
-                      th:src="@{/img/haslo2shape1542-8wyn-200h.png}"
-              />
-              <input type="password" class="signupmodal-text08" placeholder="Powtórz hasło"/>
-                </div>
+<!--            <div class="signupmodal-haslo2input">-->
+<!--              <img-->
+<!--                      alt="Haslo2shape1542"-->
+<!--                      src="../static/img/haslo2shape1542-8wyn-200h.png"-->
+<!--                      class="signupmodal-haslo2shape"-->
+<!--                      th:src="@{/img/haslo2shape1542-8wyn-200h.png}"-->
+<!--              />-->
+<!--              <input type="password" class="signupmodal-text08" placeholder="Powtórz hasło"/>-->
+<!--                </div>-->
               </div>
             <button type="submit" class="signupmodal-zarejestrujbutton">
             <img

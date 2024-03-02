@@ -1191,6 +1191,13 @@ body {
   letter-spacing: -20px;
 }
 
+.not-found-container {
+  width: 421px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
 .not-found-container2 {
   width: 421px;
   display: flex;
