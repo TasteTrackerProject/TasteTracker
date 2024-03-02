@@ -43,13 +43,13 @@
                 <span class="home-text10">ZALOGUJ</span>
             </a>
 
-            <a class="home-button-log-in"  href="#"
+            <a class="home-button-log-out"  href="#"
                th:href="@{/logout}"
                sec:authorize="isAuthenticated()">
                 <span class="home-text10">WYLOGUJ</span>
             </a>
 
-            <a class="home-button-sign-up" href="#" th:href="@{/registration}">
+            <a class="home-button-sign-up" href="#" th:href="@{/registration}" sec:authorize="!isAuthenticated()">
                 <span class="home-text12">DOŁĄCZ</span>
             </a>
         </div>
