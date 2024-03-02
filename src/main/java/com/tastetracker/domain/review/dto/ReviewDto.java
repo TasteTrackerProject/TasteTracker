@@ -12,4 +12,5 @@ public class ReviewDto
 {
     private String login;
     private String reviewContent;
+    private String date;
 }
