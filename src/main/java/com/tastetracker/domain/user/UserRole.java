@@ -10,7 +10,6 @@ import lombok.NoArgsConstructor;
 
 @Entity
 @Data
-@Table(name = "user_roles")
 @NoArgsConstructor
 public class UserRole
 {
