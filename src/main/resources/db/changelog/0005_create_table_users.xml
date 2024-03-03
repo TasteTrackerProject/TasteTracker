@@ -16,6 +16,7 @@
                 <constraints unique="true"/>
             </column>
             <column name="password" type="VARCHAR(200)"/>
+            <column name="enabled" type="BOOLEAN"/>
         </createTable>
     </changeSet>
 

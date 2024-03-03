@@ -29,7 +29,7 @@
                 class="signupmodal-imieshape"
                 th:src="@{/img/imieshape1564-30qb-200h.png}"
               />
-                <input type="text" class="signupmodal-text08" placeholder="Login" id="login" th:field="*{login}"/>
+                <input type="text" class="signupmodal-text08" placeholder="Login" id="login" th:field="*{login}" required/>
             </div>
             <div class="signupmodal-adresinput">
               <img
@@ -42,7 +42,8 @@
                      class="signupmodal-text08"
                      placeholder="Adres e-mail"
                      id="user_email"
-                     th:field="*{email}"/>
+                     th:field="*{email}"
+                     required/>
             </div>
             <div class="signupmodal-hasloinput">
               <img
@@ -54,7 +55,8 @@
               <input type="password"
                      class="signupmodal-text08"
                      placeholder="Hasło"
-              th:field="*{password}"/>
+              th:field="*{password}"
+                     required/>
             </div>
 <!--            <div class="signupmodal-haslo2input">-->
 <!--              <img-->
