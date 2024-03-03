@@ -1,7 +1,7 @@
-package com.tastetracker.domain.review;
+package com.tastetracker.domain.rating;
 
-import com.tastetracker.domain.rating.Rating;
 import com.tastetracker.domain.restaurant.Restaurant;
+import com.tastetracker.domain.review.Review;
 import com.tastetracker.domain.user.User;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -9,17 +9,15 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.Data;
-
-import java.time.LocalDateTime;
-import java.util.Set;
+import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "restaurant_reviews")
+@Table(name = "restaurant_rating")
 @Data
-public class Review
+@NoArgsConstructor
+public class Rating
 {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,12 +28,10 @@ public class Review
     @ManyToOne
     @JoinColumn(name = "restaurant_id")
     private Restaurant restaurant;
-    private String content;
-    private LocalDateTime createdAt;
-    @OneToMany(mappedBy = "review")
-    private Set<Rating> ratings;
-    public Review()
-    {
-        this.createdAt = LocalDateTime.now();
-    }
+    @ManyToOne
+    @JoinColumn(name = "review_id")
+    private Review review;
+    private int ratingTaste;
+    private int ratingAtmosphere;
+    private int ratingService;
 }

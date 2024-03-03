@@ -20,5 +20,6 @@
     <include file="../testdata/0003_category.sql" relativeToChangelogFile="true" context="dev"/>
     <include file="../testdata/0004_restaurant_category.sql" relativeToChangelogFile="true" context="dev"/>
     <include file="../testdata/0005_users_and_roles.sql" relativeToChangelogFile="true" context="dev"/>
-    <include file="../testdata/0006_reviews.sql" relativeToChangelogFile="true" context="dev"/>
+<!--    <include file="../testdata/0006_reviews.sql" relativeToChangelogFile="true" context="dev"/>-->
+<!--    <include file="../testdata/0007_ratings.sql" relativeToChangelogFile="true" context="dev"/>-->
 </databaseChangeLog>

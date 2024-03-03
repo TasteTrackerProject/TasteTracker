@@ -13,4 +13,7 @@ public class ReviewDto
     private String login;
     private String reviewContent;
     private String date;
+    private int ratingTaste;
+    private int ratingAtmosphere;
+    private int ratingService;
 }
