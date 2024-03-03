@@ -26,4 +26,11 @@ public class HomeController
         model.addAttribute( "restaurants", allPromotedRestaurants );
         return "index";
     }
+
+    @GetMapping
+    @RequestMapping("/contact")
+    public String getContact()
+    {
+        return "contact";
+    }
 }
