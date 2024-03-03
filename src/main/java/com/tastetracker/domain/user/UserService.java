@@ -1,6 +1,8 @@
 package com.tastetracker.domain.user;
 
 import com.tastetracker.config.security.SystemRoles;
+import com.tastetracker.config.token.VeryficationToken;
+import com.tastetracker.config.token.VeryficationTokenRepository;
 import com.tastetracker.domain.user.dto.UserCredentialsDto;
 import com.tastetracker.domain.user.dto.UserDto;
 import com.tastetracker.domain.user.dto.UserRegistrationDto;
@@ -16,9 +18,10 @@ import java.util.Optional;
 public class UserService
 {
 
-    public final UserRepository userRepository;
-    public final UserRoleRepository userRoleRepository;
-    public final PasswordEncoder passwordEncoder;
+    private final UserRepository userRepository;
+    private final UserRoleRepository userRoleRepository;
+    private final PasswordEncoder passwordEncoder;
+    private final VeryficationTokenRepository veryficationTokenRepository;
 
 
 
@@ -29,7 +32,7 @@ public class UserService
     }
 
     @Transactional
-    public void registerUserWithDefaultRole( UserRegistrationDto userRegistration )
+    public User registerUserWithDefaultRole( UserRegistrationDto userRegistration )
     {
         UserRole userRole = userRoleRepository.findByName( SystemRoles.USER.getRole() ).orElseThrow();
         User user = new User();
@@ -39,7 +42,7 @@ public class UserService
         user.setPassword( passwordEncoder.encode( userRegistration.getPassword() ) );
         user.getRoles().add( userRole );
         userRepository.save( user );
-
+        return user;
     }
 
     public Optional<UserDto> findUserByLogin( String login )
@@ -48,4 +51,23 @@ public class UserService
             .map( UserDtoMapper::map );
     }
 
+    public void createVeryficationToken( User user, String token )
+    {
+        VeryficationToken tokenToSave = new VeryficationToken();
+        tokenToSave.setToken( token );
+        tokenToSave.setUser( user );
+
+        veryficationTokenRepository.save( tokenToSave );
+    }
+
+    public Optional<VeryficationToken> getVeryficationToken( String veryficationToken )
+    {
+        return veryficationTokenRepository.findByToken( veryficationToken );
+    }
+
+    @Transactional
+    public void setUserEnabled( User user )
+    {
+        user.setEnabled( true );
+    }
 }
