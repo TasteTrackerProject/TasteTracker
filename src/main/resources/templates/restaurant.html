@@ -18,22 +18,35 @@
         <div class="location-tiles">
           <div class="location-tile">
             <h4>Średnia ocen</h4>
-            <p>4/5</p>
+            <p th:unless="${rating.countRating()}">Brak głosów</p>
+            <div th:if="${rating.countRating()}">
+              <p th:text="|${#numbers.formatDecimal(rating.avgAllRatings(),1,1)}/5,0|">4.0</p>
+              <p th:text="|Liczba ocen: ${rating.countRating()}|"></p>
+            </div>
           </div>
         </div>
 
         <div class="location-tiles">
           <div class="location-tile">
             <h4>Ocena Smaku</h4>
-            <p>4/5</p>
+            <p th:unless="${rating.countRating()}">Brak głosów</p>
+            <div th:if="${rating.countRating()}">
+            <p th:text="|${#numbers.formatDecimal(rating.avgRatingTaste(),1,1)}/5,0|"></p>
+          </div>
           </div>
           <div class="location-tile">
             <h4>Ocena Atmosfery</h4>
-            <p>4/5</p>
+            <p th:unless="${rating.countRating()}">Brak głosów</p>
+            <div th:if="${rating.countRating()}">
+            <p th:text="|${#numbers.formatDecimal(rating.avgRatingAtmosphere(),1,1)}/5,0|"></p>
+          </div>
           </div>
           <div class="location-tile">
             <h4>Ocena Obsługi</h4>
-            <p>4/5</p>
+            <p th:unless="${rating.countRating()}">Brak głosów</p>
+            <div th:if="${rating.countRating()}">
+              <p th:text="|${#numbers.formatDecimal(rating.avgRatingService(),1,1)}/5,0|"></p>
+            </div>
           </div>
         </div>
       </div>
@@ -46,12 +59,42 @@
           <h3>Dodaj recenzję</h3>
           <form th:action="|/restaurant/${restaurant.id}|" method="post" th:object="${addReview}">
             <p class="review-author" th:text="|Autor: ${addReview.login}|" ></p>
+            <p></p>
+            <div class="rating-container">
+              <label for="review" class="review-author">Ocena Smaku: </label>
+              <div class="rating">
+                <input type="radio" id="star5" name="ratingTaste" value="5" th:field="*{ratingTaste}" required/><label for="star5"></label>
+                <input type="radio" id="star4" name="ratingTaste" value="4" th:field="*{ratingTaste}" /><label for="star4"></label>
+                <input type="radio" id="star3" name="ratingTaste" value="3" th:field="*{ratingTaste}" /><label for="star3"></label>
+                <input type="radio" id="star2" name="ratingTaste" value="2" th:field="*{ratingTaste}" /><label for="star2"></label>
+                <input type="radio" id="star1" name="ratingTaste" value="1" th:field="*{ratingTaste}" /><label for="star1"></label>
+              </div>
+            </div>
+            <p></p>
+            <div class="rating-container">
+              <label for="review" class="review-author">Ocena Atmosfery: </label>
+              <div class="rating">
+                <input type="radio" id="star5_2" name="ratingAtmosphere" value="5" th:field="*{ratingAtmosphere}" required/><label for="star5_2"></label>
+                <input type="radio" id="star4_2" name="ratingAtmosphere" value="4" th:field="*{ratingAtmosphere}" /><label for="star4_2"></label>
+                <input type="radio" id="star3_2" name="ratingAtmosphere" value="3" th:field="*{ratingAtmosphere}" /><label for="star3_2"></label>
+                <input type="radio" id="star2_2" name="ratingAtmosphere" value="2" th:field="*{ratingAtmosphere}" /><label for="star2_2"></label>
+                <input type="radio" id="star1_2" name="ratingAtmosphere" value="1" th:field="*{ratingAtmosphere}" /><label for="star1_2"></label>
+              </div>
+            </div>
 
-            <label for="rating">Ocena:</label>
-            <input class="restaurant-input-rating" type="number" id="rating" name="rating" min="1" max="5" required>
+            <div class="rating-container">
+              <label for="review" class="review-author">Ocena Obsługi: </label>
+              <div class="rating">
+                <input type="radio" id="star5_3" name="ratingService" value="5" th:field="*{ratingService}" required/><label for="star5_3"></label>
+                <input type="radio" id="star4_3" name="ratingService" value="4" th:field="*{ratingService}" /><label for="star4_3"></label>
+                <input type="radio" id="star3_3" name="ratingService" value="3" th:field="*{ratingService}" /><label for="star3_3"></label>
+                <input type="radio" id="star2_3" name="ratingService" value="2" th:field="*{ratingService}" /><label for="star2_3"></label>
+                <input type="radio" id="star1_3" name="ratingService" value="1" th:field="*{ratingService}" /><label for="star1_3"></label>
+              </div>
+            </div>
 
-            <label for="review">Recenzja:</label>
-            <textarea class="restaurant-input-review" rows="5" id="review" name="review" th:field="*{reviewContent}" ></textarea>
+            <label for="review" class="review-author">Recenzja:</label>
+            <textarea class="restaurant-input-review" rows="10" id="review" name="review" th:field="*{reviewContent}" ></textarea>
 
             <button type="submit"><span class="home-text12">Dodaj recenzję</span></button>
           </form>
@@ -63,7 +106,7 @@
               <h4 th:text="${review.date}"></h4>
               </div>
               <h3 class="review-author" th:text="${review.login}">Autor recenzji</h3>
-              <h3 class="review-rating">Średnia z ocen: 4/5</h3>
+              <h3 class="review-rating">Średnia z ocen: /5</h3>
               <p class="review-text" th:text="${review.reviewContent}">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vel leo vitae ligula consectetur fringilla.</p>
             </div>
           </li>

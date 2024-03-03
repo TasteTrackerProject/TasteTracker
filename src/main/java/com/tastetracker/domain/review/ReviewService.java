@@ -1,5 +1,7 @@
 package com.tastetracker.domain.review;
 
+import com.tastetracker.domain.rating.Rating;
+import com.tastetracker.domain.rating.RatingRepository;
 import com.tastetracker.domain.restaurant.Restaurant;
 import com.tastetracker.domain.restaurant.RestaurantRepository;
 import com.tastetracker.domain.review.dto.ReviewDto;
@@ -8,6 +10,7 @@ import com.tastetracker.domain.user.UserRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
 
 import java.util.List;
 
@@ -18,6 +21,7 @@ public class ReviewService
     private final ReviewRepository reviewRepository;
     private final UserRepository userRepository;
     private final RestaurantRepository restaurantRepository;
+    private final RatingRepository ratingRepository;
 
     public List<ReviewDto> getReviewForRestaurant( Long restaurantId )
     {
@@ -32,7 +36,7 @@ public class ReviewService
     }
 
     @Transactional
-    public void addReviews( long id, ReviewDto reviewDto, String login )
+    public void addReviews( long id, ReviewDto reviewDto, String login)
     {
         Review review = new Review();
         User user = userRepository.findByLogin( login ).orElseThrow();
@@ -40,6 +44,16 @@ public class ReviewService
         review.setUser( user );
         review.setRestaurant( restaurant );
         review.setContent( reviewDto.getReviewContent() );
-        reviewRepository.save( review );
+        Review save = reviewRepository.save( review );
+
+        Rating rating = new Rating();
+        rating.setRatingTaste( reviewDto.getRatingTaste() );
+        rating.setRatingAtmosphere( reviewDto.getRatingAtmosphere() );
+        rating.setRatingService( reviewDto.getRatingService() );
+        rating.setUser( user );
+        rating.setRestaurant( restaurant );
+        rating.setReview( save );
+
+        ratingRepository.save( rating );
     }
 }

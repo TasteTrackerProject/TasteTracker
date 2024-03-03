@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <changeSet id="0009" author="norbert">
+        <createTable tableName="restaurant_rating">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="user_id" type="BIGINT">
+                <constraints nullable="false"
+                             foreignKeyName="fk_restaurant_rating_user_id"
+                             referencedTableName="users"
+                             referencedColumnNames="id"
+                />
+            </column>
+            <column name="restaurant_id" type="BIGINT">
+                <constraints nullable="false"
+                             foreignKeyName="fk_restaurant_rating_restaurant_id"
+                             referencedTableName="restaurant"
+                             referencedColumnNames="id"
+                />
+            </column>
+            <column name="rating_taste" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="rating_atmosphere" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="rating_service" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="review_id" type="BIGINT">
+                <constraints nullable="false"
+                             foreignKeyName="fk_restaurant_rating_review_id"
+                             referencedTableName="restaurant_reviews"
+                             referencedColumnNames="id"
+                />
+            </column>
+        </createTable>
+        <addUniqueConstraint constraintName="unique_restaurants_rate"
+                             tableName="restaurant_rating"
+                             columnNames="user_id,restaurant_id"
+        />
+
+    </changeSet>
+</databaseChangeLog>
