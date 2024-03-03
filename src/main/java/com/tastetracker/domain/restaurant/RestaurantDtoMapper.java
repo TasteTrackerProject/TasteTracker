@@ -2,6 +2,7 @@ package com.tastetracker.domain.restaurant;
 
 import com.tastetracker.domain.restaurant.dto.RestaurantDto;
 
+
 public class RestaurantDtoMapper
 {
     static RestaurantDto map( Restaurant restaurant )

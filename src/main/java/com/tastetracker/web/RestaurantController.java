@@ -1,5 +1,7 @@
 package com.tastetracker.web;
 
+import com.tastetracker.domain.rating.RatingService;
+import com.tastetracker.domain.rating.dto.RatingDto;
 import com.tastetracker.domain.restaurant.RestaurantService;
 import com.tastetracker.domain.restaurant.dto.RestaurantDto;
 import com.tastetracker.domain.review.ReviewService;
@@ -29,12 +31,15 @@ public class RestaurantController
     private final RestaurantService restaurantService;
     private final ReviewService reviewService;
     private final UserService userService;
+    private final RatingService ratingService;
 
     @GetMapping( "/restaurant/{id}" )
     public String getRestaurant( @PathVariable long id, Model model , Authentication authentication)
     {
         Optional<RestaurantDto> optionalRestaurant = restaurantService.findByRestaurantId( id );
         List<ReviewDto> reviews = reviewService.getReviewForRestaurant( id );
+        Optional<RatingDto> optionalRatings = ratingService.getRatingByRestaurantId( id );
+
         ReviewDto addReview = new ReviewDto();
 
         if ( authentication != null )
@@ -45,12 +50,15 @@ public class RestaurantController
 
         model.addAttribute( "reviews",reviews );
         model.addAttribute( "addReview", addReview );
+        optionalRatings.ifPresent( rating -> model.addAttribute("rating", rating) );
         optionalRestaurant.ifPresent( restaurant -> model.addAttribute("restaurant", restaurant ) );
         return "restaurant";
     }
 
     @PostMapping( "/restaurant/{id}" )
-    public String addReview(@PathVariable long id, ReviewDto reviewDto){
+    public String addReview( @PathVariable long id,
+                             ReviewDto reviewDto)
+    {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String login = authentication.getName();
         UserDto user = userService.findUserByLogin( login )
