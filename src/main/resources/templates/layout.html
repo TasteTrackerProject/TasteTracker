@@ -33,7 +33,7 @@
                 <div class="home-menu">
                     <a class="home-text06" href="#" th:href="@{/}">Start</a>
                     <a class="home-text06" href="#" th:href="@{/category}">Kategorie</a>
-                    <a class="home-text06" href="#">Kontakt</a>
+                    <a class="home-text06" href="#" th:href="@{/contact}">Kontakt</a>
                     <a class="home-text06" href="#" sec:authorize="hasAnyRole('ADMIN', 'EDITOR')">Administracja</a>
                 </div>
             </div>
@@ -101,11 +101,6 @@
             <div class="home-copyrightframe">
                 <span class="home-text35">©</span>
                 <span class="home-text36"><span>2024 Taste Tracker</span></span>
-            </div>
-            <div class="home-menu1">
-                <a class="home-text40" th:href="@{/}"><span>Start</span></a>
-                <a class="home-text40"><span>O projekcie</span></a>
-                <a class="home-text40"><span>Kontakt</span></a>
             </div>
         </div>
     </div>
