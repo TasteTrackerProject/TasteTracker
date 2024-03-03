@@ -12,6 +12,7 @@
     <include file="0006_create_table_user_role.xml" relativeToChangelogFile="true" />
     <include file="0007_create_table_user_roles.xml" relativeToChangelogFile="true" />
     <include file="0008_create_table_reviews.xml" relativeToChangelogFile="true" />
+    <include file="0009_create_table_veryfication_token.xml" relativeToChangelogFile="true" />
 
     <!-- TEST DATA -->
     <include file="../testdata/0001_address.sql" relativeToChangelogFile="true" context="dev"/>

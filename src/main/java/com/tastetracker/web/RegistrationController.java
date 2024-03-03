@@ -1,18 +1,27 @@
 package com.tastetracker.web;
 
+import com.tastetracker.config.token.VeryficationToken;
+import com.tastetracker.domain.user.User;
 import com.tastetracker.domain.user.UserService;
 import com.tastetracker.domain.user.dto.UserRegistrationDto;
+import com.tastetracker.event.OnRegistrationCompleteEvent;
+import jakarta.servlet.http.HttpServletRequest;
 import lombok.AllArgsConstructor;
+import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import java.util.Optional;
 
 @Controller
 @AllArgsConstructor
 public class RegistrationController
 {
     private final UserService userService;
+    private final ApplicationEventPublisher eventPublisher;
     @GetMapping("/registration")
     public String loginForm( Model model )
     {
@@ -22,9 +31,24 @@ public class RegistrationController
     }
 
     @PostMapping("/registration")
-    public String register( UserRegistrationDto userRegistrationDto )
+    public String register( UserRegistrationDto userRegistrationDto, HttpServletRequest request )
     {
-        userService.registerUserWithDefaultRole( userRegistrationDto );
+        try
+        {
+            User registeredUserWithDefaultRole = userService.registerUserWithDefaultRole( userRegistrationDto );
+
+            String appUrl = request.getContextPath();
+
+            eventPublisher.publishEvent( new OnRegistrationCompleteEvent( registeredUserWithDefaultRole,
+                                                                          request.getLocale(),
+                                                                          appUrl ) );
+
+        }
+        catch ( RuntimeException ex )
+        {
+            return "redirect:404";
+        }
+
         return "redirect:/registration-success";
     }
 
@@ -33,5 +57,33 @@ public class RegistrationController
     {
         return "registration-success";
     }
+
+    @GetMapping("/account-activation")
+    public String confirmRegistration( @RequestParam("token") String token )
+    {
+        Optional<VeryficationToken> tokenFromRepository = userService.getVeryficationToken( token );
+
+        if( !tokenFromRepository.isPresent() )
+        {
+            return "redirect:404";
+        }
+
+        VeryficationToken veryficationToken = tokenFromRepository.get();
+        User user = veryficationToken.getUser();
+
+
+        userService.setUserEnabled( user );
+
+
+        return "redirect:/account-activation-success";
+    }
+
+    @GetMapping("/account-activation-success")
+    public String accountActivationSuccess( )
+    {
+        return "account-activation-success";
+    }
+
+
 
 }

@@ -3,6 +3,7 @@ package com.tastetracker.config.security;
 import com.tastetracker.domain.user.UserService;
 import com.tastetracker.domain.user.dto.UserCredentialsDto;
 import lombok.AllArgsConstructor;
+import org.springframework.security.authentication.DisabledException;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -25,10 +26,18 @@ public class CustomUserDetailsService implements UserDetailsService
 
     private UserDetails mapToUserDetails( UserCredentialsDto userCredentials )
     {
-        return User.builder()
-                .username( userCredentials.getLogin() )
-                .password( userCredentials.getPassword() )
-                .roles( userCredentials.getRoles().toArray( String[]::new ) )
-                .build();
+        UserDetails userDetails = User.builder()
+            .username( userCredentials.getLogin() )
+            .password( userCredentials.getPassword() )
+            .disabled( !userCredentials.isEnabled() )
+            .roles( userCredentials.getRoles().toArray( String[]::new ) )
+            .build();
+
+        if ( !userDetails.isEnabled() )
+        {
+            throw new DisabledException( "Twoje konto jest nieaktywne. Aktywuj konto poprzez link aktywacyjny wysłany na adres e-mail: " + userCredentials.getEmail());
+        }
+
+        return userDetails;
     }
 }

@@ -1,5 +1,6 @@
 package com.tastetracker.domain.user;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
@@ -17,7 +18,6 @@ import java.util.Set;
 
 @Entity
 @Data
-@NoArgsConstructor
 @Table(name = "users")
 public class User
 {
@@ -34,4 +34,12 @@ public class User
         inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id")
     )
     private Set<UserRole> roles = new HashSet<>();
+    @Column( name = "enabled" )
+    private boolean enabled;
+
+    public User()
+    {
+        super();
+        this.enabled = false;
+    }
 }
