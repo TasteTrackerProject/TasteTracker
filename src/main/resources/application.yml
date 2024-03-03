@@ -5,3 +5,14 @@ spring:
   liquibase:
     contexts: dev
     change-log: classpath:db/changelog/master.xml
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: tasteapptracker@gmail.com
+    password: mtegalztotmljnqh
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
