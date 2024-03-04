@@ -16,3 +16,5 @@ spring:
           auth: true
           starttls:
             enable: true
+  accountactivation:
+    template: templates/message/account-activation.html
