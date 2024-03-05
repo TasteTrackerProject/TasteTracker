@@ -17,4 +17,4 @@ spring:
           starttls:
             enable: true
   accountactivation:
-    template: templates/message/account-activation.html
+    template: templates/message/account-activation-message.html
