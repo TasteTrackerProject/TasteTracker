@@ -57,44 +57,44 @@
         </p>
         <div class="add-review-form" sec:authorize="isAuthenticated()">
           <h3>Dodaj recenzję</h3>
-          <form th:action="|/restaurant/${restaurant.id}|" method="post" th:object="${addReview}">
-            <p class="review-author" th:text="|Autor: ${addReview.login}|" ></p>
+          <form id="reviewForm" th:action="|/restaurant/${restaurant.id}|" method="post" th:object="${addReview}">
+            <p class="review-author" id="userName" th:text="${addReview.login}" ></p>
             <p></p>
             <div class="rating-container">
-              <label for="review" class="review-author">Ocena Smaku: </label>
+              <label for="star1_1" class="review-author">Ocena Smaku: </label>
               <div class="rating">
-                <input type="radio" id="star5" name="ratingTaste" value="5" th:field="*{ratingTaste}" required/><label for="star5"></label>
-                <input type="radio" id="star4" name="ratingTaste" value="4" th:field="*{ratingTaste}" /><label for="star4"></label>
-                <input type="radio" id="star3" name="ratingTaste" value="3" th:field="*{ratingTaste}" /><label for="star3"></label>
-                <input type="radio" id="star2" name="ratingTaste" value="2" th:field="*{ratingTaste}" /><label for="star2"></label>
-                <input type="radio" id="star1" name="ratingTaste" value="1" th:field="*{ratingTaste}" /><label for="star1"></label>
+                <input type="radio" id="star1_5" name="ratingTaste" value="5" th:field="*{ratingTaste}" required/><label for="star1_5"></label>
+                <input type="radio" id="star1_4" name="ratingTaste" value="4" th:field="*{ratingTaste}" /><label for="star1_4"></label>
+                <input type="radio" id="star1_3" name="ratingTaste" value="3" th:field="*{ratingTaste}" /><label for="star1_3"></label>
+                <input type="radio" id="star1_2" name="ratingTaste" value="2" th:field="*{ratingTaste}" /><label for="star1_2"></label>
+                <input type="radio" id="star1_1" name="ratingTaste" value="1" th:field="*{ratingTaste}" /><label for="star1_1"></label>
               </div>
             </div>
             <p></p>
             <div class="rating-container">
-              <label for="review" class="review-author">Ocena Atmosfery: </label>
+              <label for="star2_1" class="review-author">Ocena Atmosfery: </label>
               <div class="rating">
-                <input type="radio" id="star5_2" name="ratingAtmosphere" value="5" th:field="*{ratingAtmosphere}" required/><label for="star5_2"></label>
-                <input type="radio" id="star4_2" name="ratingAtmosphere" value="4" th:field="*{ratingAtmosphere}" /><label for="star4_2"></label>
-                <input type="radio" id="star3_2" name="ratingAtmosphere" value="3" th:field="*{ratingAtmosphere}" /><label for="star3_2"></label>
+                <input type="radio" id="star2_5" name="ratingAtmosphere" value="5" th:field="*{ratingAtmosphere}" required/><label for="star2_5"></label>
+                <input type="radio" id="star2_4" name="ratingAtmosphere" value="4" th:field="*{ratingAtmosphere}" /><label for="star2_4"></label>
+                <input type="radio" id="star2_3" name="ratingAtmosphere" value="3" th:field="*{ratingAtmosphere}" /><label for="star2_3"></label>
                 <input type="radio" id="star2_2" name="ratingAtmosphere" value="2" th:field="*{ratingAtmosphere}" /><label for="star2_2"></label>
-                <input type="radio" id="star1_2" name="ratingAtmosphere" value="1" th:field="*{ratingAtmosphere}" /><label for="star1_2"></label>
+                <input type="radio" id="star2_1" name="ratingAtmosphere" value="1" th:field="*{ratingAtmosphere}" /><label for="star1_2"></label>
               </div>
             </div>
 
             <div class="rating-container">
-              <label for="review" class="review-author">Ocena Obsługi: </label>
+              <label for="star3_1" class="review-author">Ocena Obsługi: </label>
               <div class="rating">
-                <input type="radio" id="star5_3" name="ratingService" value="5" th:field="*{ratingService}" required/><label for="star5_3"></label>
-                <input type="radio" id="star4_3" name="ratingService" value="4" th:field="*{ratingService}" /><label for="star4_3"></label>
+                <input type="radio" id="star3_5" name="ratingService" value="5" th:field="*{ratingService}" required/><label for="star3_5"></label>
+                <input type="radio" id="star3_4" name="ratingService" value="4" th:field="*{ratingService}" /><label for="star3_4"></label>
                 <input type="radio" id="star3_3" name="ratingService" value="3" th:field="*{ratingService}" /><label for="star3_3"></label>
-                <input type="radio" id="star2_3" name="ratingService" value="2" th:field="*{ratingService}" /><label for="star2_3"></label>
-                <input type="radio" id="star1_3" name="ratingService" value="1" th:field="*{ratingService}" /><label for="star1_3"></label>
+                <input type="radio" id="star3_2" name="ratingService" value="2" th:field="*{ratingService}" /><label for="star3_2"></label>
+                <input type="radio" id="star3_1" name="ratingService" value="1" th:field="*{ratingService}" /><label for="star3_1"></label>
               </div>
             </div>
 
-            <label for="review" class="review-author">Recenzja:</label>
-            <textarea class="restaurant-input-review" rows="10" id="review" name="review" th:field="*{reviewContent}" ></textarea>
+            <label for="reviewContent" class="review-author">Recenzja:</label>
+            <textarea class="restaurant-input-review" rows="10" id="reviewContent" name="reviewContent" th:field="*{reviewContent}" ></textarea>
 
             <button type="submit"><span class="home-text12">Dodaj recenzję</span></button>
           </form>
@@ -114,6 +114,7 @@
       </div>
     </div>
   </div>
+  <script defer src="../static/scripts/add-review.js" th:src="@{/scripts/add-review.js}"></script>
 </main>
 </body>
 </html>

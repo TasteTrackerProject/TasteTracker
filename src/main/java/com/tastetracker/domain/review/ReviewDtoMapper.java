@@ -7,7 +7,7 @@ import java.time.format.DateTimeFormatter;
 
 public class ReviewDtoMapper
 {
-    static ReviewDto map(Review review){
+    public static ReviewDto map( Review review ){
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern( "yyyy-MM-dd HH:mm");
         return new ReviewDto(
             review.getUser().getLogin(),

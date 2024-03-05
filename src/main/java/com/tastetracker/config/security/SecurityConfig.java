@@ -8,18 +8,24 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.crypto.factory.PasswordEncoderFactories;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.servlet.util.matcher.MvcRequestMatcher;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
+import org.springframework.web.servlet.handler.HandlerMappingIntrospector;
 
-import static org.springframework.security.config.Customizer.withDefaults;
 
 @Configuration
 public class SecurityConfig
 {
     @Bean
-    public SecurityFilterChain securityFilterChain( HttpSecurity httpSecurity ) throws Exception
+    MvcRequestMatcher.Builder mvc( HandlerMappingIntrospector introspector) {
+        return new MvcRequestMatcher.Builder(introspector);
+    }
+    @Bean
+    public SecurityFilterChain securityFilterChain( HttpSecurity httpSecurity , MvcRequestMatcher.Builder mvc) throws Exception
     {
         httpSecurity.authorizeHttpRequests( ( aut ) -> aut
             .requestMatchers( "/admin/**" ).hasAnyRole( SystemRoles.EDITOR.getRole(), SystemRoles.ADMIN.getRole() )
+                .requestMatchers(mvc.pattern(HttpMethod.POST, "/api")).hasRole("ADMIN")
             .anyRequest().permitAll()
         )
             .formLogin( login -> login
