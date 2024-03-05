@@ -25,8 +25,12 @@ public class ReviewService
 
     public List<ReviewDto> getReviewForRestaurant( Long restaurantId )
     {
-        return reviewRepository.findByRestaurant_IdOrderByCreatedAtDesc( restaurantId ).stream()
-            .map( ReviewDtoMapper::map )
+        List<Review> reviews = reviewRepository.findByRestaurant_IdOrderByCreatedAtDesc( restaurantId );
+        return reviews.stream()
+            .map( review -> {
+                List<Rating> ratings = ratingRepository.findByReviewId( review.getId() );
+                return ReviewDtoMapper.map( review ,ratings );
+            } )
             .toList();
     }
 

@@ -7,4 +7,5 @@ import java.util.List;
 public interface RatingRepository extends CrudRepository<Rating, Long>
 {
     List<Rating> findByRestaurant_Id( Long restaurantId);
+    List<Rating> findByReviewId(Long reviewId);
 }
