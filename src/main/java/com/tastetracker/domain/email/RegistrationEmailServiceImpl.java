@@ -2,6 +2,7 @@ package com.tastetracker.domain.email;
 
 import jakarta.mail.MessagingException;
 import jakarta.mail.internet.MimeMessage;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.mail.SimpleMailMessage;
@@ -13,15 +14,13 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 
 @Service
+@RequiredArgsConstructor
 public class RegistrationEmailServiceImpl
     implements EmailService
 {
     private final JavaMailSender mailSender;
 
-    public RegistrationEmailServiceImpl( JavaMailSender mailSender )
-    {
-        this.mailSender = mailSender;
-    }
+
 
     @Value( "${spring.mail.username}" )
     private String applicationEmail;

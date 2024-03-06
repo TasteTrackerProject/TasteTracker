@@ -7,7 +7,7 @@ import com.tastetracker.event.OnRegistrationCompleteEvent;
 import jakarta.mail.MessagingException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.transaction.Transactional;
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.ApplicationListener;
@@ -19,6 +19,7 @@ import java.io.IOException;
 import java.util.UUID;
 
 @Component
+@RequiredArgsConstructor
 public class RegistrationListener implements ApplicationListener<OnRegistrationCompleteEvent>
 {
 
@@ -26,12 +27,6 @@ public class RegistrationListener implements ApplicationListener<OnRegistrationC
     private final UserService userService;
     @Value( "${spring.accountactivation.template}" )
     private String templateToConfirmationEmailPath;
-
-    public RegistrationListener( RegistrationEmailServiceImpl registrationEmailService, UserService userService )
-    {
-        this.registrationEmailService = registrationEmailService;
-        this.userService = userService;
-    }
 
     @SneakyThrows
     @Override
