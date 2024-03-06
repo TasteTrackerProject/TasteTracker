@@ -1,53 +1,30 @@
 package com.tastetracker.event;
 
-import com.tastetracker.domain.user.User;
+
+import com.tastetracker.domain.user.dto.UserRegistrationDto;
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.context.ApplicationEvent;
 
-import java.util.Locale;
-
-
-
+@Getter
+@Setter
 public class OnRegistrationCompleteEvent extends ApplicationEvent
 {
-    private String appUrl;
-    private Locale locale;
-    private User user;
+    private UserRegistrationDto userRegistrationDto;
 
-    public OnRegistrationCompleteEvent( User user, Locale locale, String appUrl )
+    public OnRegistrationCompleteEvent( UserRegistrationDto userRegistrationDto )
     {
-        super( user );
-        this.user = user;
-        this.locale = locale;
-        this.appUrl = appUrl;
+        super( userRegistrationDto );
+        this.userRegistrationDto = userRegistrationDto;
     }
 
-    public String getAppUrl()
+    public UserRegistrationDto getUserRegistrationDto()
     {
-        return appUrl;
+        return userRegistrationDto;
     }
 
-    public void setAppUrl( String appUrl )
+    public void setUserRegistrationDto( UserRegistrationDto userRegistrationDto )
     {
-        this.appUrl = appUrl;
-    }
-
-    public Locale getLocale()
-    {
-        return locale;
-    }
-
-    public void setLocale( Locale locale )
-    {
-        this.locale = locale;
-    }
-
-    public User getUser()
-    {
-        return user;
-    }
-
-    public void setUser( User user )
-    {
-        this.user = user;
+        this.userRegistrationDto = userRegistrationDto;
     }
 }

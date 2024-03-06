@@ -23,8 +23,6 @@
                 />
             </column>
 
-            <column name="expiry_date" type="TIMESTAMP"/>
-
         </createTable>
     </changeSet>
 </databaseChangeLog>

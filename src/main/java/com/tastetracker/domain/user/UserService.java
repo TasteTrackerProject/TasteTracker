@@ -51,7 +51,7 @@ public class UserService
             .map( UserDtoMapper::map );
     }
 
-    public void createVeryficationToken( User user, String token )
+    public void saveVeryficationToken( User user, String token )
     {
         VeryficationToken tokenToSave = new VeryficationToken();
         tokenToSave.setToken( token );
