@@ -34,7 +34,7 @@
                     <a class="home-text06" href="#" th:href="@{/}">Start</a>
                     <a class="home-text06" href="#" th:href="@{/category}">Kategorie</a>
                     <a class="home-text06" href="#" th:href="@{/contact}">Kontakt</a>
-                    <a class="home-text06" href="#" sec:authorize="hasAnyRole('ADMIN', 'EDITOR')">Administracja</a>
+                    <a class="home-text06" href="#" sec:authorize="hasAnyRole('ADMIN', 'EDITOR')" th:href="@{/admin}">Administracja</a>
                 </div>
             </div>
             <a class="home-button-log-in"  href="#"

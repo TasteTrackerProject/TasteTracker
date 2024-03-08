@@ -6,5 +6,6 @@ import java.util.Optional;
 
 public interface CategoryRepository extends CrudRepository<Category,Long>
 {
-    Optional<Category> findByNameIgnoreCase(String name);
+    Optional<Category> findByNameIgnoreCase( String name );
+    boolean existsByName( String name );
 }

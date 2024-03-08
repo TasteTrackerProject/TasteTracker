@@ -1195,7 +1195,7 @@ body {
   border-radius: 4px;
   opacity: 0.8;
 }
-/*Usunięcie przezroczystości po najechaniu na przycisk*/
+
 .movie-rating-button:hover {
   opacity: 1;
 }
@@ -1353,3 +1353,121 @@ body {
   text-align: center;
   font-weight: 400;
 }
+
+.admin-options-container {
+  width: 90%;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.admin-option-item {
+  flex-basis: 40%;
+  box-sizing: border-box;
+  border: 1px solid #ddd;
+  padding: 10px;
+  background-color: #fff;
+}
+
+.admin-option-item a {
+  text-decoration: none;
+  color: black;
+  font-size: 16px;
+  text-align: center;
+  display: block;
+}
+
+.config-container {
+  width: 90%;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.category-add-form-template {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.category-name,
+.posterFile-label {
+  text-align: center;
+  margin-bottom: 10px; /* Domyślny odstęp */
+}
+
+.category-name-add-name-input,
+.posterFile {
+  font-size: 15px;
+  border: 1px solid rgba(232, 226, 226, 1);
+  border-radius: 15px;
+  background-color: rgba(255, 255, 255, 1);
+  padding: 10px;
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+}
+
+.administration-button-accept {
+  width: 220px;
+  height: 40px;
+  font-size: 20px;
+  padding: 12px 16px;
+  margin-top: 10px;
+  border: 1px solid rgba(150, 150, 150, 0.63);
+  border-radius: 6px;
+  background-color: transparent;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.3s ease;
+}
+
+.administration-button-accept:hover {
+  background-color: #000;
+  color: #fff;
+}
+
+.category-name,
+.posterFile-label,
+.posterFile {
+  color: rgba(0, 0, 0, 1);
+}
+
+.category-name {
+  font-size: 25px;
+  font-weight: 600;
+}
+
+.posterFile-label {
+  font-size: 25px;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.notyfication-container {
+  width: 90%;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.notyfication-bar {
+  font-size: 25px;
+  font-weight: 600;
+}
+
+
+
+

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pl"
+      xmlns:th="https://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta property="twitter:card" content="summary_large_image" />
+    <link rel="stylesheet" href="/styles/style.css"/>
+</head>
+<body>
+<main>
+    <div class="home-container">
+        <h1>NOWA KATEGORIA</h1>
+        <form action="#" th:action="@{/admin/add-category}" method="post" class="category-add-form-template" th:object="${category}">
+            <label for="categoryName" class="category-name">Nazwa</label>
+            <input type="text"
+                   id="categoryName"
+                   class="category-name-add-name-input"
+                   placeholder="Podaj nazwę nowej kategorii"
+                   maxlength="30"
+                   th:field="${category.name}"
+                   required>
+<!--            <div></div>-->
+<!--            <label for="posterFile" class="posterFile-label">Banner</label>-->
+<!--            <input type="file"-->
+<!--                   id="posterFile"-->
+<!--                   class="posterFile"-->
+<!--                   accept="image/png, image/jpeg">-->
+            <button type="submit" class="administration-button-accept" >Zapisz</button>
+        </form>
+
+    </div>
+</main>
+</body>
+</html>
