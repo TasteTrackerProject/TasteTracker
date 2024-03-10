@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pl"
+      xmlns:th="https://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<body>
+<main class="main-content" layout:fragment="content">
+    <div class="administration-panel-options-container">
+        <div class="admin-options-container">
+            <div class="admin-option-item">
+                <a href="#" id="add-category-link" class="home-text06">Dodaj nową kategorię</a>
+            </div>
+            <div class="admin-option-item">
+                <a href="#" id="add-restaurant-link" class="home-text06">Dodaj nową restaurację</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="notyfication-container">
+        <p class="notyfication-bar" th:if="${notyfication}" th:text="${notyfication}">Powiadomienie</p>
+    </div>
+
+    <div id="config-container" class="config-container">
+
+    </div>
+    <script src="../static/scripts/jQuery-3.7.1.js"
+            th:src="@{/scripts/jQuery-3.7.1.js}"></script>
+
+    <script src="../static/scripts/administration-panel-scripts.js"
+            th:src="@{/scripts/administration-panel-scripts.js}" defer="defer"></script>
+</main>
+</body>
+</html>

@@ -1,8 +1,12 @@
 package com.tastetracker.domain.category.dto;
 
+
+import lombok.Builder;
+
 import java.util.Set;
 
-public record CategoryDto(Long id,String name, Set<String> restaurant)
+@Builder
+public record CategoryDto( Long id, String name, Set<String> restaurant )
 {
 }
 
