@@ -8,7 +8,8 @@ import java.util.List;
 
 public class ReviewDtoMapper
 {
-    static ReviewDto map( Review review, List<Rating> ratings){
+    static ReviewDto map( Review review, List<Rating> ratings)
+    {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern( "yyyy-MM-dd HH:mm");
         int ratingTaste = ratings.stream().mapToInt( Rating::getRatingTaste ).sum();
         int ratingAtmosphere = ratings.stream().mapToInt( Rating::getRatingAtmosphere ).sum();
@@ -20,6 +21,19 @@ public class ReviewDtoMapper
             ratingTaste,
             ratingAtmosphere,
             ratingService
+        );
+    }
+
+    static ReviewDto mapApiResponse( Review review, Rating rating)
+    {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern( "yyyy-MM-dd HH:mm");
+        return new ReviewDto(
+            review.getUser().getLogin(),
+            review.getContent(),
+            review.getCreatedAt().format( formatter ),
+            rating.getRatingTaste(),
+            rating.getRatingAtmosphere(),
+            rating.getRatingService()
         );
     }
 }

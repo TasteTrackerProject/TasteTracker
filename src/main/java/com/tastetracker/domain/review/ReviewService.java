@@ -11,7 +11,6 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-
 import java.util.List;
 
 @Service
@@ -40,7 +39,7 @@ public class ReviewService
     }
 
     @Transactional
-    public void addReviews( long id, ReviewDto reviewDto, String login)
+    public ReviewDto addReviews( long id, ReviewDto reviewDto, String login)
     {
         Review review = new Review();
         User user = userRepository.findByLogin( login ).orElseThrow();
@@ -59,5 +58,6 @@ public class ReviewService
         rating.setReview( save );
 
         ratingRepository.save( rating );
+        return ReviewDtoMapper.mapApiResponse( review,rating );
     }
 }
