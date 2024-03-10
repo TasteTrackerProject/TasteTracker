@@ -28,8 +28,8 @@ public class SecurityConfig
     {
         httpSecurity.authorizeHttpRequests(  aut  -> aut
                 .requestMatchers( "/admin/**" ).hasAnyRole( SystemRoles.EDITOR.getRole(), SystemRoles.ADMIN.getRole() )
-                .requestMatchers(mvc.pattern(HttpMethod.POST, "/api/restaurant/**")).hasAnyRole(SystemRoles.EDITOR.getRole(),SystemRoles.ADMIN.getRole(),SystemRoles.USER.getRole())
-                .requestMatchers( mvc.pattern( HttpMethod.GET, "/api/restaurant/rating/**" ) ).permitAll()
+                .requestMatchers(mvc.pattern(HttpMethod.POST, "/api/review/**")).hasAnyRole(SystemRoles.EDITOR.getRole(),SystemRoles.ADMIN.getRole(),SystemRoles.USER.getRole())
+                .requestMatchers( mvc.pattern( HttpMethod.GET, "/api/review/rating/**" ) ).permitAll()
                 .anyRequest().permitAll()
         )
             .formLogin( login -> login
