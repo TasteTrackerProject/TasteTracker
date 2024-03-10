@@ -34,14 +34,7 @@ public class ReviewRestController
     public ResponseEntity<ReviewDto> addReview( @PathVariable long restaurantId,
                                            @RequestBody ReviewDto reviewDto)
     {
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        String login = authentication.getName();
-        UserDto user = userService.findUserByLogin( login )
-            .orElseThrow( () -> new ResponseStatusException( HttpStatus.NOT_FOUND ) );
-                        if ( reviewService.hasUserReviewsRestaurant( user.id(), restaurantId ))
-                        {
-                            return ResponseEntity.status( HttpStatus.CONFLICT ).build();
-                        }
+        String login = getLoginFromContext();
         ReviewDto savedReview = reviewService.addReviews( restaurantId, reviewDto, login );
         return ResponseEntity.ok(savedReview);
     }
@@ -55,11 +48,16 @@ public class ReviewRestController
     @GetMapping("/checkReviewStatus/{restaurantId}")
     public ResponseEntity<Boolean> checkReviewStatus( @PathVariable long restaurantId)
     {
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        String login = authentication.getName();
+        String login = getLoginFromContext();
         UserDto user = userService.findUserByLogin( login )
             .orElseThrow( () -> new ResponseStatusException( HttpStatus.NOT_FOUND ) );
         boolean hasUserReviews = reviewService.hasUserReviewsRestaurant( user.id(), restaurantId );
         return ResponseEntity.ok(hasUserReviews);
+    }
+
+    private static String getLoginFromContext()
+    {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        return authentication.getName();
     }
 }
