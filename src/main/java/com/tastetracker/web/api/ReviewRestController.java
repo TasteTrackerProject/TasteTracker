@@ -19,40 +19,43 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
-
 @RestController
-@RequestMapping("/api/review")
+@RequestMapping( "/api/review" )
 @AllArgsConstructor
 public class ReviewRestController
 {
 
     private final UserService userService;
+
     private final ReviewService reviewService;
+
     private final RatingService ratingService;
 
     @PostMapping( "/{restaurantId}" )
     public ResponseEntity<ReviewDto> addReview( @PathVariable long restaurantId,
-                                           @RequestBody ReviewDto reviewDto)
+                                                @RequestBody ReviewDto reviewDto )
     {
         String login = getLoginFromContext();
         ReviewDto savedReview = reviewService.addReviews( restaurantId, reviewDto, login );
-        return ResponseEntity.ok(savedReview);
+        return ResponseEntity.ok( savedReview );
     }
 
-    @GetMapping("/rating/{restaurantId}")
-    public ResponseEntity<RatingDto> getRating(@PathVariable long restaurantId){
+    @GetMapping( "/rating/{restaurantId}" )
+    public ResponseEntity<RatingDto> getRating( @PathVariable long restaurantId )
+    {
         RatingDto ratingDto = ratingService.getRatingByRestaurantId( restaurantId )
             .orElseThrow( () -> new ResponseStatusException( HttpStatus.NOT_FOUND ) );
-        return ResponseEntity.ok(ratingDto);
+        return ResponseEntity.ok( ratingDto );
     }
-    @GetMapping("/checkReviewStatus/{restaurantId}")
-    public ResponseEntity<Boolean> checkReviewStatus( @PathVariable long restaurantId)
+
+    @GetMapping( "/checkReviewStatus/{restaurantId}" )
+    public ResponseEntity<Boolean> checkReviewStatus( @PathVariable long restaurantId )
     {
         String login = getLoginFromContext();
         UserDto user = userService.findUserByLogin( login )
             .orElseThrow( () -> new ResponseStatusException( HttpStatus.NOT_FOUND ) );
         boolean hasUserReviews = reviewService.hasUserReviewsRestaurant( user.id(), restaurantId );
-        return ResponseEntity.ok(hasUserReviews);
+        return ResponseEntity.ok( hasUserReviews );
     }
 
     private static String getLoginFromContext()

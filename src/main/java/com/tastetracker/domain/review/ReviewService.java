@@ -18,8 +18,11 @@ import java.util.List;
 public class ReviewService
 {
     private final ReviewRepository reviewRepository;
+
     private final UserRepository userRepository;
+
     private final RestaurantRepository restaurantRepository;
+
     private final RatingRepository ratingRepository;
 
     public List<ReviewDto> getReviewForRestaurant( Long restaurantId )
@@ -28,18 +31,18 @@ public class ReviewService
         return reviews.stream()
             .map( review -> {
                 List<Rating> ratings = ratingRepository.findByReviewId( review.getId() );
-                return ReviewDtoMapper.map( review ,ratings );
+                return ReviewDtoMapper.map( review, ratings );
             } )
             .toList();
     }
 
     public boolean hasUserReviewsRestaurant( Long userId, Long restaurantId )
     {
-        return reviewRepository.existsByUserIdAndRestaurantId( userId,restaurantId );
+        return reviewRepository.existsByUserIdAndRestaurantId( userId, restaurantId );
     }
 
     @Transactional
-    public ReviewDto addReviews( long id, ReviewDto reviewDto, String login)
+    public ReviewDto addReviews( long id, ReviewDto reviewDto, String login )
     {
         Review review = new Review();
         User user = userRepository.findByLogin( login ).orElseThrow();
@@ -58,6 +61,6 @@ public class ReviewService
         rating.setReview( save );
 
         ratingRepository.save( rating );
-        return ReviewDtoMapper.mapApiResponse( review,rating );
+        return ReviewDtoMapper.map( review, rating );
     }
 }
