@@ -18,10 +18,11 @@
         <div class="location-tiles">
           <div class="location-tile">
             <h4>Średnia ocen</h4>
-            <p th:unless="${rating.countRating()}">Brak głosów</p>
-            <div th:if="${rating.countRating()}">
-              <p th:text="|${#numbers.formatDecimal(rating.avgAllRatings(),1,1)}/5,0|">4.0</p>
-              <p th:text="|Liczba ocen: ${rating.countRating()}|"></p>
+            <div >
+            </div>
+            <div id="countRatingsApi" >
+              <p id="avgAllRatings"  th:text="|${#numbers.formatDecimal(rating.avgAllRatings(),1,1)}/5,0|">4.0</p>
+              <p id="countRatings" th:text="|Liczba ocen: ${rating.countRating()}|"></p>
             </div>
           </div>
         </div>
@@ -29,23 +30,20 @@
         <div class="location-tiles">
           <div class="location-tile">
             <h4>Ocena Smaku</h4>
-            <p th:unless="${rating.countRating()}">Brak głosów</p>
-            <div th:if="${rating.countRating()}">
-            <p th:text="|${#numbers.formatDecimal(rating.avgRatingTaste(),1,1)}/5,0|"></p>
+            <div >
+            <p id="avgRatingTaste" th:text="|${#numbers.formatDecimal(rating.avgRatingTaste(),1,1)}/5,0|"></p>
           </div>
           </div>
           <div class="location-tile">
             <h4>Ocena Atmosfery</h4>
-            <p th:unless="${rating.countRating()}">Brak głosów</p>
-            <div th:if="${rating.countRating()}">
-            <p th:text="|${#numbers.formatDecimal(rating.avgRatingAtmosphere(),1,1)}/5,0|"></p>
+            <div >
+            <p id="avgRatingAtmosphere" th:text="|${#numbers.formatDecimal(rating.avgRatingAtmosphere(),1,1)}/5,0|"></p>
           </div>
           </div>
           <div class="location-tile">
             <h4>Ocena Obsługi</h4>
-            <p th:unless="${rating.countRating()}">Brak głosów</p>
-            <div th:if="${rating.countRating()}">
-              <p th:text="|${#numbers.formatDecimal(rating.avgRatingService(),1,1)}/5,0|"></p>
+            <div>
+              <p id="avgRatingService" th:text="|${#numbers.formatDecimal(rating.avgRatingService(),1,1)}/5,0|"></p>
             </div>
           </div>
         </div>
@@ -55,10 +53,12 @@
         <p class="review" sec:authorize="!isAuthenticated()">
           <a href="#" th:href="@{/login}">Zaloguj się</a>, aby dodać komentarz
         </p>
-        <div class="add-review-form" sec:authorize="isAuthenticated()">
-          <h3>Dodaj recenzję</h3>
-          <form th:action="|/restaurant/${restaurant.id}|" method="post" th:object="${addReview}">
-            <p class="review-author" th:text="|Autor: ${addReview.login}|" ></p>
+        <div class="add-review-form" sec:authorize="isAuthenticated()" id="add-review-container">
+          <button id="toggleFormButton"><span class="home-text12">Dodaj recenzję</span></button>
+
+          <form id="addReviewForm" th:action="|/api/review/${restaurant.id}|" method="post" th:object="${addReview}">
+            <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+            <p class="review-author" th:text="|Autor: ${addReview.login}|" id="authorElement">></p>
             <p></p>
             <div class="rating-container">
               <label for="review" class="review-author">Ocena Smaku: </label>
@@ -99,8 +99,9 @@
             <button type="submit"><span class="home-text12">Dodaj recenzję</span></button>
           </form>
         </div>
-        <ul class="review-list">
-          <li th:each="review : ${reviews}">
+        <div id="response-container">
+        <ul id="review-list"  class="review-list">
+          <li  th:each="review : ${reviews}">
             <div class="review">
               <div class="review-date">
               <h4 th:text="${review.date}"></h4>
@@ -111,9 +112,11 @@
             </div>
           </li>
         </ul>
+        </div>
       </div>
     </div>
   </div>
+  <script defer src="../static/scripts/add-review.js" th:src="@{/scripts/add-review.js}"></script>
 </main>
 </body>
 </html>
