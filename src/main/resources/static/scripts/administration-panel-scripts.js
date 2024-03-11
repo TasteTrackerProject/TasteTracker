@@ -1,68 +1,60 @@
-$( document ).ready( function ()
+document.addEventListener('DOMContentLoaded', function ()
 {
-    let configContainer = $( "#config-container" );
-    let notificationContainer = $( ".notyfication-container" );
+    let configContainer = document.querySelector( '.config-container' );
+    let notificationContainer = document.querySelector( '.notyfication-container' );
 
-    function checkAndHideConfigContainer()
+    function hideConfigContainer()
     {
-        let isConfigContainerEmpty = configContainer.html().trim() === "";
-        if ( isConfigContainerEmpty )
-        {
-            configContainer.hide();
-        }
+        configContainer.style.display = 'none';
     }
 
-    function checkAndShowConfigContainer()
+    function showConfigContainer()
     {
-        let isConfigContainerEmpty = configContainer.html().trim() === "";
-        if ( !isConfigContainerEmpty )
-        {
-            configContainer.show();
-        }
+        configContainer.style.display = 'block';
     }
 
     function resetNotification()
     {
-        notificationContainer.hide();
-        $( ".notyfication-bar" ).text( "" );
+        notificationContainer.style.display = 'none';
+        document.querySelector( '.notyfication-bar' ).innerText = '';
     }
 
     function loadConfigurationPage( url, containerSelector )
     {
-        $.get( url, function ( data )
-        {
-            $( containerSelector ).html(data);
-
-
-            let notificationBar = $( ".notyfication-bar");
-            if ( notificationBar.length > 0 )
+        fetch( url )
+            .then( response => response.text() )
+            .then( data =>
             {
-                let notificationText = notificationBar.text();
-                if ( notificationText.trim() !== "" )
-                {
-                    notificationContainer.show();
-                }
-                else
-                {
-                    notificationContainer.hide();
-                }
-            }
+                document.querySelector( containerSelector ).innerHTML = data;
 
-            checkAndShowConfigContainer();
-        });
+                let notificationBar = document.querySelector( '.notyfication-bar' );
+                if ( notificationBar )
+                {
+                    let notificationText = notificationBar.innerText.trim();
+                    if ( notificationText !== '' )
+                    {
+                        notificationContainer.style.display = 'block';
+                    }
+                    else
+                    {
+                        notificationContainer.style.display = 'none';
+                    }
+                }
+
+                showConfigContainer();
+            } )
+            .catch( error => console.error( 'Error with getting data!', error ) );
     }
 
-    checkAndHideConfigContainer();
+    hideConfigContainer();
 
-    $( "#add-category-link" ).click( function ()
-    {
-        loadConfigurationPage( "/admin/add-category", "#config-container" );
+    document.getElementById( 'add-category-link' ).addEventListener( 'click', function () {
+        loadConfigurationPage( '/admin/add-category', '#config-container' );
         resetNotification();
     });
 
-    $("#add-restaurant-link").click( function ()
-    {
-        loadConfigurationPage("/admin/add-restaurant", "#config-container" );
+    document.getElementById( 'add-restaurant-link' ).addEventListener( 'click', function () {
+        loadConfigurationPage( '/admin/add-restaurant', '#config-container' );
         resetNotification();
     });
 });

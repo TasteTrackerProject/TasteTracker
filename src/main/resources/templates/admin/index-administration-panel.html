@@ -16,15 +16,13 @@
         </div>
     </div>
 
-    <div class="notyfication-container">
+    <div class="notyfication-container" th:if="${notyfication}">
         <p class="notyfication-bar" th:if="${notyfication}" th:text="${notyfication}">Powiadomienie</p>
     </div>
 
     <div id="config-container" class="config-container">
 
     </div>
-    <script src="../static/scripts/jQuery-3.7.1.js"
-            th:src="@{/scripts/jQuery-3.7.1.js}"></script>
 
     <script src="../static/scripts/administration-panel-scripts.js"
             th:src="@{/scripts/administration-panel-scripts.js}" defer="defer"></script>
