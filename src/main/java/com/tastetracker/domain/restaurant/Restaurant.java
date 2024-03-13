@@ -27,4 +27,7 @@ public class Restaurant
         inverseJoinColumns = @JoinColumn( name = "category_id", referencedColumnName = "id" )
     )
     private Set<Category> category = new HashSet<>();
+    private String banner;
+    @Column(name = "approved_by_admin")
+    private boolean approved;
 }

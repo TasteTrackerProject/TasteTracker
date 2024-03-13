@@ -9,12 +9,14 @@
 <body>
 <main>
     <div class="home-container">
+        <div class="category-add-heading">
         <h1>NOWA KATEGORIA</h1>
-        <form action="#" th:action="@{/admin/add-category}" method="post" class="category-add-form-template" th:object="${category}">
-            <label for="categoryName" class="category-name">Nazwa</label>
+        </div>
+        <form action="#" th:action="@{/admin/add-category}" method="post" class="add-form-template" th:object="${category}">
+            <label for="categoryName" class="name">Nazwa</label>
             <input type="text"
                    id="categoryName"
-                   class="category-name-add-name-input"
+                   class="name-add-name-input"
                    placeholder="Podaj nazwę nowej kategorii"
                    maxlength="30"
                    th:field="${category.name}"

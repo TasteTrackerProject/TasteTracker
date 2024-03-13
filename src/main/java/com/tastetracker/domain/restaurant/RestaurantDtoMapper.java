@@ -14,7 +14,8 @@ public class RestaurantDtoMapper
                 restaurant.getAddress().getStreet(),
                 restaurant.getAddress().getCity(),
                 restaurant.getAddress().getPostalCode(),
-                restaurant.getAddress().getCountry()
+                restaurant.getAddress().getCountry(),
+                restaurant.getBanner()
         );
     }
 }

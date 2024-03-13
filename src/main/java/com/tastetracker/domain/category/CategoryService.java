@@ -55,4 +55,10 @@ public class CategoryService
 
     }
 
+    public List<CategoryDto> getAllCategories()
+    {
+        return StreamSupport.stream( categoryRepository.findAll().spliterator(), false )
+            .map( CategoryDtoMapper::map )
+            .toList();
+    }
 }
