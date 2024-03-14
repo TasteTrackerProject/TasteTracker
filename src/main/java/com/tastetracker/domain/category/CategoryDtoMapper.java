@@ -14,7 +14,7 @@ public class CategoryDtoMapper
             category.getName(),
             category.getRestaurant()
                 .stream().map( Restaurant::getName )
-                .collect( Collectors.toSet())
+                .collect( Collectors.toSet() )
         );
     }
 }

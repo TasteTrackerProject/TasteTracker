@@ -17,23 +17,29 @@ import java.time.LocalDateTime;
 import java.util.Set;
 
 @Entity
-@Table(name = "restaurant_reviews")
+@Table( name = "restaurant_reviews" )
 @Data
 public class Review
 {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue( strategy = GenerationType.IDENTITY )
     private Long id;
+
     @ManyToOne
-    @JoinColumn(name = "user_id")
+    @JoinColumn( name = "user_id" )
     private User user;
+
     @ManyToOne
-    @JoinColumn(name = "restaurant_id")
+    @JoinColumn( name = "restaurant_id" )
     private Restaurant restaurant;
+
     private String content;
+
     private LocalDateTime createdAt;
-    @OneToMany(mappedBy = "review")
+
+    @OneToMany( mappedBy = "review" )
     private Set<Rating> ratings;
+
     public Review()
     {
         this.createdAt = LocalDateTime.now();

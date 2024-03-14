@@ -20,11 +20,14 @@ import java.util.UUID;
 
 @Component
 @RequiredArgsConstructor
-public class RegistrationListener implements ApplicationListener<OnRegistrationCompleteEvent>
+public class RegistrationListener
+    implements ApplicationListener<OnRegistrationCompleteEvent>
 {
 
     private final RegistrationEmailServiceImpl registrationEmailService;
+
     private final UserService userService;
+
     @Value( "${spring.accountactivation.template}" )
     private String templateToConfirmationEmailPath;
 
@@ -36,7 +39,8 @@ public class RegistrationListener implements ApplicationListener<OnRegistrationC
         this.confirmRegistration( event );
     }
 
-    public void confirmRegistration( OnRegistrationCompleteEvent event ) throws MessagingException, IOException
+    public void confirmRegistration( OnRegistrationCompleteEvent event )
+        throws MessagingException, IOException
     {
         User registerUserWithDefaultRole = userService.registerUserWithDefaultRole( event.getUserRegistrationDto() );
 
@@ -55,7 +59,7 @@ public class RegistrationListener implements ApplicationListener<OnRegistrationC
 
     private static String getAppBaseUrl()
     {
-        HttpServletRequest request = ( ( ServletRequestAttributes ) RequestContextHolder.currentRequestAttributes() ).getRequest();
+        HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.currentRequestAttributes()).getRequest();
         String appBaseUrl = request.getRequestURL().toString().replace( request.getRequestURI(), request.getContextPath() );
 
         return appBaseUrl;

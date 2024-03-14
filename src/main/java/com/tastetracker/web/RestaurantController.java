@@ -23,11 +23,13 @@ public class RestaurantController
 {
 
     private final RestaurantService restaurantService;
+
     private final ReviewService reviewService;
+
     private final RatingService ratingService;
 
     @GetMapping( "/restaurant/{id}" )
-    public String getRestaurant( @PathVariable long id, Model model , Authentication authentication)
+    public String getRestaurant( @PathVariable long id, Model model, Authentication authentication )
     {
         Optional<RestaurantDto> optionalRestaurant = restaurantService.findByRestaurantId( id );
         List<ReviewDto> reviews = reviewService.getReviewForRestaurant( id );
@@ -41,10 +43,10 @@ public class RestaurantController
             addReview.setLogin( login );
         }
 
-        model.addAttribute( "reviews",reviews );
+        model.addAttribute( "reviews", reviews );
         model.addAttribute( "addReview", addReview );
-        optionalRatings.ifPresent( rating -> model.addAttribute("rating", rating) );
-        optionalRestaurant.ifPresent( restaurant -> model.addAttribute("restaurant", restaurant ) );
+        optionalRatings.ifPresent( rating -> model.addAttribute( "rating", rating ) );
+        optionalRestaurant.ifPresent( restaurant -> model.addAttribute( "restaurant", restaurant ) );
         return "restaurant";
     }
 }

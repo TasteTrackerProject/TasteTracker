@@ -1,6 +1,5 @@
 package com.tastetracker.domain.restaurant.dto;
 
-
 public record RestaurantDto(Long id,
                             String name,
                             boolean promoted,
@@ -8,5 +7,6 @@ public record RestaurantDto(Long id,
                             String city,
                             String postalCode,
                             String country,
-                            String category) {
+                            String category)
+{
 }

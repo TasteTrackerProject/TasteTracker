@@ -13,23 +13,24 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-
 @RestController
-@RequestMapping("/api/search")
+@RequestMapping( "/api/search" )
 @AllArgsConstructor
-public class RestaurantRestController {
+public class RestaurantRestController
+{
     private RestaurantService restaurantService;
 
-    @GetMapping(params = "name")
+    @GetMapping( params = "name" )
     public Iterable<RestaurantDto> get(
-            @Join(path = "category", alias = "c")
-            @Join(path = "address", alias = "a")
-            @Or({
-                    @Spec(path = "c.name", params = "name", spec = LikeIgnoreCase.class),
-                    @Spec(path = "name", params = "name", spec = LikeIgnoreCase.class),
-                    @Spec(path = "a.city", params = "name", spec = LikeIgnoreCase.class)
-            }) Specification<Restaurant> spec
-    ) {
-        return restaurantService.findAllRestaurants(spec);
+        @Join( path = "category", alias = "c" )
+        @Join( path = "address", alias = "a" )
+        @Or( {
+            @Spec( path = "c.name", params = "name", spec = LikeIgnoreCase.class ),
+            @Spec( path = "name", params = "name", spec = LikeIgnoreCase.class ),
+            @Spec( path = "a.city", params = "name", spec = LikeIgnoreCase.class )
+        } ) Specification<Restaurant> spec
+    )
+    {
+        return restaurantService.findAllRestaurants( spec );
     }
 }

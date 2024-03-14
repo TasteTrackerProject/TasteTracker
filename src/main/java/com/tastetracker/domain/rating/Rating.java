@@ -14,24 +14,30 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "restaurant_rating")
+@Table( name = "restaurant_rating" )
 @Data
 @NoArgsConstructor
 public class Rating
 {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue( strategy = GenerationType.IDENTITY )
     private Long id;
+
     @ManyToOne
-    @JoinColumn(name = "user_id")
+    @JoinColumn( name = "user_id" )
     private User user;
+
     @ManyToOne
-    @JoinColumn(name = "restaurant_id")
+    @JoinColumn( name = "restaurant_id" )
     private Restaurant restaurant;
+
     @ManyToOne
-    @JoinColumn(name = "review_id")
+    @JoinColumn( name = "review_id" )
     private Review review;
+
     private int ratingTaste;
+
     private int ratingAtmosphere;
+
     private int ratingService;
 }

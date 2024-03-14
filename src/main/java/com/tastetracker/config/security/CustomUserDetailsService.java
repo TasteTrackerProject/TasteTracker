@@ -12,12 +12,14 @@ import org.springframework.stereotype.Service;
 
 @Service
 @AllArgsConstructor
-public class CustomUserDetailsService implements UserDetailsService
+public class CustomUserDetailsService
+    implements UserDetailsService
 {
     private final UserService userService;
 
     @Override
-    public UserDetails loadUserByUsername( String login ) throws UsernameNotFoundException
+    public UserDetails loadUserByUsername( String login )
+        throws UsernameNotFoundException
     {
         return userService.findCredentialsByLogin( login )
             .map( this::mapToUserDetails )
@@ -35,7 +37,8 @@ public class CustomUserDetailsService implements UserDetailsService
 
         if ( !userDetails.isEnabled() )
         {
-            throw new DisabledException( "Twoje konto jest nieaktywne. Aktywuj konto poprzez link aktywacyjny wysłany na adres e-mail: " + userCredentials.getEmail());
+            throw new DisabledException(
+                "Twoje konto jest nieaktywne. Aktywuj konto poprzez link aktywacyjny wysłany na adres e-mail: " + userCredentials.getEmail() );
         }
 
         return userDetails;

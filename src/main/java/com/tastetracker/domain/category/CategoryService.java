@@ -16,14 +16,14 @@ import java.util.Optional;
 import java.util.stream.StreamSupport;
 
 @Service
-@AllArgsConstructor(access = AccessLevel.PUBLIC)
+@AllArgsConstructor( access = AccessLevel.PUBLIC )
 public class CategoryService
 {
     private final CategoryRepository categoryRepository;
 
     public List<CategoryDto> findAllCategory()
     {
-        return StreamSupport.stream( categoryRepository.findAll().spliterator(),false )
+        return StreamSupport.stream( categoryRepository.findAll().spliterator(), false )
             .map( CategoryDtoMapper::map )
             .toList();
     }
@@ -40,7 +40,7 @@ public class CategoryService
     {
         String newCategoryName = StringCustomFunctions.formatTextFirstLetterBig( dto.getName() );
 
-        if( categoryRepository.existsByName( newCategoryName ) )
+        if ( categoryRepository.existsByName( newCategoryName ) )
         {
             throw new CategoryAlreadyExsistsException( "Błąd! Kategoria - " + newCategoryName + ", znajduje się już w systemie!" );
         }
