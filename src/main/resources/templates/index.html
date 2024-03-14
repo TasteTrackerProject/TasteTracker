@@ -16,7 +16,13 @@
                  type="text"
                  id="search"
                  name="search" required
-                 placeholder="Nazwa restauracji">
+                 list="suggestions"
+                 placeholder="Nazwa restauracji"
+          >
+          <div class="search-datalist">
+          <datalist id="suggestions">
+          </datalist>
+          </div>
           <button class="custom-button">Wyszukaj</button>
       </form>  
         <div class="home-hero">
@@ -87,6 +93,7 @@
           </div>
       </div>
     <script defer src="../static/scripts/restaurant-scroll.js" th:src="@{/scripts/restaurant-scroll.js}"></script>
+    <script defer src="../static/scripts/search.js" th:src="@{/scripts/search.js}"></script>
     </main>
   </body>
 </html>

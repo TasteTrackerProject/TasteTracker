@@ -9,6 +9,7 @@ public class RatingDtoMapper
 {
     static Optional<RatingDto> mapToOptional ( List<Rating> ratings)
     {
+
         double avgRatingTaste = ratings
             .stream()
             .mapToInt(Rating::getRatingTaste)
