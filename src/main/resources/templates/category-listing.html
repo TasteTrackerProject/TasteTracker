@@ -21,11 +21,10 @@
 
               <img class="category-image"
                src="../static/img/1000_F_255573369_NrbcMNYC1hz1xJigxCOCN8OXsxmtx0TB.jpg"
-                   th:src="@{/img/1000_F_255573369_NrbcMNYC1hz1xJigxCOCN8OXsxmtx0TB.jpg}"
+                   th:src="${category.banner ne null} ? @{|/categorybanners/${category.banner}|}
+                   : @{/img/1000_F_255573369_NrbcMNYC1hz1xJigxCOCN8OXsxmtx0TB.jpg}"
                    alt="nazwa-kategorii"
-                   th:alt="${category.name}"
-              >
-
+                   th:alt="${category.name}">
           </div>
           </a>
         </li>
