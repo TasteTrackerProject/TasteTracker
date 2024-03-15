@@ -1,13 +1,15 @@
 package com.tastetracker.domain.category.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+import lombok.Setter;
+import org.springframework.web.multipart.MultipartFile;
 
-@NoArgsConstructor
-@AllArgsConstructor
-@Data
+@Getter
+@Setter
+@RequiredArgsConstructor
 public class NewCategorySaveDto
 {
     private String name;
+    private MultipartFile banner;
 }

@@ -11,7 +11,12 @@
         <div class="category-add-heading">
         <h1>NOWA KATEGORIA</h1>
         </div>
-        <form action="#" th:action="@{/admin/add-category}" method="post" class="add-form-template" th:object="${category}">
+        <form action="#"
+              th:action="@{/admin/add-category}"
+              method="post"
+              class="add-form-template"
+              enctype="multipart/form-data"
+              th:object="${category}">
             <label for="categoryName" class="name">Nazwa</label>
             <input type="text"
                    id="categoryName"
@@ -20,13 +25,14 @@
                    maxlength="30"
                    th:field="${category.name}"
                    required>
-<!--            <div></div>-->
-<!--            <label for="posterFile" class="posterFile-label">Banner</label>-->
-<!--            <input type="file"-->
-<!--                   id="posterFile"-->
-<!--                   class="posterFile"-->
-<!--                   accept="image/png, image/jpeg">-->
-            <button type="submit" class="administration-button-accept" >Zapisz</button>
+            <div></div>
+            <label for="posterFile" class="posterFile-label">Banner</label>
+            <input type="file"
+                   id="posterFile"
+                   class="posterFile"
+                   accept="image/png, image/jpeg"
+                    th:field="${category.banner}">
+            <button type="submit" class="administration-button-accept">Dodaj</button>
         </form>
 
     </div>
