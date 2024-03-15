@@ -49,8 +49,15 @@ document.addEventListener( "DOMContentLoaded", function () {
             .map( checkbox => checkbox.value );
 
         if ( selectedCheckboxValues.length === 0 ) {
-            alert("Proszę wybrać przynajmniej jedną kategorię przed dodaniem restauracji.");
+            alert( "Proszę wybrać przynajmniej jedną kategorię przed dodaniem restauracji." );
             event.preventDefault();
         }
+    });
+
+    const closeButton = document.querySelector( '.close-notification-button' );
+    const notificationContainer = document.querySelector( '.restaurant-add-notyfication-container' );
+
+    closeButton.addEventListener( 'click', function () {
+        notificationContainer.style.display = 'none';
     });
 });

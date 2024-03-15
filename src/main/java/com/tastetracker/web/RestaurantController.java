@@ -27,7 +27,9 @@ public class RestaurantController
 {
 
     private final RestaurantService restaurantService;
+
     private final ReviewService reviewService;
+
     private final RatingService ratingService;
 
     @GetMapping( "restaurant/{id}" )
@@ -45,12 +47,13 @@ public class RestaurantController
             addReview.setLogin( login );
         }
 
-        model.addAttribute( "reviews",reviews );
+        model.addAttribute( "reviews", reviews );
         model.addAttribute( "addReview", addReview );
-        optionalRatings.ifPresent( rating -> model.addAttribute("rating", rating ) );
-        optionalRestaurant.ifPresent( restaurant -> model.addAttribute("restaurant", restaurant ) );
+        optionalRatings.ifPresent( rating -> model.addAttribute( "rating", rating ) );
+        optionalRestaurant.ifPresent( restaurant -> model.addAttribute( "restaurant", restaurant ) );
         return "restaurant";
     }
+
 
     @GetMapping( "restaurant/add" )
     public String getRestaurantAddForm( Model model )
@@ -66,10 +69,9 @@ public class RestaurantController
         restaurantService.addNewRestaurant( restaurant );
         redirectAttributes.addFlashAttribute(
             AdministrationPanelController.NOTIFICATION_ATTRIBUTE,
-            "Restauracja %s została dodana! Oczekuj na zatwierdzenie przez dział administracji".formatted( restaurant.getName() )
+            "Restauracja %s została pomyślnie dodana!".formatted( restaurant.getName() )
         );
-        return "redirect:/";
+        return "redirect:/restaurant/add";
     }
-
 
 }

@@ -9,10 +9,16 @@ import org.springframework.web.multipart.MultipartFile;
 public class NewRestaurantDto
 {
     private String name;
+
     private String street;
+
     private String city;
+
     private String postalCode;
+
     private String country;
+
     private MultipartFile banner;
+
     private String categories;
 }
