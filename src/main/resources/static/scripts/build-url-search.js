@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function () {
             const search = searchTerms[0];
             const second = searchTerms.slice(1).join(' ');
 
-            window.location.href = `/all?search=${search}&second=${encodeURIComponent(second)}`; // Przekierowujemy do wygenerowanego URL
+            window.location.href = `/allRestaurant?search=${search}&second=${encodeURIComponent(second)}`; // Przekierowujemy do wygenerowanego URL
         }
     });
 });

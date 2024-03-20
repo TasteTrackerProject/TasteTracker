@@ -22,7 +22,7 @@ import java.util.List;
 public class RestaurantRestController
 {
     private RestaurantService restaurantService;
-    @RequestMapping( "/all" )
+    @RequestMapping( "/allRestaurant" )
     public Object findByFullNameAndAddress(
         @Conjunction( {
             @Or( { @Spec( path = "name", params = "first", spec = LikeIgnoreCase.class ),

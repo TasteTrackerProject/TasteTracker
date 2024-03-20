@@ -23,7 +23,7 @@ public class SearchController
 {
     private final RestaurantService restaurantService;
 
-    @GetMapping( "/all" )
+    @GetMapping( "/allRestaurant" )
     public String findByFullNameAndAddress(
         @Conjunction( {
             @Or( { @Spec( path = "name", params = "search", spec = LikeIgnoreCase.class ),

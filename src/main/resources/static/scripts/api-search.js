@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function () {
             firstValue = query;
             secondValue = '';
         }
-        fetch(`/api/search/all?first=${encodeURIComponent(firstValue)}&second=${encodeURIComponent(secondValue)}`)
+        fetch(`/api/search/allRestaurant?first=${encodeURIComponent(firstValue)}&second=${encodeURIComponent(secondValue)}`)
             .then(response => response.json())
             .then(data => {
                 suggestionsList.innerHTML = '';
