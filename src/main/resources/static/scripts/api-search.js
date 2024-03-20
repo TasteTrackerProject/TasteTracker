@@ -4,13 +4,24 @@ document.addEventListener('DOMContentLoaded', function () {
 
     searchInput.addEventListener('input', function () {
         const query = searchInput.value.trim();
-        fetch(`/api/search?name=${query}`)
+        let firstValue, secondValue;
+
+        // Sprawdź czy zapytanie zawiera spację
+        if (query.includes(' ')) {
+            // Jeśli zawiera spację, podziel zapytanie na dwie wartości
+            [firstValue, secondValue] = query.split(' ');
+        } else {
+            // Jeśli nie zawiera spację, pierwsza wartość to całe zapytanie, a druga wartość zostanie pusta
+            firstValue = query;
+            secondValue = '';
+        }
+        fetch(`/api/search/all?first=${encodeURIComponent(firstValue)}&second=${encodeURIComponent(secondValue)}`)
             .then(response => response.json())
             .then(data => {
-                suggestionsList.innerHTML = ''; // Wyczyść listę przed dodaniem nowych sugestii
+                suggestionsList.innerHTML = '';
                 data.forEach(restaurant => {
                     const option = document.createElement('option');
-                    option.value = `${restaurant.name}  ${restaurant.city}`;
+                    option.value = `${restaurant.name} ${restaurant.city} ${restaurant.category}`;
                     option.setAttribute('data-restaurant-id', restaurant.id);
                     suggestionsList.appendChild(option);
                 });

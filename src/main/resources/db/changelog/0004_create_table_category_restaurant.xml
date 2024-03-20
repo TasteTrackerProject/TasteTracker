@@ -3,9 +3,16 @@
                    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
                    https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
-
     <changeSet id="0004-1" author="kamil">
         <createTable tableName="restaurant_category">
+
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints
+                        nullable="false"
+                        primaryKey="true"
+                        primaryKeyName="pk_restaurant_category"
+                />
+            </column>
 
             <column name="restaurant_id" type="BIGINT">
                 <constraints nullable="false"
@@ -16,7 +23,6 @@
                              primaryKeyName="pk_restaurant_category_restaurant_id"
                 />
             </column>
-
             <column name="category_id" type="BIGINT">
                 <constraints nullable="false"
                              foreignKeyName="fk_category_restaurant_category_id"
@@ -26,14 +32,10 @@
                              primaryKeyName="pk_restaurant_category_category_id"
                 />
             </column>
-
-
         </createTable>
-
         <addUniqueConstraint constraintName="unique_category_restaurant"
                              tableName="restaurant_category"
                              columnNames="restaurant_id, category_id"
         />
-
     </changeSet>
 </databaseChangeLog>

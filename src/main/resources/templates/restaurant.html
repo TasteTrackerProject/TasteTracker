@@ -15,6 +15,7 @@
       <div class="restaurant-details">
         <h2 class="restaurant-name" th:text="${restaurant.name}">Nazwa Restauracji</h2>
         <p class="restaurant-location" th:text="|Lokalizacja: ${restaurant.street}, ${restaurant.city}, ${restaurant.postalCode}, ${restaurant.country}|">Lokalizacja:</p>
+        <p class="restaurant-location" th:text="|Kategoria: ${restaurant.category()}|">Kategoria:</p>
         <div class="location-tiles">
           <div class="location-tile">
             <h4>Średnia ocen</h4>
@@ -96,7 +97,9 @@
             <label for="review" class="review-author">Recenzja:</label>
             <textarea class="restaurant-input-review" rows="10" id="review" name="review" th:field="*{reviewContent}" ></textarea>
 
-            <button type="submit"><span class="home-text12">Dodaj recenzję</span></button>
+            <button id="addReviewButton" type="submit"><span class="home-text12">Dodaj recenzję</span></button>
+            <button id="saveReviewButton" style="display:none;"><span class="home-text12">Zapisz</span></button>
+
           </form>
         </div>
         <div id="response-container">
@@ -106,8 +109,8 @@
               <div class="review-date">
               <h4 th:text="${review.date}"></h4>
               </div>
-              <h3 class="review-author" th:text="${review.login}">Autor recenzji</h3>
-              <span th:text="|Ocena smaku: ${review.ratingTaste}/5|"></span> <span th:text="|Ocena atmosfery: ${review.ratingAtmosphere}/5|"></span> <span th:text="|Ocena obsługi: ${review.ratingService}/5|"></span>
+              <h3 class="review-author" id="review-author-done" th:text="${review.login}">Autor recenzji</h3>
+              <span id="rating-taste" th:text="|Ocena smaku: ${review.ratingTaste}/5|"></span> <span id="rating-atmosphere" th:text="|Ocena atmosfery: ${review.ratingAtmosphere}/5|"></span> <span id="rating-service" th:text="|Ocena obsługi: ${review.ratingService}/5|"></span>
               <p class="review-text" th:text="${review.reviewContent}">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vel leo vitae ligula consectetur fringilla.</p>
             </div>
           </li>

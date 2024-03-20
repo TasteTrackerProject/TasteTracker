@@ -11,5 +11,5 @@ public interface RestaurantRepository extends CrudRepository<Restaurant, Long>,
         PagingAndSortingRepository<Restaurant, Long>, JpaSpecificationExecutor<Restaurant>
 {
     List<Restaurant> findAllByPromotedIsTrue();
-    List<Restaurant> findAllByCategory_NameIgnoreCase(String name);
+
 }

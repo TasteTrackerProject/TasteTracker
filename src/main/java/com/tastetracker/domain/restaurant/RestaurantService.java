@@ -1,8 +1,9 @@
 package com.tastetracker.domain.restaurant;
 
-import com.tastetracker.domain.category.Category;
 import com.tastetracker.domain.category.CategoryRepository;
 import com.tastetracker.domain.restaurant.dto.RestaurantDto;
+import com.tastetracker.entity.restaurantcategory.RestaurantCategory;
+import com.tastetracker.entity.restaurantcategory.RestaurantCategoryRepository;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import org.springframework.data.jpa.domain.Specification;
@@ -18,6 +19,7 @@ public class RestaurantService
 
     private final RestaurantRepository restaurantRepository;
     private final CategoryRepository categoryRepository;
+    private final RestaurantCategoryRepository restaurantCategoryRepository;
 
     public Optional<RestaurantDto> findByRestaurantId( long id )
     {
@@ -33,19 +35,14 @@ public class RestaurantService
     }
 
     public List<RestaurantDto> findAllRestaurantByCategoryName(String name){
-        return restaurantRepository.findAllByCategory_NameIgnoreCase( name )
+        return restaurantCategoryRepository.findAllByCategory( categoryRepository.findByNameIgnoreCase( name ).orElseThrow() )
             .stream()
+            .map( RestaurantCategory::getRestaurant )
             .map( RestaurantDtoMapper::map )
             .toList();
     }
 
     public List<RestaurantDto> findAllRestaurants(Specification<Restaurant> spec){
-        List<Restaurant> allRestaurant = restaurantRepository.findAll(spec);
-        return allRestaurant.stream()
-                        .map(restaurant -> {
-                            List<Category> byRestaurantId = categoryRepository.findByRestaurantId(restaurant.getId());
-                            return RestaurantDtoMapper.map(restaurant,byRestaurantId);
-                        })
-                .toList();
+        return restaurantRepository.findAll(spec).stream().map( RestaurantDtoMapper::map ).distinct().toList();
     }
 }

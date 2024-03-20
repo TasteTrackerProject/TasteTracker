@@ -1,15 +1,19 @@
 package com.tastetracker.domain.restaurant;
 
 import com.tastetracker.domain.address.Address;
-import com.tastetracker.domain.category.Category;
+import com.tastetracker.entity.restaurantcategory.RestaurantCategory;
 import jakarta.persistence.*;
-import lombok.Data;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+import lombok.Setter;
 
 import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@Data
+@Getter
+@Setter
+@RequiredArgsConstructor
 public class Restaurant
 {
     @Id
@@ -20,11 +24,6 @@ public class Restaurant
     @ManyToOne
     @JoinColumn( name = "address_id", referencedColumnName = "id" )
     private Address address;
-    @ManyToMany
-    @JoinTable(
-        name = "restaurant_category",
-        joinColumns = @JoinColumn( name = "restaurant_id", referencedColumnName = "id" ),
-        inverseJoinColumns = @JoinColumn( name = "category_id", referencedColumnName = "id" )
-    )
-    private Set<Category> category = new HashSet<>();
+    @OneToMany( fetch = FetchType.EAGER, mappedBy = "restaurant" )
+    private Set<RestaurantCategory> restaurantCategories = new HashSet<>();
 }

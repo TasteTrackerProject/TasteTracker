@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @AllArgsConstructor
@@ -41,6 +42,20 @@ public class ReviewService
         return reviewRepository.existsByUserIdAndRestaurantId( userId, restaurantId );
     }
 
+    public Optional<ReviewDto> getReviewForUserAndRestaurantId( Long userId, Long restaurantId )
+    {
+        Optional<Review> reviewByUser = reviewRepository.getByUserIdAndRestaurantId( userId, restaurantId );
+        if ( reviewByUser.isPresent() )
+        {
+            List<Rating> byRestaurantId = ratingRepository.findByRestaurant_Id( restaurantId );
+            return Optional.of( ReviewDtoMapper.map( reviewByUser.get(), byRestaurantId ) );
+        }
+        else
+        {
+            return Optional.empty();
+        }
+    }
+
     @Transactional
     public ReviewDto addReviews( long id, ReviewDto reviewDto, String login )
     {
@@ -53,6 +68,26 @@ public class ReviewService
         Review save = reviewRepository.save( review );
 
         Rating rating = new Rating();
+        return getReviewDto( reviewDto, review, user, restaurant, save, rating );
+    }
+
+    @Transactional
+    public ReviewDto updateReviews( long restaurantId, ReviewDto reviewDto, String login )
+    {
+        Restaurant restaurant = restaurantRepository.findById( restaurantId ).orElseThrow();
+        User user = userRepository.findByLogin( login ).orElseThrow();
+        Review review = reviewRepository.getByUserIdAndRestaurantId( user.getId(), restaurantId ).orElseThrow();
+        review.setUser( user );
+        review.setRestaurant( restaurant );
+        review.setContent( reviewDto.getReviewContent() );
+        Review save = reviewRepository.save( review );
+
+        Rating rating = ratingRepository.getByReviewId( save.getId() ).orElseThrow();
+        return getReviewDto( reviewDto, review, user, restaurant, save, rating );
+    }
+
+    private ReviewDto getReviewDto( ReviewDto reviewDto, Review review, User user, Restaurant restaurant, Review save, Rating rating )
+    {
         rating.setRatingTaste( reviewDto.getRatingTaste() );
         rating.setRatingAtmosphere( reviewDto.getRatingAtmosphere() );
         rating.setRatingService( reviewDto.getRatingService() );
