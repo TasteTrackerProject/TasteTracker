@@ -1,20 +1,27 @@
 package com.tastetracker.domain.category;
 
-import com.tastetracker.domain.restaurant.Restaurant;
+import com.tastetracker.entity.restaurantcategory.RestaurantCategory;
 import jakarta.persistence.*;
-import lombok.Data;
+
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+import lombok.Setter;
 
 import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@Data
+@Getter
+@Setter
+@RequiredArgsConstructor
 public class Category
 {
     @Id
     @GeneratedValue( strategy = GenerationType.IDENTITY )
     private Long id;
+
     private String name;
-    @ManyToMany( mappedBy = "category" )
-    private Set<Restaurant> restaurant = new HashSet<>();
+
+    @OneToMany( fetch = FetchType.EAGER, mappedBy = "category" )
+    private Set<RestaurantCategory> restaurantCategories = new HashSet<>();
 }

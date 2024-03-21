@@ -32,6 +32,8 @@ public class SecurityConfig
                 .requestMatchers( "/admin/**" ).hasAnyRole( SystemRoles.EDITOR.getRole(), SystemRoles.ADMIN.getRole() )
                 .requestMatchers( mvc.pattern( HttpMethod.POST, "/api/review/**" ) )
                 .hasAnyRole( SystemRoles.EDITOR.getRole(), SystemRoles.ADMIN.getRole(), SystemRoles.USER.getRole() )
+                .requestMatchers( "/restaurant/add" )
+                .hasAnyRole( SystemRoles.EDITOR.getRole(), SystemRoles.ADMIN.getRole(), SystemRoles.USER.getRole() )
                 .requestMatchers( mvc.pattern( HttpMethod.GET, "/api/review/rating/**" ) ).permitAll()
                 .anyRequest().permitAll()
             )

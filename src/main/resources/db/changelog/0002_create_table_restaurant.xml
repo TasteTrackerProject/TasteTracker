@@ -28,6 +28,10 @@
                              referencedColumnNames="id"/>
             </column>
 
+            <column name="banner" type="VARCHAR(150)"/>
+
+            <column name="approved_by_admin" type="BOOLEAN"/>
+
         </createTable>
     </changeSet>
 </databaseChangeLog>
