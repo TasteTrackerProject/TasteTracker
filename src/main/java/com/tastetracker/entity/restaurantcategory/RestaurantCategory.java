@@ -30,4 +30,3 @@ public class RestaurantCategory
     @ManyToOne
     private Category category;
 }
-

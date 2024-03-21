@@ -9,4 +9,3 @@ import java.util.Set;
 public record CategoryDto( Long id, String name, Set<String> restaurant, String banner )
 {
 }
-

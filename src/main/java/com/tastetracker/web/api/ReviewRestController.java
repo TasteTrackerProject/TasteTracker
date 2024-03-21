@@ -19,6 +19,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.util.Optional;
+
 @RestController
 @RequestMapping( "/api/review" )
 @AllArgsConstructor
@@ -36,7 +38,18 @@ public class ReviewRestController
                                                 @RequestBody ReviewDto reviewDto )
     {
         String login = getLoginFromContext();
-        ReviewDto savedReview = reviewService.addReviews( restaurantId, reviewDto, login );
+        UserDto user = userService.findUserByLogin( login )
+            .orElseThrow( () -> new ResponseStatusException( HttpStatus.NOT_FOUND ) );
+        boolean hasUserReviews = reviewService.hasUserReviewsRestaurant( user.id(), restaurantId );
+        ReviewDto savedReview;
+        if ( hasUserReviews )
+        {
+            savedReview = reviewService.updateReviews( restaurantId, reviewDto, login );
+        }
+        else
+        {
+            savedReview = reviewService.addReviews( restaurantId, reviewDto, login );
+        }
         return ResponseEntity.ok( savedReview );
     }
 
@@ -56,6 +69,16 @@ public class ReviewRestController
             .orElseThrow( () -> new ResponseStatusException( HttpStatus.NOT_FOUND ) );
         boolean hasUserReviews = reviewService.hasUserReviewsRestaurant( user.id(), restaurantId );
         return ResponseEntity.ok( hasUserReviews );
+    }
+
+    @GetMapping( "/getReview/{restaurantId}" )
+    public ResponseEntity<ReviewDto> getReview( @PathVariable long restaurantId )
+    {
+        String login = getLoginFromContext();
+        UserDto user = userService.findUserByLogin( login )
+            .orElseThrow( () -> new ResponseStatusException( HttpStatus.NOT_FOUND ) );
+        Optional<ReviewDto> review = reviewService.getReviewForUserAndRestaurantId( user.id(), restaurantId );
+        return review.map( ResponseEntity::ok ).orElseGet( () -> ResponseEntity.notFound().build() );
     }
 
     private static String getLoginFromContext()

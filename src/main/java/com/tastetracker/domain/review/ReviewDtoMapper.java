@@ -11,7 +11,10 @@ public class ReviewDtoMapper
     static ReviewDto map( Review review, List<Rating> ratings )
     {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern( "yyyy-MM-dd HH:mm" );
-        int ratingTaste = ratings.stream().mapToInt( Rating::getRatingTaste ).sum();
+        int ratingTaste = ratings
+            .stream()
+            .mapToInt( Rating::getRatingTaste )
+            .sum();
         int ratingAtmosphere = ratings.stream().mapToInt( Rating::getRatingAtmosphere ).sum();
         int ratingService = ratings.stream().mapToInt( Rating::getRatingService ).sum();
         return new ReviewDto(

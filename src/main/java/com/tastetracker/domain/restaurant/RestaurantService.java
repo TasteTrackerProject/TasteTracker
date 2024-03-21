@@ -1,5 +1,6 @@
 package com.tastetracker.domain.restaurant;
 
+
 import com.tastetracker.domain.address.Address;
 import com.tastetracker.domain.address.AddressRepository;
 import com.tastetracker.domain.category.Category;
@@ -11,8 +12,10 @@ import com.tastetracker.entity.restaurantcategory.RestaurantCategory;
 import com.tastetracker.entity.restaurantcategory.RestaurantCategoryRepository;
 import com.tastetracker.storage.FileStorageService;
 import jakarta.transaction.Transactional;
+
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -28,6 +31,8 @@ public class RestaurantService
     private final FileStorageService fileStorageService;
     private final RestaurantCategoryRepository restaurantCategoryRepository;
     private final CategoryRepository categoryRepository;
+
+  
     public Optional<RestaurantDto> findByRestaurantId( long id )
     {
         return restaurantRepository.findById( id ).map( RestaurantDtoMapper::map );
@@ -41,6 +46,7 @@ public class RestaurantService
             .toList();
     }
 
+
     public List<RestaurantDto> findAllRestaurantByCategoryName( String name )
     {
         return restaurantCategoryRepository
@@ -51,6 +57,12 @@ public class RestaurantService
             .toList();
     }
 
+
+    public List<RestaurantDto> findAllRestaurants( Specification<Restaurant> spec ) 
+    {
+        return restaurantRepository.findAll( spec ).stream().map( RestaurantDtoMapper::map ).distinct().toList();
+    }
+  
     @Transactional
     public void addNewRestaurant( NewRestaurantDto restaurantToSave )
     {

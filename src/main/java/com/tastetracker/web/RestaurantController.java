@@ -32,6 +32,7 @@ public class RestaurantController
 
     private final RatingService ratingService;
 
+
     @GetMapping( "restaurant/{id}" )
     public String getRestaurant( @PathVariable long id, Model model, Authentication authentication )
     {

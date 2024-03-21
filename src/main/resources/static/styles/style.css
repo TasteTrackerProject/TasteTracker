@@ -1221,7 +1221,7 @@ body {
 }
 .restaurant-location {
   font-style: italic;
-  font-size: 15px;
+  font-size: 16px;
   color: #666;
   margin-bottom: 20px;
 }
@@ -1611,4 +1611,5 @@ body {
 .hidden .arrow-icon::before {
   content: '\25B6';
 }
+
 
