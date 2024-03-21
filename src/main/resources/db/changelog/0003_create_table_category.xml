@@ -18,6 +18,8 @@
                 <constraints nullable="false" unique="true"/>
             </column>
 
+            <column name="banner" type="VARCHAR(150)"/>
+
         </createTable>
     </changeSet>
 </databaseChangeLog>

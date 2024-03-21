@@ -20,17 +20,23 @@ public class FileStorageService
     private final Logger logger = LoggerFactory.getLogger( FileStorageService.class );
     private final String fileStorageLocation;
     private final String imageStorageLocation;
+    private final String categoryBannerStorageLocation;
 
     public FileStorageService( @Value ( "${app.storage.location}" ) String storageLocation )
     {
         this.fileStorageLocation = storageLocation + "/files/";
         this.imageStorageLocation = storageLocation + "/img/";
+        this.categoryBannerStorageLocation = storageLocation + "/categorybanners/";
         Path fileStoragePath = Path.of( this.fileStorageLocation );
         Path imageStoragePath = Path.of( this.imageStorageLocation );
-        prepareStorageDirectiories( fileStoragePath, imageStoragePath );
+        Path categoryBannerStoragePath = Path.of( this.categoryBannerStorageLocation );
+
+        prepareStorageDirectiories( fileStoragePath, imageStoragePath, categoryBannerStoragePath );
     }
 
-    private void prepareStorageDirectiories( Path fileStoragePath, Path imageStoragePath )
+    private void prepareStorageDirectiories( Path fileStoragePath,
+                                             Path imageStoragePath,
+                                             Path categoryBannerStoragePath )
     {
         try
         {
@@ -43,7 +49,13 @@ public class FileStorageService
             if ( Files.notExists( imageStoragePath ) )
             {
                 Files.createDirectories( imageStoragePath );
-                logger.info( "Image storage directory created %s".formatted( fileStoragePath.toAbsolutePath() ) );
+                logger.info( "Image storage directory created %s".formatted( imageStoragePath.toAbsolutePath() ) );
+            }
+
+            if ( Files.notExists( categoryBannerStoragePath ) )
+            {
+                Files.createDirectories( categoryBannerStoragePath );
+                logger.info( "Image storage directory created %s".formatted( categoryBannerStoragePath.toAbsolutePath() ) );
             }
         }
         catch ( IOException e )
@@ -51,6 +63,7 @@ public class FileStorageService
             throw new UncheckedIOException( "Can't create storage directiories", e );
         }
     }
+
 
     public String saveImage( MultipartFile file )
     {
@@ -60,6 +73,11 @@ public class FileStorageService
     public String saveFile( MultipartFile file )
     {
         return saveFile( file, fileStorageLocation );
+    }
+
+    public String saveCategoryBannerImage( MultipartFile file )
+    {
+        return saveFile( file, categoryBannerStorageLocation );
     }
 
     private String saveFile( MultipartFile file, String storageLocation )
