@@ -2,6 +2,7 @@ package com.tastetracker.domain.category;
 
 import com.tastetracker.entity.restaurantcategory.RestaurantCategory;
 import jakarta.persistence.*;
+
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
