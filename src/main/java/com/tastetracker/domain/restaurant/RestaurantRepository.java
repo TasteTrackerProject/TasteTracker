@@ -1,4 +1,4 @@
-package com.tastetracker.domain.restaurant
+package com.tastetracker.domain.restaurant;
 
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.repository.CrudRepository;
