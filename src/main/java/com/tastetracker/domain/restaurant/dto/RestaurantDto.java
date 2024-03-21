@@ -7,6 +7,7 @@ public record RestaurantDto(Long id,
                             String city,
                             String postalCode,
                             String country,
+                            String banner,
                             String category)
 {
 }

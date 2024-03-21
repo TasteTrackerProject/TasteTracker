@@ -27,3 +27,4 @@ public class Category
     @OneToMany( fetch = FetchType.EAGER, mappedBy = "category" )
     private Set<RestaurantCategory> restaurantCategories = new HashSet<>();
 }
+

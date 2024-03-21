@@ -11,7 +11,10 @@
 <body>
 <main class="main-content" layout:fragment="content">
     <div class="restaurant-container">
-      <img class="restaurant-single-image" src="https://cdn.pixabay.com/photo/2014/09/17/20/26/restaurant-449952_640.jpg" alt="Logo Restauracji 1">
+      <img class="restaurant-single-image"
+           src="https://cdn.pixabay.com/photo/2014/09/17/20/26/restaurant-449952_640.jpg"
+           th:src="${restaurant.banner ne null} ? @{|/img/${restaurant.banner}|} : @{/img/restaurant-449952_640.jpg}"
+           alt="Logo Restauracji 1">
       <div class="restaurant-details">
         <h2 class="restaurant-name" th:text="${restaurant.name}">Nazwa Restauracji</h2>
         <p class="restaurant-location" th:text="|Lokalizacja: ${restaurant.street}, ${restaurant.city}, ${restaurant.postalCode}, ${restaurant.country}|">Lokalizacja:</p>

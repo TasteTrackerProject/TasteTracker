@@ -5,8 +5,7 @@ import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;
 
-public interface RestaurantCategoryRepository
-    extends CrudRepository<RestaurantCategory, Long>
+public interface RestaurantCategoryRepository extends CrudRepository<RestaurantCategory, Long>
 {
     List<RestaurantCategory> findAllByCategory( Category category );
 }

@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="pl"
-      xmlns:th="https://www.thymeleaf.org"
-      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+      xmlns:th="https://www.thymeleaf.org">
 <head>
     <meta property="twitter:card" content="summary_large_image" />
     <link rel="stylesheet" href="/styles/style.css"/>
@@ -9,23 +8,31 @@
 <body>
 <main>
     <div class="home-container">
+        <div class="category-add-heading">
         <h1>NOWA KATEGORIA</h1>
-        <form action="#" th:action="@{/admin/add-category}" method="post" class="category-add-form-template" th:object="${category}">
-            <label for="categoryName" class="category-name">Nazwa</label>
+        </div>
+        <form action="#"
+              th:action="@{/admin/add-category}"
+              method="post"
+              class="add-form-template"
+              enctype="multipart/form-data"
+              th:object="${category}">
+            <label for="categoryName" class="name">Nazwa</label>
             <input type="text"
                    id="categoryName"
-                   class="category-name-add-name-input"
+                   class="name-add-name-input"
                    placeholder="Podaj nazwę nowej kategorii"
                    maxlength="30"
                    th:field="${category.name}"
                    required>
-<!--            <div></div>-->
-<!--            <label for="posterFile" class="posterFile-label">Banner</label>-->
-<!--            <input type="file"-->
-<!--                   id="posterFile"-->
-<!--                   class="posterFile"-->
-<!--                   accept="image/png, image/jpeg">-->
-            <button type="submit" class="administration-button-accept" >Zapisz</button>
+            <div></div>
+            <label for="posterFile" class="posterFile-label">Banner</label>
+            <input type="file"
+                   id="posterFile"
+                   class="posterFile"
+                   accept="image/png, image/jpeg"
+                    th:field="${category.banner}">
+            <button type="submit" class="administration-button-accept">Dodaj</button>
         </form>
 
     </div>

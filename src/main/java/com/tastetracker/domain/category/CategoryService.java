@@ -4,6 +4,7 @@ import com.tastetracker.domain.category.dto.CategoryDto;
 import com.tastetracker.domain.category.dto.NewCategorySaveDto;
 import com.tastetracker.exception.CategoryAlreadyExsistsException;
 import com.tastetracker.functions.string.StringCustomFunctions;
+import com.tastetracker.storage.FileStorageService;
 import jakarta.transaction.Transactional;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
@@ -20,6 +21,7 @@ import java.util.stream.StreamSupport;
 public class CategoryService
 {
     private final CategoryRepository categoryRepository;
+    private final FileStorageService fileStorageService;
 
     public List<CategoryDto> findAllCategory()
     {
@@ -47,6 +49,13 @@ public class CategoryService
 
         Category categoryToSave = new Category();
         categoryToSave.setName( newCategoryName );
+
+        if ( dto.getBanner() != null && !dto.getBanner().isEmpty() )
+        {
+            String savedImagePath = fileStorageService.saveCategoryBannerImage( dto.getBanner() );
+            categoryToSave.setBanner( savedImagePath );
+        }
+
         Category savedCategory = categoryRepository.save( categoryToSave );
 
         return CategoryDto.builder()
@@ -55,4 +64,10 @@ public class CategoryService
 
     }
 
+    public List<CategoryDto> getAllCategories()
+    {
+        return StreamSupport.stream( categoryRepository.findAll().spliterator(), false )
+            .map( CategoryDtoMapper::map )
+            .toList();
+    }
 }

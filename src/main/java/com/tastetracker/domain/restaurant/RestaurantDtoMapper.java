@@ -8,6 +8,8 @@ import java.util.stream.Collectors;
 
 public class RestaurantDtoMapper
 {
+
+
     static RestaurantDto map( Restaurant restaurant )
     {
         String categoryName = restaurant
@@ -27,7 +29,7 @@ public class RestaurantDtoMapper
             restaurant.getAddress().getCity(),
             restaurant.getAddress().getPostalCode(),
             restaurant.getAddress().getCountry(),
-            categoryName
-        );
+            restaurant.getBanner(),
+            categoryName);
     }
 }

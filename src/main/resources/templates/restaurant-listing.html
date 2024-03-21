@@ -14,7 +14,10 @@
         <li th:each="restaurant: ${restaurants}">
       <div class="restaurant-item">
         <a href="#" th:href="@{|/restaurant/${restaurant.id}|}">
-        <img class="restaurant-image" src="https://cdn.pixabay.com/photo/2014/09/17/20/26/restaurant-449952_640.jpg" alt="Restauracja 1">
+        <img class="restaurant-image"
+             src="https://cdn.pixabay.com/photo/2014/09/17/20/26/restaurant-449952_640.jpg"
+             th:src="${restaurant.banner ne null} ? @{|/img/${restaurant.banner}|} : @{/img/restaurant-449952_640.jpg}"
+             alt="Restauracja 1">
         </a>
         <div class="restaurant-details">
           <a class="restaurant-name" th:href="@{|/restaurant/${restaurant.id}|}" th:text="${restaurant.name}">Nazwa Restauracji 1</a>

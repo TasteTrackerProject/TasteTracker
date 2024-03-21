@@ -72,7 +72,7 @@ body {
   font-size: 40px;
   font-style: Bold;
   text-align: left;
-  font-family: "Roboto", emoji;
+  font-family: emoji;
   font-weight: 700;
   line-height: 30px;
   font-stretch: normal;
@@ -111,9 +111,8 @@ body {
   color: rgba(0, 0, 0, 1);
   height: auto;
   font-size: 25px;
-  font-style: SemiBold;
+  font-style: SemiBolt;
   text-align: left;
-  font-family: Roboto;
   font-weight: 600;
   line-height: 24px;
   font-stretch: normal;
@@ -148,7 +147,6 @@ body {
   font-size: 20px;
   font-style: SemiBold;
   text-align: left;
-  font-family: Roboto;
   font-weight: 600;
   line-height: normal;
   font-stretch: normal;
@@ -157,6 +155,7 @@ body {
 .home-button-log-in:hover {
   color: white;
 }
+
 .home-button-sign-up {
   gap: 10px;
   top: 9px;
@@ -185,7 +184,6 @@ body {
   font-size: 20px;
   font-style: SemiBold;
   text-align: left;
-  font-family: Roboto;
   font-weight: 600;
   line-height: normal;
   font-stretch: normal;
@@ -472,7 +470,6 @@ body {
   font-size: 32px;
   font-style: Regular;
   text-align: center;
-  font-family: "Roboto";
   font-weight: 400;
   line-height: 40px;
   font-stretch: normal;
@@ -485,7 +482,6 @@ body {
   font-size: 20px;
   font-style: Medium;
   text-align: left;
-  font-family: Roboto;
   font-weight: 500;
   line-height: 32px;
   font-stretch: normal;
@@ -1362,6 +1358,7 @@ body {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   display: flex;
   justify-content: space-evenly;
+  border-radius: 15px;
 }
 
 .admin-option-item {
@@ -1370,6 +1367,7 @@ body {
   border: 1px solid #ddd;
   padding: 10px;
   background-color: #fff;
+  border-radius: 15px;
 }
 
 .admin-option-item a {
@@ -1389,21 +1387,22 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  border-radius: 15px;
 }
 
-.category-add-form-template {
+.add-form-template {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.category-name,
+.name,
 .posterFile-label {
   text-align: center;
-  margin-bottom: 10px; /* Domyślny odstęp */
+  margin-bottom: 15px; /* Domyślny odstęp */
 }
 
-.category-name-add-name-input,
+.name-add-name-input,
 .posterFile {
   font-size: 15px;
   border: 1px solid rgba(232, 226, 226, 1);
@@ -1414,6 +1413,7 @@ body {
   box-sizing: border-box;
   margin-bottom: 10px;
 }
+
 
 .administration-button-accept {
   width: 220px;
@@ -1432,17 +1432,17 @@ body {
 }
 
 .administration-button-accept:hover {
-  background-color: #000;
+  background-color: #888;
   color: #fff;
 }
 
-.category-name,
+.name,
 .posterFile-label,
 .posterFile {
   color: rgba(0, 0, 0, 1);
 }
 
-.category-name {
+.name {
   font-size: 25px;
   font-weight: 600;
 }
@@ -1461,14 +1461,155 @@ body {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   display: flex;
   justify-content: space-evenly;
+  border-radius: 15px;
 }
+
 
 .notyfication-bar {
   font-size: 25px;
   font-weight: 600;
 }
 
+.restaurant-add-notyfication-container {
+  width: 90%;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 15px;
+  position: relative;
+  text-align: center;
+}
+
+.restaurant-add-notyfication-bar {
+  font-size: 25px;
+  font-weight: 600;
+  flex: 1;
+}
+
+.close-notification-button {
+  position: absolute;
+  top: 5px;
+  font-weight: 600;
+  right: 10px;
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-size: 25px;
+  color: #000;
+  padding: 0;
+}
+
+.close-notification-button:hover {
+  color: #888;
+}
+
+.map {
+  height: 650px;
+  width: 650px;
+  border-radius: 15px;
+}
+
+.restaurant-add-home-container {
+  gap: var(--dl-space-space-halfunit);
+  width: 90%; /* Zmiana szerokości na 80% */
+  display: flex;
+  overflow: hidden;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  justify-content: space-evenly;
+  border-radius: 15px;
+}
+
+.form-container,
+.map-container {
+  flex: 1;
+}
+
+.form-container {
+  margin-right: 10px;
+}
+
+.map-container {
+  margin-left: 10px;
+}
 
 
+.restaurant-add-heading {
+  gap: var(--dl-space-space-halfunit);
+  display: flex;
+  overflow: hidden;
+  align-items: center;
+  flex-direction: column;
+  width: 30%;
+  margin: 10px auto;
+  padding: 5px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  justify-content: space-evenly;
+  border-radius: 15px;
+}
+
+.category-add-heading {
+  gap: var(--dl-space-space-halfunit);
+  display: flex;
+  overflow: hidden;
+  align-items: center;
+  flex-direction: column;
+  width: 30%;
+  margin: 10px auto;
+  padding: 5px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  justify-content: space-evenly;
+  border-radius: 15px;
+}
+
+
+.checkbox-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.checkbox-label {
+  margin-left: 5px;
+}
+
+
+.checkbox-input {
+  width: 20px;
+  height: 20px;
+  margin: 0;
+}
+
+
+#selectedCategoryIds {
+  display: none;
+}
+
+.hidden {
+  display: none;
+}
+
+
+.arrow-icon::before {
+  content: '\25BC';
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.rotate::before {
+  transform: rotate(180deg);
+}
+
+.hidden .arrow-icon::before {
+  content: '\25B6';
+}
 
 

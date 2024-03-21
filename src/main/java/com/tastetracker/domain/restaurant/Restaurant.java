@@ -41,5 +41,5 @@ public class Restaurant
     {
         this.restaurantCategories.add( restaurantCategory );
     }
-
 }
+
