@@ -6,7 +6,6 @@ import lombok.Builder;
 import java.util.Set;
 
 @Builder
-public record CategoryDto( Long id, String name, Set<String> restaurant )
+public record CategoryDto( Long id, String name, Set<String> restaurant, String banner )
 {
 }
-

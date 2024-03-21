@@ -22,6 +22,8 @@ public class Category
 
     private String name;
 
+    private String banner;
+
     @OneToMany( fetch = FetchType.EAGER, mappedBy = "category" )
     private Set<RestaurantCategory> restaurantCategories = new HashSet<>();
 }

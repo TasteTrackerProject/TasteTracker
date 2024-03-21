@@ -17,7 +17,8 @@ public class CategoryDtoMapper
                 .stream()
                 .map( RestaurantCategory::getRestaurant )
                 .map( Restaurant::getName )
-                .collect( Collectors.toSet() )
+                .collect( Collectors.toSet() ),
+            category.getBanner()
         );
     }
 }
