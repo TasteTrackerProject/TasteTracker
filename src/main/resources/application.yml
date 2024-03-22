@@ -18,3 +18,10 @@ spring:
             enable: true
   accountactivation:
     template: templates/message/account-activation-message.html
+  servlet:
+    multipart:
+      max-file-size: 5MB
+      max-request-size: 5MB
+app:
+  storage:
+    location: uploads
