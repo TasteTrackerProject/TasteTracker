@@ -1034,6 +1034,7 @@ body {
   padding: 20px;
   background-color: #fff;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
 }
 /* Styl dla pojedynczej restauracji */
 .category-item {
@@ -1047,7 +1048,7 @@ body {
   height: 250px;
   object-fit: cover;
   width: 100%;
-  /*object-fit: contain;*/
+  border-radius: 15px;
 }
 /*restaurant*/
 .location-tile {
@@ -1056,7 +1057,7 @@ body {
   width: 50%;
   background-color: #eee;
   margin-right: 10px;
-  border-radius: 5px;
+  border-radius: 15px;
   font-size: 20px;
 }
 .location-tile h4 {
@@ -1158,6 +1159,7 @@ body {
   padding: 20px;
   background-color: #fff;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
 }
 
 .restaurant-item {
@@ -1208,12 +1210,14 @@ body {
   padding: 20px;
   background-color: #fff;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
 }
 .restaurant-single-image {
   width: 100%;
   max-height: 400px;
   object-fit: cover;
   margin-bottom: 20px;
+  border-radius: 15px;
 }
 
 .restaurant-description {
