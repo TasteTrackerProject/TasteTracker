@@ -53,8 +53,8 @@ document.addEventListener('DOMContentLoaded', function ()
         resetNotification();
     });
 
-    document.getElementById( 'add-restaurant-link' ).addEventListener( 'click', function () {
-        loadConfigurationPage( '/admin/add-restaurant', '#config-container' );
-        resetNotification();
-    });
+    // document.getElementById( 'add-restaurant-link' ).addEventListener( 'click', function () {
+    //     loadConfigurationPage( '/admin/add-restaurant', '#config-container' );
+    //     resetNotification();
+    // });
 });
