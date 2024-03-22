@@ -51,7 +51,17 @@
                 <span class="home-text10">WYLOGUJ</span>
             </a>
 
-            <a class="home-button-sign-up" href="#" th:href="@{/registration}" sec:authorize="!isAuthenticated()">
+            <a class="user-avatar"
+               sec:authorize="isAuthenticated()">
+                <span class="user-avatar-text"
+                      th:text="${#authentication.getName().toUpperCase()}">nickname</span>
+            </a>
+
+
+            <a class="home-button-sign-up"
+               href="#"
+               th:href="@{/registration}"
+               sec:authorize="!isAuthenticated()">
                 <span class="home-text12">DOŁĄCZ</span>
             </a>
         </div>

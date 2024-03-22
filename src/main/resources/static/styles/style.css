@@ -1616,4 +1616,33 @@ body {
   content: '\25B6';
 }
 
+.user-avatar {
+  gap: 10px;
+  top: 9px;
+  right: 42px;
+  width: 170px;
+  height: 35px;
+  display: flex;
+  padding: 12px 16px;
+  z-index: 2;
+  position: absolute;
+  align-items: center;
+  flex-shrink: 0;
+  border-radius: 6px;
+  justify-content: center;
+  background-color: black;
+  text-decoration: none;
+  color: white;
+}
 
+.user-avatar-text {
+  color: var(--dl-color-default-0);
+  height: auto;
+  font-size: 20px;
+  font-style: SemiBold;
+  text-align: left;
+  font-weight: 600;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
