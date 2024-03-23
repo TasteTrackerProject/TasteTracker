@@ -925,9 +925,7 @@ body {
 .logowanie-login,
 .logowanie-haslo,
 .logowanie-reset,
-.logowanie-zalogujsie,
-.logowanie-error,
-.logout-message{
+.logowanie-zalogujsie{
   width: 440px;
   height: 69px;
   margin: 10px auto;
@@ -1646,3 +1644,37 @@ body {
   font-stretch: normal;
   text-decoration: none;
 }
+
+.logout-message-div {
+  width: 30%;
+  padding: 4px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-evenly;
+  border-radius: 15px;
+}
+
+
+.logout-message {
+  font-size: 25px;
+  font-weight: 600;
+}
+
+.login-failed-div {
+  width: 30%;
+  padding: 4px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-evenly;
+  border-radius: 15px;
+}
+
+
+.login-failed-message {
+  font-size: 25px;
+  font-weight: 600;
+}
+
+

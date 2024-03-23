@@ -29,7 +29,13 @@
                 class="signupmodal-imieshape"
                 th:src="@{/img/imieshape1564-30qb-200h.png}"
               />
-                <input type="text" class="signupmodal-text08" placeholder="Login" id="login" th:field="*{login}" required/>
+                <input type="text"
+                       class="signupmodal-text08"
+                       placeholder="Login"
+                       id="login"
+                       th:field="*{login}"
+                       th:maxlength="12"
+                       required/>
             </div>
             <div class="signupmodal-adresinput">
               <img
