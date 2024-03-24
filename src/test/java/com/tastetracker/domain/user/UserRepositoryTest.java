@@ -24,6 +24,7 @@ class UserRepositoryTest
     @BeforeEach
     public void setUp()
     {
+
         UserRole userRole = userRoleRepository.findByName( SystemRoles.USER.getRole() ).orElseThrow();
         testUser = new User();
         testUser.setEmail( "example@example.com" );

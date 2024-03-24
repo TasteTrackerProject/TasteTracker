@@ -65,7 +65,7 @@ class ReviewRestControllerTest
 
     @Test
     void givenReviewDto_whenAddReview_thenReviewAddedSuccessfully3() throws Exception {
-        // Tworzenie obiektu ReviewDto
+        //Tworzenie obiektu ReviewDto
         ReviewDto reviewDto = new ReviewDto();
         reviewDto.setLogin("admin");
         reviewDto.setReviewContent("Bardzo fajna restauracja");
