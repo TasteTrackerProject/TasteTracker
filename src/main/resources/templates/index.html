@@ -65,7 +65,9 @@
               <div class="home-frame50">
                 <a href="#" th:href="@{|/restaurant/${restaurant.id}|}">
                   <img class="restaurant-main"
+                       th:src="${restaurant.banner ne null} ? @{|/img/${restaurant.banner}|} : @{/img/restaurant-449952_640.jpg}"
                        src="https://cdn.pixabay.com/photo/2014/09/17/20/26/restaurant-449952_640.jpg"
+
                        th:alt="|Restauracja: ${restaurant.name}|">
                 </a>
                 <div class="text-container">

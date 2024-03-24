@@ -312,7 +312,7 @@ body {
 .home-recenzja3 {
   gap: 28px;
   width: 371px;
-  height: 600px;
+  height: 490px;
   display: flex;
   position: relative;
   align-self: flex-start;
@@ -332,7 +332,7 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  border-radius: 8px; /* Zaokrąglenie wszystkich krawędzi */
+  border-radius: 15px;
   background-color: var(--dl-color-default-100);
   z-index: -1;
 }
@@ -356,7 +356,7 @@ body {
 }
 
 .text-container {
-  margin-top: 10px;
+  margin-top: 0px;
   text-align: center;
   font-size: 20px;
 }
@@ -525,10 +525,10 @@ body {
   background-color: rgba(255, 255, 255, 1);
 }
 .restaurant-main{
-  margin-top: 35px;
-  width: 290px;
-  height: 380px;
-  border-radius: 8px;
+  margin-top: 0px;
+  width: 340px;
+  height: 340px;
+  border-radius: 15px;
 }
 .restaurant-input-author {
   gap: 4px;
@@ -925,9 +925,7 @@ body {
 .logowanie-login,
 .logowanie-haslo,
 .logowanie-reset,
-.logowanie-zalogujsie,
-.logowanie-error,
-.logout-message{
+.logowanie-zalogujsie{
   width: 440px;
   height: 69px;
   margin: 10px auto;
@@ -1034,6 +1032,7 @@ body {
   padding: 20px;
   background-color: #fff;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
 }
 /* Styl dla pojedynczej restauracji */
 .category-item {
@@ -1047,7 +1046,7 @@ body {
   height: 250px;
   object-fit: cover;
   width: 100%;
-  /*object-fit: contain;*/
+  border-radius: 15px;
 }
 /*restaurant*/
 .location-tile {
@@ -1056,7 +1055,7 @@ body {
   width: 50%;
   background-color: #eee;
   margin-right: 10px;
-  border-radius: 5px;
+  border-radius: 15px;
   font-size: 20px;
 }
 .location-tile h4 {
@@ -1158,6 +1157,7 @@ body {
   padding: 20px;
   background-color: #fff;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
 }
 
 .restaurant-item {
@@ -1208,12 +1208,14 @@ body {
   padding: 20px;
   background-color: #fff;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
 }
 .restaurant-single-image {
   width: 100%;
   max-height: 400px;
   object-fit: cover;
   margin-bottom: 20px;
+  border-radius: 15px;
 }
 
 .restaurant-description {
@@ -1610,6 +1612,69 @@ body {
 
 .hidden .arrow-icon::before {
   content: '\25B6';
+}
+
+.user-avatar {
+  gap: 10px;
+  top: 9px;
+  right: 42px;
+  width: 170px;
+  height: 35px;
+  display: flex;
+  padding: 12px 16px;
+  z-index: 2;
+  position: absolute;
+  align-items: center;
+  flex-shrink: 0;
+  border-radius: 6px;
+  justify-content: center;
+  background-color: black;
+  text-decoration: none;
+  color: white;
+}
+
+.user-avatar-text {
+  color: var(--dl-color-default-0);
+  height: auto;
+  font-size: 20px;
+  font-style: SemiBold;
+  text-align: left;
+  font-weight: 600;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+
+.logout-message-div {
+  width: 30%;
+  padding: 4px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-evenly;
+  border-radius: 15px;
+}
+
+
+.logout-message {
+  font-size: 25px;
+  font-weight: 600;
+}
+
+.login-failed-div {
+  width: 30%;
+  padding: 4px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-evenly;
+  border-radius: 15px;
+}
+
+
+.login-failed-message {
+  font-size: 25px;
+  font-weight: 600;
 }
 
 

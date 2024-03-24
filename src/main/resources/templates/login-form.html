@@ -18,14 +18,18 @@
   <div class="home-container">
       <main class="main-content" layout:fragment="content">
         <div class="logowanie-loginmodal">
-            <p th:if="${param.error}"
-               th:text="${session['SPRING_SECURITY_LAST_EXCEPTION'].message}"
-               class="logowanie-error"
-            >
-                Błąd logowania
-            </p>
+            <div class="login-failed-div" th:if="${param.error}">
+                <p th:text="${session['SPRING_SECURITY_LAST_EXCEPTION'].message}"
+                    class="login-failed-message">
+                Błąd logowania</p>
+            </div>
 
-            <p th:if="${param.logout}" class="logout-message">Zostałeś pomyślnie wylogowany</p>
+            <div class="logout-message-div"
+                 th:if="${param.logout}">
+
+                    <p class="logout-message">Zostałeś pomyślnie wylogowany</p>
+
+            </div>
 
             <div class="logowanie-container1">
               <form action="" th:action="@{/login}" method="post">
@@ -36,7 +40,13 @@
                               class="logowanie-rectangle2"
                               th:src="@{/img/rectangle21532-samg-200h.png}"
                       />
-                      <input type="text" class="logowanie-text18" placeholder="Nazwa użytkownika" id="username" name="username"/>
+                      <input type="text"
+                             class="logowanie-text18"
+                             placeholder="Nazwa użytkownika"
+                             id="username"
+                             name="username"
+                            th:maxlength="12"
+                            required/>
                   </div>
                   <div class="logowanie-haslo">
                       <img
@@ -45,7 +55,12 @@
                               class="logowanie-rectangle3"
                               th:src="@{/img/rectangle31532-e9tm-200h.png}"
                       />
-                      <input type="password" class="logowanie-text18" placeholder="Hasło" name="password" id="password"/>
+                      <input type="password"
+                             class="logowanie-text18"
+                             placeholder="Hasło"
+                             name="password"
+                             id="password"
+                             required/>
                   </div>
                   <div class="logowanie-reset">
                       <img

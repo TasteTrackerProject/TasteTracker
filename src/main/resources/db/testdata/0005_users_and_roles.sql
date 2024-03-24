@@ -2,8 +2,8 @@ insert into
     users ( email, login, password, enabled )
 values
     ('headadmin@tastetracker.com', 'admin' , '{noop}admin', true),
-    ('exampleuser@tastetracker.com', 'exampleuser', '{noop}user', true),
-    ('exampleeditor@tastetracker.com', 'exampleeditor', '{noop}editor', true);
+    ('exampleuser@tastetracker.com', 'user', '{noop}user', true),
+    ('exampleeditor@tastetracker.com', 'editor', '{noop}editor', true);
 
 insert into
     user_role ( name, description )
