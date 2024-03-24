@@ -1677,4 +1677,39 @@ body {
   font-weight: 600;
 }
 
+.register-notyfication-container {
+  width: 90%;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 15px;
+  position: relative;
+  text-align: center;
+}
 
+.register-notyfication-bar {
+  font-size: 25px;
+  font-weight: 600;
+  flex: 1;
+}
+
+.register-close-notification-button {
+  position: absolute;
+  top: 5px;
+  font-weight: 600;
+  right: 10px;
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-size: 25px;
+  color: #000;
+  padding: 0;
+}
+
+.register-close-notification-button:hover {
+  color: #888;
+}

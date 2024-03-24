@@ -60,9 +60,7 @@ public class RegistrationController
         VeryficationToken veryficationToken = tokenFromRepository.get();
         User user = veryficationToken.getUser();
 
-
         userService.setUserEnabled( user );
-
 
         return "redirect:/account-activation-success";
     }
@@ -73,11 +71,10 @@ public class RegistrationController
         return "account-activation-success";
     }
 
-    @ExceptionHandler( { MessagingException.class, IOException.class, RuntimeException.class } )
+    @ExceptionHandler( { MessagingException.class, IOException.class } )
     public String handleException()
     {
         return "user-registration-fail";
     }
-
 
 }
