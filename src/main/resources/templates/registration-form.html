@@ -16,6 +16,11 @@
       <div class="home-container">
         <main class="main-content" layout:fragment="content">
 
+          <div class="register-notyfication-container" th:if="${notyfication}">
+            <p class="register-notyfication-bar" th:if="${notyfication}" th:text="${notyfication}">Powiadomienie</p>
+            <button class="register-close-notification-button">X</button>
+          </div>
+
         <div class="signupmodal-signupmodal">
           <span class="signupmodal-title">
           <span>Zarejestruj się w serwisie</span>
@@ -93,6 +98,8 @@
             Masz już konto? Kliknij tutaj, aby się zalogować
           </a>
         </div>
+          <script src="../static/scripts/registration-form-scripts.js"
+                  th:src="@{/scripts/registration-form-scripts.js}"></script>
         </main>
       </div>
     </div>

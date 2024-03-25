@@ -4,6 +4,8 @@ import com.tastetracker.domain.email.RegistrationEmailServiceImpl;
 import com.tastetracker.domain.user.User;
 import com.tastetracker.domain.user.UserService;
 import com.tastetracker.event.OnRegistrationCompleteEvent;
+import com.tastetracker.exception.UserWithGivenEmailAlreadyExsistsException;
+import com.tastetracker.exception.UserWithGivenLoginAlreadyExsistsException;
 import jakarta.mail.MessagingException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.transaction.Transactional;
@@ -20,8 +22,7 @@ import java.util.UUID;
 
 @Component
 @RequiredArgsConstructor
-public class RegistrationListener
-    implements ApplicationListener<OnRegistrationCompleteEvent>
+public class RegistrationListener implements ApplicationListener<OnRegistrationCompleteEvent>
 {
 
     private final RegistrationEmailServiceImpl registrationEmailService;
@@ -39,8 +40,9 @@ public class RegistrationListener
         this.confirmRegistration( event );
     }
 
-    public void confirmRegistration( OnRegistrationCompleteEvent event )
-        throws MessagingException, IOException
+
+    public void confirmRegistration( OnRegistrationCompleteEvent event ) throws MessagingException, IOException,
+        UserWithGivenLoginAlreadyExsistsException, UserWithGivenEmailAlreadyExsistsException
     {
         User registerUserWithDefaultRole = userService.registerUserWithDefaultRole( event.getUserRegistrationDto() );
 
