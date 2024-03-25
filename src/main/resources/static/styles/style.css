@@ -682,42 +682,8 @@ body {
   --dl-space-space-oneandhalfunits: 24px;
   --dl-color-lighttheme_text-secondarybody: rgba(212, 212, 212, 1);
 }
-.signupmodal-signupmodal {
-  gap: 33px;
-  width: 100%;
-  height: auto;
-  display: flex;
-  padding: 50px 37px;
-  overflow: hidden;
-  position: relative;
-  align-items: center;
-  flex-shrink: 0;
-  flex-direction: column;
-  background-color: rgba(255, 255, 255, 1);
-}
-.signupmodal-title {
-  color: rgba(41, 41, 41, 1);
-  font-size: 40px;
-  font-style: Bold;
-  text-align: left;
-  font-family: Inter;
-  font-weight: 700;
-  line-height: normal;
-  font-stretch: normal;
-  text-decoration: none;
-  width: auto;
-  height: 20px;
-  display: flex;
-  position: relative;
-  align-items: flex-start;
-}
-.signupmodal-form {
-  width: auto;
-  height: 401px;
-  display: flex;
-  position: relative;
-  align-items: flex-start;
-}
+
+
 .signupmodal-haslo2input {
   gap: 10px;
   top: 289px;
@@ -740,90 +706,7 @@ body {
   border-width: 1px;
   border-radius: 10px;
 }
-.signupmodal-imieinput {
-  gap: 10px;
-  display: flex;
-  padding: 10px;
-  z-index: 2;
-  position: relative;
-  align-items: flex-start;
-  flex-direction: column;
-}
-.signupmodal-imieshape {
-  width: 440px;
-  height: 69px;
-  align-self: center;
-  border-color: rgba(230, 230, 230, 1);
-  border-style: solid;
-  border-width: 1px;
-  border-radius: 10px;
-}
-.signupmodal-adresinput {
-  gap: 10px;
-  top: 93px;
-  left: 0px;
-  display: flex;
-  padding: 10px;
-  z-index: 3;
-  position: absolute;
-  align-items: flex-start;
-  flex-direction: column;
-}
-.signupmodal-adresshape {
-  width: 440px;
-  height: 69px;
-  border-color: rgba(230, 230, 230, 1);
-  border-style: solid;
-  border-width: 1px;
-  padding-left: var(--dl-space-space-twounits);
-  border-radius: 10px;
-}
-.signupmodal-hasloinput {
-  gap: 10px;
-  top: 187px;
-  left: 0px;
-  display: flex;
-  padding: 10px;
-  z-index: 4;
-  position: absolute;
-  align-items: flex-start;
-  flex-direction: column;
-}
-.signupmodal-hasloshape {
-  width: 440px;
-  height: 69px;
-  border-color: rgba(230, 230, 230, 1);
-  border-style: solid;
-  border-width: 1px;
-  border-radius: 10px;
-}
-.signupmodal-text08 {
-  top: 24px;
-  left: 36px;
-  color: rgba(11, 11, 11, 1);
-  width: 400px;
-  height: 40px;
-  outline: none;
-  position: absolute;
-  font-size: 16px;
-  align-self: center;
-  font-style: Bold;
-  text-align: left;
-  font-family: Roboto;
-  font-weight: 700;
-  line-height: normal;
-  font-stretch: normal;
-  text-decoration: none;
-}
-.signupmodal-zarejestrujbutton {
-  width: 440px;
-  height: 62px;
-  display: flex;
-  z-index: 6;
-  position: relative;
-  align-items: flex-start;
-  flex-shrink: 0;
-}
+
 .signupmodal-zarejestrujshape {
   top: 0px;
   left: 0px;
@@ -832,21 +715,7 @@ body {
   position: absolute;
   border-radius: 8px;
 }
-.signupmodal-zarejestrujtext {
-  top: 21px;
-  left: 169px;
-  color: rgba(255, 255, 255, 1);
-  height: auto;
-  position: absolute;
-  font-size: 16px;
-  font-style: SemiBold;
-  text-align: center;
-  font-family: Roboto;
-  font-weight: 600;
-  line-height: normal;
-  font-stretch: normal;
-  text-decoration: none;
-}
+
 .signupmodal-logowanielink {
   color: rgba(86, 84, 84, 1);
   bottom: 3px;
@@ -867,10 +736,7 @@ body {
   align-items: flex-start;
 }
 @media(max-width: 767px) {
-  .signupmodal-signupmodal {
-    height: 804px;
-    padding-bottom: 50px;
-  }
+
   .signupmodal-zarejestrujbutton {
     height: 177px;
     padding-bottom: 57px;
@@ -1713,3 +1579,108 @@ body {
 .register-close-notification-button:hover {
   color: #888;
 }
+
+.signupmodal-signupmodal {
+  gap: var(--dl-space-space-halfunit);
+  display: flex;
+  overflow: hidden;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 90%;
+  margin: 10px auto;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+}
+
+.signupmodal-title {
+  color: rgba(41, 41, 41, 1);
+  font-size: 34px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.registration-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.signupmodal-imieinput,
+.signupmodal-adresinput,
+.signupmodal-hasloinput {
+  width: 80%;
+  max-width: 400px;
+  margin-bottom: 5px;
+}
+
+.signupmodal-imieinput input,
+.signupmodal-adresinput input,
+.signupmodal-hasloinput input {
+  width: 100%;
+  padding: 15px;
+  border: 2px solid rgba(0, 0, 0, 0.2);
+  border-radius: 15px;
+  font-size: 15px;
+  font-weight: normal;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.signupmodal-imieinput input:focus,
+.signupmodal-adresinput input:focus,
+.signupmodal-hasloinput input:focus {
+  border-color: #007bff;
+}
+
+.signupmodal-text08 {
+  color: rgba(11, 11, 11, 1);
+  font-size: 15px;
+  text-align: left;
+  margin-top: 10px;
+}
+
+.signupmodal-zarejestrujbutton {
+  width: 20%;
+  max-width: 300px;
+  height: 50px;
+  font-size: 20px;
+  background-color: #000;
+  color: #fff;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.signupmodal-zarejestrujbutton:hover {
+  background-color: #555;
+}
+
+.signupmodal-logowanielink {
+  color: rgb(86, 84, 84);
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.signupmodal-togglepasswordbutton {
+  border-radius: 15px;
+}
+
+.error-message {
+  color: red;
+  text-align: center;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+
+
+
+

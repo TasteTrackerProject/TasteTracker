@@ -1,107 +1,85 @@
 <!DOCTYPE html>
-<html lang="en"
-      xmlns:th="https://www.thymeleaf.org"
-      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="~{layout}" xmlns="http://www.w3.org/1999/html">>
-  <head>
-    <title>Rejestracja - Taste Tracker</title>
-    <meta property="og:title" content="Rejestracja - Taste Tracker" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta charset="utf-8" />
-    <meta property="twitter:card" content="summary_large_image" />
-    <link href="../styles/style.css" rel="stylesheet" />
-  </head>
-  <body>
-    <div>
-      <div class="home-container">
-        <main class="main-content" layout:fragment="content">
+<html lang="en" xmlns:th="https://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout}" xmlns="http://www.w3.org/1999/html">
+<head>
+  <title>Rejestracja - Taste Tracker</title>
+  <meta property="og:title" content="Rejestracja - Taste Tracker" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8" />
+  <meta property="twitter:card" content="summary_large_image" />
+  <link href="../styles/style.css" rel="stylesheet" />
+</head>
+<body>
+<div>
+  <div class="home-container">
+    <main class="main-content" layout:fragment="content">
 
-          <div class="register-notyfication-container" th:if="${notyfication}">
-            <p class="register-notyfication-bar" th:if="${notyfication}" th:text="${notyfication}">Powiadomienie</p>
-            <button class="register-close-notification-button">X</button>
+      <div class="register-notyfication-container" th:if="${notyfication}">
+        <p class="register-notyfication-bar" th:if="${notyfication}" th:text="${notyfication}">Powiadomienie</p>
+        <button class="register-close-notification-button">X</button>
+      </div>
+
+      <div class="signupmodal-signupmodal">
+
+        <span class="signupmodal-title"><span>Zarejestruj się w serwisie</span></span>
+
+        <form id="registration-form"
+              class="registration-form"
+              action="#"
+              th:action="@{/registration}"
+              method="post"
+              th:object="${user}">
+
+
+          <div class="signupmodal-imieinput">
+            <input type="text"
+                   class="signupmodal-text08"
+                   placeholder="Login"
+                   id="login"
+                   th:field="*{login}"
+                   required/>
+            <div id="login-error" class="error-message"></div>
           </div>
 
-        <div class="signupmodal-signupmodal">
-          <span class="signupmodal-title">
-          <span>Zarejestruj się w serwisie</span>
-            </span>
-          <form action="#" th:action="@{/registration}" method="post" th:object="${user}">
-            <div class="signupmodal-form">
-            <div class="signupmodal-imieinput">
-              <img
-                alt="Imieshape1564"
-                src="../static/img/imieshape1564-30qb-200h.png"
-                class="signupmodal-imieshape"
-                th:src="@{/img/imieshape1564-30qb-200h.png}"
-              />
-                <input type="text"
-                       class="signupmodal-text08"
-                       placeholder="Login"
-                       id="login"
-                       th:field="*{login}"
-                       th:maxlength="12"
-                       required/>
-            </div>
-            <div class="signupmodal-adresinput">
-              <img
-                alt="Adresshape1532"
-                src="../static/img/adresshape1532-njrb-200h.png"
-                class="signupmodal-adresshape"
-                th:src="@{/img/adresshape1532-njrb-200h.png}"
-              />
-              <input type="email"
-                     class="signupmodal-text08"
-                     placeholder="Adres e-mail"
-                     id="user_email"
-                     th:field="*{email}"
-                     required/>
-            </div>
-            <div class="signupmodal-hasloinput">
-              <img
-                alt="Hasloshape1542"
-                src="../static/img/hasloshape1542-c9f-200h.png"
-                class="signupmodal-hasloshape"
-                th:src="@{/img/hasloshape1542-c9f-200h.png}"
-              />
-              <input type="password"
-                     class="signupmodal-text08"
-                     placeholder="Hasło"
-              th:field="*{password}"
-                     required/>
-            </div>
-<!--            <div class="signupmodal-haslo2input">-->
-<!--              <img-->
-<!--                      alt="Haslo2shape1542"-->
-<!--                      src="../static/img/haslo2shape1542-8wyn-200h.png"-->
-<!--                      class="signupmodal-haslo2shape"-->
-<!--                      th:src="@{/img/haslo2shape1542-8wyn-200h.png}"-->
-<!--              />-->
-<!--              <input type="password" class="signupmodal-text08" placeholder="Powtórz hasło"/>-->
-<!--                </div>-->
-              </div>
-            <button type="submit" class="signupmodal-zarejestrujbutton">
-            <img
-              alt="ZarejestrujshapeI1564"
-              src="../static/img/zarejestrujshapei1564-364n-200h.png"
-              class="signupmodal-zarejestrujshape"
-              th:src="@{/img/zarejestrujshapei1564-364n-200h.png}"
-            />
-            <span class="signupmodal-zarejestrujtext">
-              <span>Zarejestruj się</span>
-            </span>
-            </button>
-          </form>
-          <a class="signupmodal-logowanielink"
-          href="#"
-          th:href="@{/login}"
-          >
-            Masz już konto? Kliknij tutaj, aby się zalogować
-          </a>
-        </div>
-          <script src="../static/scripts/registration-form-scripts.js"
-                  th:src="@{/scripts/registration-form-scripts.js}"></script>
-        </main>
+          <div class="signupmodal-adresinput">
+            <input type="email"
+                   class="signupmodal-text08"
+                   placeholder="Adres e-mail"
+                   id="user_email"
+                   th:field="*{email}"
+                   required/>
+            <div id="email-error" class="error-message"></div>
+          </div>
+
+          <div class="signupmodal-hasloinput">
+            <input type="password"
+                   class="signupmodal-text08"
+                   placeholder="Hasło"
+                   id="password"
+                   th:field="*{password}"
+                   required/>
+            <div id="password-error" class="error-message"></div>
+          </div>
+
+          <div class="signupmodal-hasloinput">
+            <input type="password"
+                   class="signupmodal-text08"
+                   placeholder="Powtórz hasło"
+                   id="confirm-password"
+                   required/>
+            <div id="confirm-password-error" class="error-message"></div>
+            <button type="button" id="toggle-password" class="signupmodal-togglepasswordbutton">Pokaż hasło</button>
+          </div>
+
+          <button type="submit" class="signupmodal-zarejestrujbutton">
+            <span class="signupmodal-zarejestrujtext"><span>Zarejestruj się</span></span>
+          </button>
+
+        </form>
+
       </div>
-    </div>
-  </body>
+      <script src="../static/scripts/registration-form-scripts.js" th:src="@{/scripts/registration-form-scripts.js}"></script>
+    </main>
+  </div>
+</div>
+</body>
 </html>
