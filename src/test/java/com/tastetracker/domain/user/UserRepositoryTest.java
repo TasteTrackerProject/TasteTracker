@@ -41,7 +41,7 @@ class UserRepositoryTest
     }
 
     @Test
-    void givenUser_whenSaved_thenCanBeFoundByLogin()
+    void givenUser_whenSaved_thenCanBeFoundById()
     {
         User savedUser = userRepository.findById( testUser.getId() ).orElse( null );
 
@@ -65,7 +65,7 @@ class UserRepositoryTest
     }
 
     @Test
-    void givenUser_whenFindByUsernameCalled_thenUserIsFound()
+    void givenUser_whenFindByLogin_thenUserIsFound()
     {
         User foundUser = userRepository.findByLogin( "example" ).orElse( null );
 
