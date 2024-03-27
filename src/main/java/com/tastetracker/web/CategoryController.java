@@ -12,24 +12,27 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
+import java.util.Optional;
 
 @Controller
-@AllArgsConstructor(access = AccessLevel.PUBLIC)
+@AllArgsConstructor( access = AccessLevel.PUBLIC )
 public class CategoryController
 {
     private final CategoryService categoryService;
+
     private final RestaurantService restaurantService;
-    @GetMapping("/category/{name}")
+
+    @GetMapping( "/category/{name}" )
     public String getCategory( @PathVariable String name, Model model )
     {
-        CategoryDto category = categoryService.findCategoryByName( name ).orElseThrow();
+        Optional<CategoryDto> optionalCategory = categoryService.findCategoryByName( name );
         List<RestaurantDto> restaurants = restaurantService.findAllRestaurantByCategoryName( name );
-        model.addAttribute( "heading", category.name() );
+        optionalCategory.ifPresent( category -> model.addAttribute( "heading", category.name() ) );
         model.addAttribute( "restaurants", restaurants );
         return "restaurant-listing";
     }
 
-    @GetMapping("/category")
+    @GetMapping( "/category" )
     public String getCategoryList( Model model )
     {
         List<CategoryDto> categories = categoryService.findAllCategory();
