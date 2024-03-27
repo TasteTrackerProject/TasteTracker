@@ -21,7 +21,6 @@
         </a>
         <div class="restaurant-details">
           <a class="restaurant-name" th:href="@{|/restaurant/${restaurant.id}|}" th:text="${restaurant.name}">Nazwa Restauracji 1</a>
-          <p class="restaurant-description">Opis restauracji Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
           <p class="restaurant-location" th:text="|Lokalizacja: ${restaurant.street}, ${restaurant.city}, ${restaurant.postalCode}, ${restaurant.country}|">Lokalizacja:</p>
           <p class="restaurant-location" th:text="|Kategoria: ${restaurant.category()}|">Kategoria:</p>
         </div>
