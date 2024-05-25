@@ -1681,6 +1681,25 @@ body {
 }
 
 
+.opening-hours-table {
+  border-collapse: collapse;
+  margin: 20px;
+  font-size: 0.9em;
+  font-family: Arial, sans-serif;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 97%;
+}
+
+.opening-hours-table th, .opening-hours-table td {
+  padding: 6px 8px;
+  text-align: left;
+}
+
+.opening-hours-table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+
 
 
 
