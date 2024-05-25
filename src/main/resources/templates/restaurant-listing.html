@@ -5,6 +5,9 @@
       layout:decorate="~{layout}">
 <body>
   <main class="main-content" layout:fragment="content">
+    <div class="register-notyfication-container" th:if="${restaurants.isEmpty()}">
+      <p class="register-notyfication-bar">Brak wyników wyszukiwania.</p>
+    </div>
   <div class="home-container">
     <span class="signupmodal-title" th:if="${heading != null}">
           <span th:text="|Kategoria - ${heading}|">Nazwa kategorii</span>

@@ -3,6 +3,7 @@ package com.tastetracker.web.api;
 import com.tastetracker.domain.restaurant.Restaurant;
 import com.tastetracker.domain.restaurant.RestaurantService;
 import com.tastetracker.domain.restaurant.dto.RestaurantDto;
+import com.tastetracker.exception.NoResultsFoundException;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import net.kaczmarzyk.spring.data.jpa.domain.LikeIgnoreCase;
@@ -22,6 +23,7 @@ import java.util.List;
 public class RestaurantRestController
 {
     private RestaurantService restaurantService;
+
     @RequestMapping( "/allRestaurant" )
     public Object findByFullNameAndAddress(
         @Conjunction( {
@@ -31,9 +33,17 @@ public class RestaurantRestController
             @Or( { @Spec( path = "restaurantCategories.category.name", params = "second", spec = LikeIgnoreCase.class ),
                    @Spec( path = "address.city", params = "second", spec = LikeIgnoreCase.class ) } )
         } ) Specification<Restaurant> customerSpec )
+        throws NoResultsFoundException
     {
         List<RestaurantDto> allRestaurants = restaurantService.findAllRestaurants( customerSpec );
-        log.info( allRestaurants.toString() );
-        return allRestaurants;
+        if ( !allRestaurants.isEmpty() )
+        {
+            log.info( allRestaurants.toString() );
+            return allRestaurants;
+        }
+        else
+        {
+            throw new NoResultsFoundException( "Brak wyników wyszukiwania." );
+        }
     }
 }

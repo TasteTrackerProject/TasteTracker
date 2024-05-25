@@ -1,6 +1,7 @@
 package com.tastetracker.web.exception.handler;
 
 import com.tastetracker.domain.user.dto.UserRegistrationDto;
+import com.tastetracker.exception.NoResultsFoundException;
 import com.tastetracker.exception.UserWithGivenEmailAlreadyExsistsException;
 import com.tastetracker.exception.UserWithGivenLoginAlreadyExsistsException;
 import org.springframework.http.HttpStatus;
@@ -30,5 +31,12 @@ public class GlobalExceptionHandler
         UserRegistrationDto userRegistrationDto = new UserRegistrationDto();
         model.addAttribute( "user", userRegistrationDto );
         return "registration-form";
+    }
+
+    @ExceptionHandler( NoResultsFoundException.class)
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    public String handlerNotFoundResultsException( NoResultsFoundException ex, Model model){
+        model.addAttribute( "notyfication", ex.getMessage() );
+        return "restaurant-listing";
     }
 }
