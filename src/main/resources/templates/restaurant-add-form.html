@@ -84,20 +84,6 @@
 
                 <input type="hidden" id="selectedCategoryIds" name="selectedCategoryIds" value="" th:field="${restaurantDto.categories}">
 
-                <label for="openingTimes" class="name">Godziny otwarcia</label>
-                <div id="openingTimes">
-                    <div class="opening-time-entry">
-                        <label>Poniedziałek</label>
-                        <input type="time" name="openingHours[MONDAY].openingTime" class="name-add-name-input" required>
-                        <input type="time" name="openingHours[MONDAY].closingTime" class="name-add-name-input" required>
-                    </div>
-                    <div class="opening-time-entry">
-                        <label>Wtorek</label>
-                        <input type="time" name="openingHours[TUESDAY].openingTime" class="name-add-name-input" required>
-                        <input type="time" name="openingHours[TUESDAY].closingTime" class="name-add-name-input" required>
-                    </div>
-                    <!-- Podobnie dla pozostałych dni tygodnia -->
-                </div>
 
                 <button type="submit" class="administration-button-accept">Dodaj</button>
             </form>
