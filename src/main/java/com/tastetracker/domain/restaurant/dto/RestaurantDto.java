@@ -1,5 +1,8 @@
 package com.tastetracker.domain.restaurant.dto;
 
+
+import java.util.Map;
+
 public record RestaurantDto(Long id,
                             String name,
                             boolean promoted,
@@ -8,6 +11,7 @@ public record RestaurantDto(Long id,
                             String postalCode,
                             String country,
                             String banner,
-                            String category)
+                            String category,
+                            Map<String,String> openingHours)
 {
 }

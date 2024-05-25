@@ -1,6 +1,7 @@
 package com.tastetracker.domain.restaurant;
 
 import com.tastetracker.domain.address.Address;
+import com.tastetracker.domain.restaurant.schedule.RestaurantSchedule;
 import com.tastetracker.entity.restaurantcategory.RestaurantCategory;
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -35,6 +36,9 @@ public class Restaurant
 
     @Column( name = "approved_by_admin" )
     private boolean approved;
+
+    @OneToMany(mappedBy = "restaurant")
+    private Set<RestaurantSchedule> restaurantSchedules = new HashSet<>();
 
 
     public void addRestaurantCategory( RestaurantCategory restaurantCategory )
