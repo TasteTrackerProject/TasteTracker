@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <changeSet id="0011_create_table_restaurant_schedule" author="norbert">
+        <createTable tableName="restaurant_schedule">
+            <column name="id" type="BIGINT">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="opening_time" type="TIME">
+                <constraints nullable="false"/>
+            </column>
+            <column name="closing_time" type="TIME">
+                <constraints nullable="false"/>
+            </column>
+            <column name="day_of_week" type="TINYINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="restaurant_id" type="BIGINT">
+                <constraints nullable="false" foreignKeyName="fk_restaurant_schedule_restaurant_id" references="restaurant(id)"/>
+            </column>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>

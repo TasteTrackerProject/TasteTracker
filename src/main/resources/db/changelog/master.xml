@@ -14,6 +14,7 @@
     <include file="0008_create_table_reviews.xml" relativeToChangelogFile="true" />
     <include file="0009_create_table_veryfication_token.xml" relativeToChangelogFile="true" />
     <include file="0010_create_table_restaurant_ratings.xml" relativeToChangelogFile="true" />
+    <include file="0011_create_table_restaurant_schedule.xml" relativeToChangelogFile="true" />
 
     <!-- TEST DATA -->
     <include file="../testdata/0001_address.sql" relativeToChangelogFile="true" context="dev"/>
@@ -23,4 +24,5 @@
     <include file="../testdata/0005_users_and_roles.sql" relativeToChangelogFile="true" context="dev"/>
 <!--    <include file="../testdata/0006_reviews.sql" relativeToChangelogFile="true" context="dev"/>-->
 <!--    <include file="../testdata/0007_ratings.sql" relativeToChangelogFile="true" context="dev"/>-->
+    <include file="../testdata/0008_restaurant_schedule.sql" relativeToChangelogFile="true" context="dev"/>
 </databaseChangeLog>

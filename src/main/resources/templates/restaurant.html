@@ -7,6 +7,7 @@
 <head>
   <title th:text="|${restaurant.name} - Taste Tracker|">Taste Tracker - Restauracja</title>
   <link href="/styles/style.css" rel="stylesheet" />
+
 </head>
 <body>
 <main class="main-content" layout:fragment="content">
@@ -19,6 +20,15 @@
         <h2 class="restaurant-name" th:text="${restaurant.name}">Nazwa Restauracji</h2>
         <p class="restaurant-location" th:text="|Lokalizacja: ${restaurant.street}, ${restaurant.city}, ${restaurant.postalCode}, ${restaurant.country}|">Lokalizacja:</p>
         <p class="restaurant-location" th:text="|Kategoria: ${restaurant.category()}|">Kategoria:</p>
+        <p class="restaurant-location" >
+        <table class="opening-hours-table">
+          <tr th:each="openHour : ${restaurant.openingHours()}">
+            <td th:text="${openHour.key}"></td>
+            <td th:text="${openHour.value}"></td>
+          </tr>
+        </table>
+
+
         <div class="location-tiles">
           <div class="location-tile">
             <h4>Średnia ocen</h4>
