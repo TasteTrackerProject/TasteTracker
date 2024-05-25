@@ -1700,6 +1700,22 @@ body {
 }
 
 
+.name-add-name-input {
+  margin-bottom: 10px;
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+#openingTimes {
+  margin-bottom: 20px;
+}
+
+.opening-time-entry {
+  margin-bottom: 10px;
+}
+
 
 
 
