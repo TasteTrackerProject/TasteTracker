@@ -65,7 +65,7 @@
       <div class="restaurant-reviews">
         <h2>Recenzje</h2>
         <p class="review" sec:authorize="!isAuthenticated()">
-          <a href="#" th:href="@{/login}">Zaloguj się</a>, aby dodać komentarz
+          <a href="#" th:href="@{/login}">Zaloguj się</a>, aby dodać recenzję
         </p>
         <div class="add-review-form" sec:authorize="isAuthenticated()" id="add-review-container">
           <button id="toggleFormButton"><span class="home-text12">Dodaj recenzję</span></button>
