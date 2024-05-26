@@ -6,8 +6,8 @@
 
     <changeSet id="0011_create_table_restaurant_schedule" author="norbert">
         <createTable tableName="restaurant_schedule">
-            <column name="id" type="BIGINT">
-                <constraints primaryKey="true" nullable="false"/>
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false" />
             </column>
             <column name="opening_time" type="TIME">
                 <constraints nullable="false"/>
