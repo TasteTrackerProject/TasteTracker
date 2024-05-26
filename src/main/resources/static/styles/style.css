@@ -526,7 +526,7 @@ body {
 }
 .restaurant-main{
   margin-top: 0px;
-  width: 340px;
+  /*width: 340px;*/
   height: 340px;
   border-radius: 15px;
 }
@@ -1038,6 +1038,7 @@ body {
   height: 250px;
   object-fit: cover;
   margin-right: 20px;
+  border-radius: 12px;
 }
 .restaurant-details {
   flex-grow: 1;
