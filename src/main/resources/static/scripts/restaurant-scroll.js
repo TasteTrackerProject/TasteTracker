@@ -1,20 +1,40 @@
-document.addEventListener("DOMContentLoaded", function()
-{
-    var homeContent = document.querySelector( '.home-content' );
+document.addEventListener("DOMContentLoaded", function() {
+    var homeContent = document.querySelector('.home-content');
+    var scrollSpeed = 3; // Zwiększona prędkość przewijania
 
-    homeContent.addEventListener( 'wheel', function( e )
-    {
-        if ( e.deltaMode == 1 )
-        {
-            // Multliplier for Firefox
-            homeContent.scrollLeft += e.deltaX * 1;
-        }
-        else
-        {
-            // Multiplier for other browsers
-            homeContent.scrollLeft += e.deltaY * 1;
-        }
+    // Funkcja do kopiowania elementów
+    function cloneItems() {
+        var items = Array.from(homeContent.children);
+        items.forEach(item => {
+            var clone = item.cloneNode(true);
+            homeContent.appendChild(clone);
+        });
+    }
 
-        e.preventDefault();
+    // Początkowe klonowanie elementów
+    cloneItems();
+
+    // Funkcja do automatycznego przewijania
+    function autoScroll() {
+        homeContent.scrollLeft += scrollSpeed;
+        // Resetowanie pozycji przewijania, gdy osiągnie połowę długości sklonowanych elementów
+        if (homeContent.scrollLeft >= homeContent.scrollWidth / 2) {
+            homeContent.scrollLeft = 0;
+            // Ponowne klonowanie elementów, aby zapewnić ciągłość
+            cloneItems();
+        }
+    }
+
+    // Ustawienie interwału dla automatycznego przewijania
+    var autoScrollInterval = setInterval(autoScroll, 20); // Dostosuj interwał dla płynniejszego lub szybszego przewijania
+
+    // Zatrzymanie przewijania po najechaniu myszką
+    homeContent.addEventListener('mouseenter', function() {
+        clearInterval(autoScrollInterval);
+    });
+
+    // Wznawianie przewijania po opuszczeniu myszą
+    homeContent.addEventListener('mouseleave', function() {
+        autoScrollInterval = setInterval(autoScroll, 20);
     });
 });
