@@ -55,6 +55,7 @@ public class RestaurantDtoMapper
             restaurant.getAddress().getCountry(),
             restaurant.getBanner(),
             categoryName,
-            sortedOpeningSchedule);
+            sortedOpeningSchedule,
+            restaurant.getOrderLink());
     }
 }

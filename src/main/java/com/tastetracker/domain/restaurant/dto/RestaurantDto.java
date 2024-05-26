@@ -12,6 +12,7 @@ public record RestaurantDto(Long id,
                             String country,
                             String banner,
                             String category,
-                            Map<String,String> openingHours)
+                            Map<String,String> openingHours,
+                            String orderLink)
 {
 }

@@ -28,6 +28,12 @@
           </tr>
         </table>
 
+        <div class="order-link-container" th:if="${restaurant.orderLink != null}">
+          <h2>Złóż zamówienie poprzez: </h2>
+          <a th:href="${#strings.startsWith(restaurant.orderLink, 'http') ? restaurant.orderLink : 'http://' + restaurant.orderLink}" target="_blank">
+            <img class="pyszne-img" src="/img/pyszne-logo-100098C7E6-seeklogo.com.png" alt="Zamów teraz" />
+          </a>
+        </div>
 
         <div class="location-tiles">
           <div class="location-tile">

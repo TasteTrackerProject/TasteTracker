@@ -39,6 +39,8 @@ public class Restaurant
 
     @OneToMany(mappedBy = "restaurant")
     private Set<RestaurantSchedule> restaurantSchedules = new HashSet<>();
+    @Column( name = "order_link" )
+    private String orderLink;
 
 
     public void addRestaurantCategory( RestaurantCategory restaurantCategory )
